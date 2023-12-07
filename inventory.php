@@ -24,25 +24,14 @@ require_once('function/inventory.php');
     <section class="tables py-4">
         <div class="card border-0">
             <div class="card-body">
-                <div class="table-responsive text-center" style="max-height: 500px; overflow-y: scroll;">
-                    <label for="inputEmail3" class="col-form-label" style="position: relative; left:480px; font-size:16px;">Search :</label>
-                    <div class="col-sm-2 mb-2 float-end" style="position: relative; right:30px;">
-                        <input type="email" class="form-control" id="inputEmail3">
-                    </div>
-                    <label for="show" class="col-form-label" style="position: relative; right:440px; font-size:16px;">Show</label>
-                    <div class="col-sm-1 mb-2 float-end" style="position: relative; right:815px;">
-                        <select id="inputState" class="form-select" style="width: 70px;">
-                            <option>10</option>
-                            <option>20</option>
-                        </select>
-                    </div>
-                    <table class="table mb-0 table-striped table-lg"
+                <div class="table-responsive text-center">
+                <table id="example" class=" display" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">Inventory Id</th>
-                                <th scope="col">Product Name</th>
-                                <th scope="col">Stock In</th>
-                                <th scope="col">Action</th>
+                                <th class="text-center">Inventory Id</th>
+                                <th class="text-center">Product Name</th>
+                                <th class="text-center">Stock In</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>

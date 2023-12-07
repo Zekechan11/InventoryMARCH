@@ -22,23 +22,19 @@
     <section class="tables py-4">
         <div class="card border-0">
             <div class="card-body">
-                <label for="inputEmail3" class="col-form-label" style="position: relative; left:875px; font-size:16px;">Search :</label>
-                <div class="col-sm-2 mb-2 float-end" style="position: relative; right:30px;">
-                    <input type="email" class="form-control" id="inputEmail3">
-                </div>
-                <div class="table-body col-12 text-center" style="max-height: 390px; overflow-y: scroll;">
-                    <table class="table table-striped table-sm mx-auto">
+                <div class="table-body col-12 text-center">
+                <table id="example" class="table table-striped table-sm mx-auto">
                         <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                             <tr>
-                                <th scope="col">Product Id</th>
-                                <th scope="col">Product Code</th>
-                                <th scope="col">Category Name</th>
-                                <th scope="col">Product Name</th>
-                                <th scope="col">Media</th>
-                                <th scope="col">Instock</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Action</th>
+                                <th class="text-center">Product Id</th>
+                                <th class="text-center">Product Code</th>
+                                <th class="text-center">Category Name</th>
+                                <th class="text-center">Product Name</th>
+                                <th class="text-center">Media</th>
+                                <th class="text-center">Instock</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Date</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody style="vertical-align: middle;">

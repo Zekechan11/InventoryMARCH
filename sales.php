@@ -28,28 +28,17 @@ include_once('function/sales.php');
                 </button>
             </div>
             <div class="card-body">
-                <label for="inputEmail3" class="col-form-label" style="position: relative; left:875px; font-size:16px;">Search :</label>
-                <div class="col-sm-2 mb-2 float-end" style="position: relative; right:30px;">
-                    <input type="email" class="form-control" id="inputEmail3">
-                </div>
-                <label for="show" class="col-form-label" style="position: relative; right:45px; font-size:16px;">Show</label>
-                <div class="col-sm-1 mb-2 float-end" style="position: relative; right:815px;">
-                    <select id="inputState" class="form-select" style="width: 70px;">
-                        <option>10</option>
-                        <option>20</option>
-                    </select>
-                </div>
-                <div class="table-body col-12 text-center" style="max-height: 390px; overflow-y: scroll;">
-                    <table class="table table-striped table-sm mx-auto">
+                <div class="table-body col-12 text-center">
+                <table id="example" class="table table-striped table-sm mx-auto">
                         <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                             <tr>
-                                <th scope="col">Product Id</th>
-                                <th scope="col">Product Name</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Total Price</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Action</th>
+                                <th class="text-center">Product Id</th>
+                                <th class="text-center">Product Name</th>
+                                <th class="text-center">Quantity</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Total Price</th>
+                                <th class="text-center">Date</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody style="vertical-align: middle;">
@@ -62,6 +51,7 @@ include_once('function/sales.php');
                                     <td><?= number_format($sale['quantity'] * $sale['price'], 2) ?></td>
                                     <td><?= $sale['date'] ?></td>
                                     <td>
+                                    <i class="fa fa-add edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#"></i> |
                                         <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-sales"></i> |
                                         <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-sales"></i>
                                     </td>

@@ -21,67 +21,53 @@ require_once('function/update.php');
             </nav>
         </div>
     </div>
-    <section class="tables py-4">
-        <div class="card border-0">
-            <div class="card-header shadow-sm">
-                <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#add-category">
-                    Launch static backdrop modal
-                </button>
-            </div>
-            <div class="card-body">
-                <label for="inputEmail3" class="col-form-label" style="position: relative; left:875px; font-size:16px;">Search :</label>
-                <div class="col-sm-2 mb-2 float-end" style="position: relative; right:30px;">
-                    <input type="email" class="form-control" id="inputEmail3">
-                </div>
-                <label for="show" class="col-form-label" style="position: relative; right:45px; font-size:16px;">Show</label>
-                <div class="col-sm-1 mb-2 float-end" style="position: relative; right:815px;">
-                    <select id="inputState" class="form-select" style="width: 70px;">
-                        <option>10</option>
-                        <option>20</option>
-                    </select>
-                </div>
-                <div class="table-body col-12 text-center" style="max-height: 390px; overflow-y: scroll;">
-                    <table class="table table-striped table-sm">
-                        <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
-                            <tr>
-                                <th>Category Id</th>
-                                <th>Category Name</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            // get connection
-                            $connection = $newconnection->openConnection();
-                            // prepare statement
-                            $stmt = $connection->prepare("SELECT * FROM category_table");
-                            // execute
-                            $stmt->execute();
-                            // fetch
-                            $result = $stmt->fetchAll();
-
-                            if ($result) {
-                                foreach ($result as $row) {
-
-                            ?>
-                                    <tr>
-                                        <td><?= $row['category_id'] ?></td>
-                                        <td><?= $row['category_name'] ?></td>
-                                        <td>
-                                            <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-category"></i> |
-                                            <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-category"></i>
-                                        </td>
-                                    </tr>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <div class="card border-0">
+        <div class="card-header shadow-sm">
+            <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#add-category">
+                Launch static backdrop modal
+            </button>
         </div>
-    </section>
+        <div class="card border-0 text-center">
+            <table id="example" class=" display" style="width:100%">
+                <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
+                    <tr>
+                        <th class="text-center">Category Id</th>
+                        <th class="text-center">Category Name</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // get connection
+                    $connection = $newconnection->openConnection();
+                    // prepare statement
+                    $stmt = $connection->prepare("SELECT * FROM category_table");
+                    // execute
+                    $stmt->execute();
+                    // fetch
+                    $result = $stmt->fetchAll();
+
+                    if ($result) {
+                        foreach ($result as $row) {
+
+                    ?>
+                            <tr>
+                                <td><?= $row['category_id'] ?></td>
+                                <td><?= $row['category_name'] ?></td>
+                                <td>
+                                    <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-category"></i> |
+                                    <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-category"></i>
+                                </td>
+                            </tr>
+                    <?php
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 </div>
 <?php require_once('modal/add_category.php'); ?>
 <?php require_once('modal/edit_category.php'); ?>
