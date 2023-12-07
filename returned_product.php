@@ -21,13 +21,18 @@
     </div>
     <section class="tables py-4">
         <div class="card border-0">
+        <div class="card-header shadow-sm">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#returned-products">
+                    Launch static backdrop modal
+                </button>
+            </div>
             <div class="card-body">
                 <div class="table-body col-12 text-center">
                 <table id="example" class="table table-striped table-sm mx-auto">
                         <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                             <tr>
                                 <th class="text-center">Product Id</th>
-                                <th class="text-center">Product Code</th>
+                                <th class="text-center">Customer Name</th>
                                 <th class="text-center">Category Name</th>
                                 <th class="text-center">Product Name</th>
                                 <th class="text-center">Media</th>
@@ -47,4 +52,5 @@
     </section>
 </div>
 
+<?php require_once('modal/returned_products.php'); ?>
 <?php require_once('inc/footer.php'); ?>

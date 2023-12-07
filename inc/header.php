@@ -17,7 +17,7 @@
         <aside id="sidebar">
             <div class="h-100">
                 <div class="sidebar-logo py-2 mb-2">
-                    <img src="image/INV.png"  alt="">
+                    <img src="image/INV.png" alt="">
                     <a href="index.php">March&Marc<br>Inventory</a>
                 </div>
                 <ul class="sidebar-nav">
@@ -27,12 +27,7 @@
                             Dashboard
                         </a>
                     </li>
-                    <!-- <li class="sidebar-item">
-                        <a href="customer.php" class="sidebar-link" style="font-size: 20px;">
-                            <i class="fa-solid fa-file-lines pe-2"></i>
-                            Customer
-                        </a>
-                    </li> -->
+               
                     <li class="sidebar-item">
                         <a href="product.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-sliders pe-2"></i>
@@ -41,7 +36,7 @@
                     </li>
                     <li class="sidebar-item">
                         <a href="category.php" class="sidebar-link" style="font-size: 18px;">
-                            <i class="fa-regular fa-user pe-2"></i>
+                            <i class="fa-solid fa-file-lines pe-2"></i>
                             Category
                         </a>
                     </li>
@@ -52,20 +47,27 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="returned_product.php" class="sidebar-link" style="font-size: 18px;">
-                        <i class="fa-solid fa-truck-ramp-box pe-2"></i>
-                            Returned Product
+                        <a href="customer.php" class="sidebar-link" style="font-size: 18px;">
+                            <i class="fa-solid fa-user pe-2"></i>
+                            Customer
                         </a>
                     </li>
                     <li class="sidebar-item">
                         <a href="sales.php" class="sidebar-link" style="font-size: 18px;">
-                        <i class="fa-solid fa-signal pe-2"></i>
+                            <i class="fa-solid fa-signal pe-2"></i>
                             Transactions
                         </a>
                     </li>
                     <li class="sidebar-item">
+                        <a href="returned_product.php" class="sidebar-link" style="font-size: 18px;">
+                            <i class="fa-solid fa-truck-ramp-box pe-2"></i>
+                            Returned Product
+                        </a>
+                    </li>
+               
+                    <li class="sidebar-item">
                         <a href="sales_report.php" class="sidebar-link" style="font-size: 18px;">
-                        <i class="fa-solid fa-clipboard-list pe-2"></i>
+                            <i class="fa-solid fa-clipboard-list pe-2"></i>
                             Sales Report
                         </a>
                     </li>

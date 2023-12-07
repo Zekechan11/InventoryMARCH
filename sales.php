@@ -23,13 +23,31 @@ include_once('function/sales.php');
     <section class="tables py-4">
         <div class="card border-0">
             <div class="card-header shadow-sm">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-sales">
+               
+                <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#add-sales">
                     Launch static backdrop modal
                 </button>
+                 <div class="col-md-4">
+                    <select id="inputState" class="form-select">
+                        <option hidden>Choose Customer</option>
+                        <option>Edison Pagatpat</option>
+                    </select>
+                </div>
+                <div class="card border-0 px-4" style="width: 50px;height:50px;">
+                <div class="card-body py-4">
+                    <div class="d-flex align-items-start">
+                        <div class="flex-grow-1">
+                            <p class="mb-2" style="font-size: large; font-weight:600;">
+                                    10
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
             <div class="card-body">
                 <div class="table-body col-12 text-center">
-                <table id="example" class="table table-striped table-sm mx-auto">
+                    <table id="example" class="table table-striped table-sm mx-auto">
                         <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                             <tr>
                                 <th class="text-center">Product Id</th>
@@ -51,7 +69,7 @@ include_once('function/sales.php');
                                     <td><?= number_format($sale['quantity'] * $sale['price'], 2) ?></td>
                                     <td><?= $sale['date'] ?></td>
                                     <td>
-                                    <i class="fa fa-add edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#"></i> |
+                                        <i class="fa fa-add edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#"></i> |
                                         <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-sales"></i> |
                                         <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-sales"></i>
                                     </td>

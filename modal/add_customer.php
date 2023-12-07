@@ -14,26 +14,15 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12">
                             <label class="form-label" for="modalInputEmail1">Contact Number</label>
                             <input class="form-control" id="contact" type="text" minlength="11" maxlength="11">
                         </div>
-                        <div class="col-6">
-                            <label class="form-label" for="modalInputEmail1">Email</label>
-                            <input class="form-control" id="email" type="email">
-                        </div>
-
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <label class="form-label" for="modalInputEmail1">Address</label>
                             <input class="form-control" id="address" type="text">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label class="form-label" for="modalInputEmail1">Photo</label>
-                            <input type="file" class="form-control" id="photo">
                         </div>
                     </div>
                 </form>
