@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="sales.php" class="sidebar-link" style="font-size: 18px;">
+                        <a href="transaction.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-signal pe-2"></i>
                             Transactions
                         </a>
