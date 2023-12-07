@@ -46,7 +46,7 @@
                             Inventory
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item">   
                         <a href="customer.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-user pe-2"></i>
                             Customer
