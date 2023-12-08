@@ -40,7 +40,7 @@ include_once('function/sales.php');
             </div>
             <div class="card-body">
                 <div class="table-body col-12 text-center">
-                    <table id="example" class="table table-striped table-sm mx-auto">
+                    <table id="example" class=" display" style="width:100%;">
                         <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                             <tr>
                                 <th class="text-center">Product Id</th>

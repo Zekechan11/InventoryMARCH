@@ -29,7 +29,7 @@
                         <div class="col-lg-12">
                             <div class="card-body text-center">
                                 <div class="table-responsive">
-                                    <table id="example" class="table mb-0 table-striped table-sm" id="dataTable_1">
+                                    <table id="example" class=" display" style="width:100%;">
                                         <thead>
                                             <tr>
                                             <th>Customer Id</th>

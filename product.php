@@ -28,7 +28,7 @@ include_once('function/update_product.php');
                 </button>
             </div>
                 <div class="card border-0 text-center">
-                    <table id="example" class="table table-striped table-sm mx-auto">
+                    <table id="example" class=" display" style="width:100%;">
                         <thead>
                             <tr>
                                 <th class="text-center">Product Id</th>
