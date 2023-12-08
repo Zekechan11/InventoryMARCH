@@ -132,6 +132,16 @@ require_once('dbconfig.php');
             <div class="card-body text-center" style="max-height: 300px; overflow-y: scroll;">
                 <table class="table mb-0 table-striped table-lg">
                     <thead>
+                    <?php
+                        $recentlyAddedQuery = "SELECT * FROM products_table WHERE date_added >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)";
+                        $recentlyAddedResult = $conn->query($recentlyAddedQuery);
+                        $recentlyAddedProducts = $recentlyAddedResult->fetchAll(PDO::FETCH_ASSOC);
+
+                        if (empty($recentlyAddedProducts)) {
+                            echo "No products added in the last 7 days.\n";
+                        } else {
+                            foreach ($recentlyAddedProducts as $product) {
+                        ?>
                         <tr>
                             <th scope="col">Product Id</th>
                             <th scope="col">Product Name</th>
@@ -143,11 +153,15 @@ require_once('dbconfig.php');
                     <tbody>
                         <tr>
                             <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Mark</td>
+                            <td><?=$product['product_id']?></td>
+                            <td><?=$product['product_name']?></td>
+                            <td><?=$product['quantity']?></td>
+                            <td><?=$product['price']?></td>
                         </tr>
+                        <?php
+                        }
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
