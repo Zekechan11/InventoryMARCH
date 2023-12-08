@@ -29,7 +29,7 @@ require_once('function/update.php');
         </div>
         <div class="card border-0 text-center">
             <table id="example" class=" display" style="width:100%;">
-                <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
+                <thead>
                     <tr>
                         <th class="text-center">Category Id</th>
                         <th class="text-center">Category Name</th>
