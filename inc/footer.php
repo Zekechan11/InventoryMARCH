@@ -8,6 +8,27 @@
         
 <script>
 new DataTable('#example');
+
+if (document.querySelector('.sidebar-nav')) {
+    var currentUrl = window.location.href;
+    var menuLinks = document.querySelectorAll('.sidebar-nav li a');
+    
+    var ifAlive = false;
+    
+    menuLinks.forEach(function(link) {
+        if (link.href === currentUrl) {
+            link.parentElement.classList.add('active');
+            ifAlive  = true;
+        } else {
+            link.parentElement.classList.remove('active');
+        }
+    });
+
+    if (!ifAlive  && menuLinks.length > 0) {
+        menuLinks[0].parentElement.classList.add('active');
+    }
+}
+
 </script>
 
     </body>

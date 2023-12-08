@@ -23,7 +23,7 @@
                     <a href="index.php">March&Marc<br>Inventory</a>
                 </div>
                 <ul class="sidebar-nav">
-                    <li class="">
+                    <li class="active">
                         <a href="index.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-gauge pe-2"></i>
                             Dashboard
