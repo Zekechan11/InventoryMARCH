@@ -29,10 +29,9 @@ include_once('function/update_product.php');
             </div>
                 <div class="card border-0 text-center">
                     <table id="example" class="table table-striped table-sm mx-auto">
-                        <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
+                        <thead>
                             <tr>
                                 <th class="text-center">Product Id</th>
-                                <th class="text-center">Product Code</th>
                                 <th class="text-center">Category Name</th>
                                 <th class="text-center">Product Name</th>
                                 <th class="text-center">Instock</th>
@@ -41,7 +40,7 @@ include_once('function/update_product.php');
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
-                        <tbody style="vertical-align: middle;">
+                        <tbody>
                             <?php
 
                             $stmt = $conn->prepare('SELECT p.product_id, c.category_name, p.product_name, p.product_code, p.image, p.quantity, p.price, p.date_added
@@ -55,7 +54,6 @@ include_once('function/update_product.php');
                             ?>
                                 <tr>
                                     <td><?= $row['product_id'] ?></td>
-                                    <td><?= $row['product_code'] ?></td>
                                     <td><?= $row['category_name'] ?></td>
                                     <td><?= $row['product_name'] ?></td>
                                     <td><?= (number_format($row['quantity'])); ?></td>

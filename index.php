@@ -143,16 +143,14 @@ require_once('dbconfig.php');
                             foreach ($recentlyAddedProducts as $product) {
                         ?>
                         <tr>
-                            <th scope="col">Product Id</th>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">Product Code</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Price</th>
+                            <th class="text-center">Product Id</th>
+                            <th class="text-center">Product Name</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">Price</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
                             <td><?=$product['product_id']?></td>
                             <td><?=$product['product_name']?></td>
                             <td><?=$product['quantity']?></td>
@@ -176,9 +174,9 @@ require_once('dbconfig.php');
                 <table class="table mb-0 table-striped table-lg">
                     <thead>
                         <tr>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">Total Quantity</th>
-                            <th scope="col">Total Sold</th>
+                            <th class="text-center">Product Name</th>
+                            <th class="text-center">Total Quantity</th>
+                            <th class="text-center">Total Sold</th>
                         </tr>
                     </thead>
                     <tbody>

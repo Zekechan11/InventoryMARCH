@@ -8,14 +8,7 @@
             </div>
             <div class="modal-body">
                 <form method='post' action='' enctype='multipart/form-data'>
-                    <?php
-                    $RandomNumber = rand(10000000, 99999999);
-                    ?>
                     <div class="row">
-                        <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Product Code</label>
-                            <input type="text" class="form-control" name="product_code" id="product_code" value="<?php echo $RandomNumber; ?>">
-                        </div>
                         <div class="col-md-6">
                             <label for="inputPassword4" class="form-label">Category</label>
                             <select id="category_name" class="form-select" name="category_name" >
@@ -25,24 +18,23 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                    </div>
-
-
-                    <div class="row">
-                    <div class="col-md-6">
-                        <label for="inputAddress" class="form-label">Product</label>
+                        <div class="col-md-6">
+                        <label for="inputAddress" class="form-label">Product Name</label>
                         <input type="text" class="form-control" name="product_name">
                     </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-6">
                             <label for="inputCity" class="form-label">Instock</label>
                             <input type="number" class="form-control" id="quantity" name="quantity">
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-6">
                             <label for="inputState" class="form-label">Product Price</label>
                             <input type="text" class="form-control" id="price" placeholder="₱ 00.0" name="price">
                         </div>
+                    </div>
+                    <div class="row">
+                    
                         <div class="col-6">
                             <label for="inputZip" class="form-label">Product Image</label>
                             <input type="file" class="form-control" name="files[]">
