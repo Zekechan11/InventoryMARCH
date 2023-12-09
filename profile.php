@@ -7,7 +7,7 @@
                 <div class="row g-0 w-100">
                     <div class="col-6">
                         <div class="p-3 m-1">
-                            <h4>Welcome Back, Admin</h4>
+                            <h4>Welcome Back, ME</h4>
                             <p class="mb-0">Admin Dashboard, Inventory</p>
                         </div>
                     </div>

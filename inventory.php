@@ -25,7 +25,7 @@ require_once('function/inventory.php');
         <div class="card border-0">
             <div class="card-body">
                 <div class="table-responsive text-center">
-                <table id="example" class=" display" style="width:100%">
+                    <table id="example" class=" display" style="width:100%">
                         <thead>
                             <tr>
                                 <th class="text-center">Inventory Id</th>

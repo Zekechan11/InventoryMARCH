@@ -21,53 +21,56 @@ require_once('function/update.php');
             </nav>
         </div>
     </div>
-    <div class="card border-0">
-        <div class="card-header shadow-sm">
+    <div class="card mb-0">
+        <div class="card-header">
             <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#add-category">
                 Launch static backdrop modal
             </button>
         </div>
-        <div class="card border-0 text-center">
-            <table id="example" class=" display" style="width:100%;">
-                <thead>
-                    <tr>
-                        <th class="text-center">Category Id</th>
-                        <th class="text-center">Category Name</th>
-                        <th class="text-center">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    // get connection
-                    $connection = $newconnection->openConnection();
-                    // prepare statement
-                    $stmt = $connection->prepare("SELECT * FROM category_table");
-                    // execute
-                    $stmt->execute();
-                    // fetch
-                    $result = $stmt->fetchAll();
-
-                    if ($result) {
-                        foreach ($result as $row) {
-
-                    ?>
+        <div class="col-lg-12">
+            <div class="card-body text-center">
+                <div class="table-responsive">
+                    <table id="example" class=" display" style="width:100%;">
+                        <thead>
                             <tr>
-                                <td><?= $row['category_id'] ?></td>
-                                <td><?= $row['category_name'] ?></td>
-                                <td>
-                                    <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-category"></i> |
-                                    <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-category"></i>
-                                </td>
+                                <th class="text-center">Category Id</th>
+                                <th class="text-center">Category Name</th>
+                                <th class="text-center">Action</th>
                             </tr>
-                    <?php
-                        }
-                    }
-                    ?>
-                </tbody>
-            </table>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // get connection
+                            $connection = $newconnection->openConnection();
+                            // prepare statement
+                            $stmt = $connection->prepare("SELECT * FROM category_table");
+                            // execute
+                            $stmt->execute();
+                            // fetch
+                            $result = $stmt->fetchAll();
+
+                            if ($result) {
+                                foreach ($result as $row) {
+
+                            ?>
+                                    <tr>
+                                        <td><?= $row['category_id'] ?></td>
+                                        <td><?= $row['category_name'] ?></td>
+                                        <td>
+                                            <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-category"></i> |
+                                            <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-category"></i>
+                                        </td>
+                                    </tr>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </div>
 <?php require_once('modal/add_category.php'); ?>
 <?php require_once('modal/edit_category.php'); ?>

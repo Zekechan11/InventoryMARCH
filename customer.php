@@ -18,47 +18,40 @@
             </nav>
         </div>
     </div>
-    <section class="tables py-4">
-        <div class="container-fluid">
-            <div class="row gy-4">
-                <div class="col-lg-12">
-                    <div class="card mb-0">
-                        <div class="card-header">
-                            <button type="button" class="btn btn-warning" style="float: right;" data-bs-toggle="modal" data-bs-target="#add-customer"><i class="fa fa-plus"></i> Add Customer</button>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="card-body text-center">
-                                <div class="table-responsive">
-                                    <table id="example" class=" display" style="width:100%;">
-                                        <thead>
-                                            <tr>
-                                            <th>Customer Id</th>
-                                                <th>Customer Name</th>
-                                                <th>Contact Number</th>
-                                                <th>Address</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>wqie</td>
-                                                <td>Kakashi</td>
-                                                <td>9870758</td>
-                                                <td><i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-customer"></i> | 
-                                                    <i type="button" class="fa fa-trash _delete_cus" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-customer"></i>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="card mb-0">
+        <div class="card-header">
+            <button type="button" class="btn btn-warning" style="float: right;" data-bs-toggle="modal" data-bs-target="#add-customer"><i class="fa fa-plus"></i> Add Customer</button>
+        </div>
+        <div class="col-lg-12">
+            <div class="card-body text-center">
+                <div class="table-responsive">
+                    <table id="example" class=" display" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th>Customer Id</th>
+                                <th>Customer Name</th>
+                                <th>Contact Number</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>wqie</td>
+                                <td>Kakashi</td>
+                                <td>9870758</td>
+                                <td><i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-customer"></i> |
+                                    <i type="button" class="fa fa-trash _delete_cus" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-customer"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-    </section>
+        </div>
+    </div>
 </div>
 
-<?php require_once('modal/add_customer.php');?>
+<?php require_once('modal/add_customer.php'); ?>
 <?php require_once('inc/footer.php'); ?>

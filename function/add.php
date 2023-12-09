@@ -8,7 +8,6 @@ $conn = $newconnection->openConnection();
 if (isset($_POST['submit'])) {
 
     $product_name = $_POST['product_name'];
-    $product_code = $_POST['product_code'];
     $category_id = $_POST['category_name']; // Assuming you have a category_id in your category_table
     $quantity = $_POST['quantity'];
     $price = $_POST['price'];
@@ -17,7 +16,7 @@ if (isset($_POST['submit'])) {
     $countfiles = count($_FILES['files']['name']);
 
     // Prepared statement for products_table
-    $products_query = "INSERT INTO products_table (product_name, image, product_code, category_id, quantity, price, date_added) 
+    $products_query = "INSERT INTO products_table (product_name, image, category_id, quantity, price, date_added) 
     VALUES (?, ?, ?, ?, ?, ?, NOW())";
 
     $products_statement = $conn->prepare($products_query);
@@ -51,7 +50,7 @@ if (isset($_POST['submit'])) {
 
                 // Execute query for products_table
                 $products_statement->execute(
-                    array($product_name, $target_file, $product_code, $category_id, $quantity, $price)
+                    array($product_name, $target_file, $category_id, $quantity, $price)
                 );
 
                 // Get the last inserted product_id

@@ -21,13 +21,15 @@ include_once('function/update_product.php');
             </nav>
         </div>
     </div>
-        <div class="card border-0">
-            <div class="card-header shadow-sm">
-                <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#add-product">
-                    Launch static backdrop modal
-                </button>
-            </div>
-                <div class="card border-0 text-center">
+    <div class="card border-0">
+        <div class="card-header shadow-sm">
+            <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#add-product">
+                Launch static backdrop modal
+            </button>
+        </div>
+        <div class="col-lg-12">
+            <div class="card-body text-center">
+                <div class="table-responsive">
                     <table id="example" class=" display" style="width:100%;">
                         <thead>
                             <tr>
@@ -43,7 +45,7 @@ include_once('function/update_product.php');
                         <tbody>
                             <?php
 
-                            $stmt = $conn->prepare('SELECT p.product_id, c.category_name, p.product_name, p.product_code, p.image, p.quantity, p.price, p.date_added
+                            $stmt = $conn->prepare('SELECT p.product_id, c.category_name, p.product_name, p.image, p.quantity, p.price, p.date_added
                             FROM products_table p
                             INNER JOIN category_table c ON p.category_id = c.category_id
                             ORDER BY p.product_id ASC');
@@ -73,6 +75,7 @@ include_once('function/update_product.php');
                 </div>
             </div>
         </div>
+    </div>
 </div>
 
 <?php require_once('modal/add_product.php'); ?>

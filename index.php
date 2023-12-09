@@ -132,6 +132,14 @@ require_once('dbconfig.php');
             <div class="card-body text-center" style="max-height: 300px; overflow-y: scroll;">
                 <table class="table mb-0 table-striped table-lg">
                     <thead>
+                        <tr>
+                            <th class="text-center">Product Id</th>
+                            <th class="text-center">Product Name</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                     <?php
                         $recentlyAddedQuery = "SELECT * FROM products_table WHERE date_added >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)";
                         $recentlyAddedResult = $conn->query($recentlyAddedQuery);
@@ -142,14 +150,6 @@ require_once('dbconfig.php');
                         } else {
                             foreach ($recentlyAddedProducts as $product) {
                         ?>
-                        <tr>
-                            <th class="text-center">Product Id</th>
-                            <th class="text-center">Product Name</th>
-                            <th class="text-center">Quantity</th>
-                            <th class="text-center">Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
                         <tr>
                             <td><?=$product['product_id']?></td>
                             <td><?=$product['product_name']?></td>
