@@ -2,6 +2,62 @@
 require_once('inc/header.php');
 require_once('dbconfig.php');
 ?>
+<style>
+    .card {
+        border-radius: 10px;
+        /* Optional: Add rounded corners to the cards */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* Optional: Add a subtle box shadow */
+        margin-bottom: 20px;
+        /* Optional: Add some spacing between cards */
+    }
+
+    .card1 {
+        background: linear-gradient(-45deg, #60efff 28%, #0061ff 100%);
+    }
+
+    .card2 {
+        background: linear-gradient(-45deg, #60efff 28%, #00ff87 100%);
+    }
+
+    .card3 {
+        background: linear-gradient(-45deg, #e81cff 28%, #40c9ff 100%);
+    }
+
+    .card4 {
+        background: linear-gradient(-45deg, #b84fce 0%, #d4acfb 100%);
+    }
+
+    .card5 {
+        background: linear-gradient(-45deg, #aefb2a 0%, #57ebde 100%);
+    }
+
+    .card-body {
+        text-align: left;
+        /* Optional: Align the text to the left within the card body */
+    }
+
+    .card-header {
+        background-color: #6F1AB4;
+        /* Optional: Change the background color of the card header */
+        border-bottom: 1px solid #dee2e6;
+        /* Optional: Add a bottom border to the card header */
+    }
+
+    .card-title {
+        color: #ffff;
+        /* Optional: Change the color of the card title */
+    }
+
+    .table {
+        margin-bottom: 0;
+        /* Optional: Remove the default margin-bottom from tables in cards */
+    }
+
+    .badge {
+        color: black;
+    }
+</style>
 
 <div class="wrapper">
     <main class="content">
@@ -11,7 +67,7 @@ require_once('dbconfig.php');
             </div>
         </header>
         <div class="custom-layout col-12 d-flex w-100 text-center" style="position: relative; left:3    0px;">
-            <div class="card border-0 px-4">
+            <div class="card border-0 px-4 card1">
                 <div class="card-body py-4">
                     <div class="d-flex align-items-start">
                         <div class="flex-grow-1">
@@ -22,7 +78,7 @@ require_once('dbconfig.php');
                                 <?php echo getCategoryCount($conn); ?>
                             </p>
                             <div class="mb-0">
-                                <span class="badge text-success me-2">
+                                <span class="badge me-2">
                                     +9.0%
                                 </span>
                                 <span class="text-muted">
@@ -33,7 +89,7 @@ require_once('dbconfig.php');
                     </div>
                 </div>
             </div>
-            <div class="card border-0 px-4">
+            <div class="card border-0 px-4 card2">
                 <div class="card-body py-4">
                     <div class="d-flex align-items-start">
                         <div class="flex-grow-1">
@@ -44,7 +100,7 @@ require_once('dbconfig.php');
                                 <?php echo getProductCount($conn); ?>
                             </p>
                             <div class="mb-0">
-                                <span class="badge text-success me-2">
+                                <span class="badge me-2">
                                     +9.0%
                                 </span>
                                 <span class="text-muted">
@@ -55,7 +111,7 @@ require_once('dbconfig.php');
                     </div>
                 </div>
             </div>
-            <div class="card border-0 px-4">
+            <div class="card border-0 px-4 card3">
                 <div class="card-body py-4">
                     <div class="d-flex align-items-start">
                         <div class="flex-grow-1">
@@ -66,7 +122,7 @@ require_once('dbconfig.php');
                                 <?php echo getInventoryCount($conn); ?>
                             </p>
                             <div class="mb-0">
-                                <span class="badge text-success me-2">
+                                <span class="badge me-2">
                                     +9.0%
                                 </span>
                                 <span class="text-muted">
@@ -77,7 +133,7 @@ require_once('dbconfig.php');
                     </div>
                 </div>
             </div>
-            <div class="card border-0 px-4">
+            <div class="card border-0 px-4 card4">
                 <div class="card-body py-4">
                     <div class="d-flex align-items-start">
                         <div class="flex-grow-1">
@@ -88,7 +144,7 @@ require_once('dbconfig.php');
                                 300
                             </p>
                             <div class="mb-0">
-                                <span class="badge text-success me-2">
+                                <span class="badge me-2">
                                     +9.0%
                                 </span>
                                 <span class="text-muted">
@@ -99,7 +155,7 @@ require_once('dbconfig.php');
                     </div>
                 </div>
             </div>
-            <div class="card border-0 px-4">
+            <div class="card border-0 px-4 card5">
                 <div class="card-body py-4">
                     <div class="d-flex align-items-start">
                         <div class="flex-grow-1">
@@ -110,7 +166,7 @@ require_once('dbconfig.php');
                                 300
                             </p>
                             <div class="mb-0">
-                                <span class="badge text-success me-2">
+                                <span class="badge me-2">
                                     +9.0%
                                 </span>
                                 <span class="text-muted">
@@ -122,73 +178,73 @@ require_once('dbconfig.php');
                 </div>
             </div>
         </div>
-        <div class="row px-2">
-        <div class="card border-0 col-md-7">
-            <div class="card-header">
-                <h5 class="card-title mb-0 py-2">
-                    Recently Added Products
-                </h5>
-            </div>
-            <div class="card-body text-center" style="max-height: 300px; overflow-y: scroll;">
-                <table class="table mb-0 table-striped table-lg">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Product Id</th>
-                            <th class="text-center">Product Name</th>
-                            <th class="text-center">Quantity</th>
-                            <th class="text-center">Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                        $recentlyAddedQuery = "SELECT * FROM products_table WHERE date_added >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)";
-                        $recentlyAddedResult = $conn->query($recentlyAddedQuery);
-                        $recentlyAddedProducts = $recentlyAddedResult->fetchAll(PDO::FETCH_ASSOC);
+        <div class="row g-0 px-2">
+            <div class="card mb-0 border-0 col-md-7">
+                <div class="card-header">
+                    <h5 class="card-title mb-0 py-2">
+                        Recently Added Products
+                    </h5>
+                </div>
+                <div class="card-body text-center" style="max-height: 300px; overflow-y: scroll;">
+                    <table class="table mb-0 table-striped table-lg">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Product Id</th>
+                                <th class="text-center">Product Name</th>
+                                <th class="text-center">Quantity</th>
+                                <th class="text-center">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $recentlyAddedQuery = "SELECT * FROM products_table WHERE date_added >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)";
+                            $recentlyAddedResult = $conn->query($recentlyAddedQuery);
+                            $recentlyAddedProducts = $recentlyAddedResult->fetchAll(PDO::FETCH_ASSOC);
 
-                        if (empty($recentlyAddedProducts)) {
-                            echo "No products added in the last 7 days.\n";
-                        } else {
-                            foreach ($recentlyAddedProducts as $product) {
-                        ?>
-                        <tr>
-                            <td><?=$product['product_id']?></td>
-                            <td><?=$product['product_name']?></td>
-                            <td><?=$product['quantity']?></td>
-                            <td><?=$product['price']?></td>
-                        </tr>
-                        <?php
-                        }
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                            if (empty($recentlyAddedProducts)) {
+                                echo "No products added in the last 7 days.\n";
+                            } else {
+                                foreach ($recentlyAddedProducts as $product) {
+                            ?>
+                                    <tr>
+                                        <td><?= $product['product_id'] ?></td>
+                                        <td><?= $product['product_name'] ?></td>
+                                        <td><?= $product['quantity'] ?></td>
+                                        <td><?= $product['price'] ?></td>
+                                    </tr>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="card border-0 col-4">
-            <div class="card-header">
-                <h5 class="card-title mb-0 py-2">
-                    Highest Selling Products
-                </h5>
+            <div class="card mb-0 border-0 col-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0 py-2">
+                        Highest Selling Products
+                    </h5>
+                </div>
+                <div class="card-body text-center" style="max-height: 300px; overflow-y: scroll;">
+                    <table class="table mb-0 table-striped table-lg">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Product Name</th>
+                                <th class="text-center">Total Quantity</th>
+                                <th class="text-center">Total Sold</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="card-body text-center" style="max-height: 300px; overflow-y: scroll;">
-                <table class="table mb-0 table-striped table-lg">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Product Name</th>
-                            <th class="text-center">Total Quantity</th>
-                            <th class="text-center">Total Sold</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
         </div>
 </div>
 

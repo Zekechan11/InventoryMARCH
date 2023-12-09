@@ -7,7 +7,7 @@
     <title>March & Marc Inventory</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7b92f6b770.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="style-report.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 </head>
@@ -21,51 +21,51 @@
                     <a href="index.php">March&Marc<br>Inventory</a>
                 </div>
                 <ul class="sidebar-nav">
-                    <li class="sidebar-item">
-                        <a href="index.php" class="sidebar-link active" style="font-size: 18px;">
+                    <li class="active">
+                        <a href="index.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-gauge pe-2"></i>
                             Dashboard
                         </a>
                     </li>
                
-                    <li class="sidebar-item">
+                    <li>
                         <a href="product.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-sliders pe-2"></i>
                             Product
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li>
                         <a href="category.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-file-lines pe-2"></i>
                             Category
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li>
                         <a href="inventory.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-boxes-stacked pe-2"></i>
                             Inventory
                         </a>
                     </li>
-                    <li class="sidebar-item">   
+                    <li>   
                         <a href="customer.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-user pe-2"></i>
                             Customer
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li>
                         <a href="transaction.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-signal pe-2"></i>
                             Transactions
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li>
                         <a href="returned_product.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-truck-ramp-box pe-2"></i>
                             Returned Product
                         </a>
                     </li>
                
-                    <li class="sidebar-item">
+                    <li>
                         <a href="sales_report.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-clipboard-list pe-2"></i>
                             Sales Report
@@ -94,6 +94,7 @@
                     </ul>
                 </div>
             </nav>
+
 </body>
 
 </html>

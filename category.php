@@ -30,7 +30,7 @@ require_once('function/update.php');
         <div class="col-lg-12">
             <div class="card-body text-center">
                 <div class="table-responsive">
-                    <table id="example" class=" display" style="width:100%;">
+                    <table id="example" class="display" style="width:100%;">
                         <thead>
                             <tr>
                                 <th class="text-center">Category Id</th>
