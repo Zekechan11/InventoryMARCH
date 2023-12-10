@@ -41,8 +41,8 @@ require_once('function/inventory.php');
                                     <td><?= $row['product_name'] ?></td>
                                     <td><?= $row['stock_in'] ?></td>
                                     <td>
-                                        <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-inventory"></i> |
-                                        <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-inventory"></i>
+                                        <i class="fa-solid fa-plus" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#add-stock"></i> |
+                                        <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-stock"></i>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -54,4 +54,6 @@ require_once('function/inventory.php');
     </section>
 </div>
 
+<?php include_once('modal/add_stock.php');?>
+<?php include_once('modal/delete_stock.php');?>
 <?php require_once('inc/footer.php'); ?>

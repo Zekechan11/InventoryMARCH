@@ -28,8 +28,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-success" type="button" id="btn-customer">Save</button>
                 <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-success" type="button" id="btn-customer">Save</button>
             </div>
         </div>
     </div>

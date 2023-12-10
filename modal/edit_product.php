@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="edit-product-label">Edit Product</h1>
+                <h1 class="modal-title fs-5" style="background-color: #227EA2;">Edit Product</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -42,8 +42,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="update_product" class="btn btn-primary">Save Changes</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="submit" name="update_product" class="btn btn-success">Save Changes</button>
             </div>
         </div>
     </div>

@@ -62,7 +62,7 @@ include_once('function/sales.php');
                                     <td><?= number_format($sale['quantity'] * $sale['price'], 2) ?></td>
                                     <td><?= $sale['date'] ?></td>
                                     <td>
-                                        <i class="fa fa-add edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#"></i> |
+                                        <i class="fa-solid fa-cart-plus" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#"></i> |
                                         <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-sales"></i> |
                                         <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-sales"></i>
                                     </td>
