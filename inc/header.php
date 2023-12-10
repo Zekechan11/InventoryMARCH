@@ -7,7 +7,7 @@
     <title>March & Marc Inventory</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7b92f6b770.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="style-report.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 </head>
@@ -21,7 +21,7 @@
                     <a href="index.php">March&Marc<br>Inventory</a>
                 </div>
                 <ul class="sidebar-nav">
-                    <li class="active">
+                    <li class="">
                         <a href="index.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-gauge pe-2"></i>
                             Dashboard
@@ -75,9 +75,9 @@
             </div>
         </aside>
         <div class="main">
-            <nav class="navbar navbar-expand px-3 border-bottom shadow-sm bg-white">
-                <button class="btn" id="sidebar-toggle" type="button">
-                    <span class="navbar-toggler-icon"></span>
+            <nav class="navbar navbar-expand px-3 border-bottom shadow-sm bg-white">   <!--CARD_HEADER -->
+                <button class="btn" id="sidebar-toggle" type="button"> <!--BUTTON -->
+                    <i class="fa-solid fa-bars" style="font-size: 25px;"></i> <!--ICON -->
                 </button>
                 <div class="navbar-collapse navbar">
                     <ul class="navbar-nav">

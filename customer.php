@@ -20,7 +20,8 @@
     </div>
     <div class="card mb-0">
         <div class="card-header">
-            <button type="button" class="btn btn-warning" style="float: right;" data-bs-toggle="modal" data-bs-target="#add-customer"><i class="fa fa-plus"></i> Add Customer</button>
+            <button type="button" class="btn btn-warning" style="float: right;" data-bs-toggle="modal" data-bs-target="#add-customer">
+            <i class="fa fa-plus"></i> Add Customer</button>
         </div>
         <div class="col-lg-12">
             <div class="card-body text-center">
@@ -54,4 +55,6 @@
 </div>
 
 <?php require_once('modal/add_customer.php'); ?>
+<?php require_once('modal/edit_customer.php'); ?>
+<?php require_once('modal/delete_customer.php'); ?>
 <?php require_once('inc/footer.php'); ?>

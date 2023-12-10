@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="col-6 align-self-end text-end">
-                        <img src="image/yokai.jpg" class="img-fluid illustration-img" alt="">
+                        <img src="image/INV.png" class="img-fluid illustration-img" alt="">
                     </div>
                 </div>
             </div>

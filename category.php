@@ -23,8 +23,8 @@ require_once('function/update.php');
     </div>
     <div class="card mb-0">
         <div class="card-header">
-            <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#add-category">
-                Launch static backdrop modal
+            <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#add-category">
+                <i class="fa fa-plus"></i> Add Category
             </button>
         </div>
         <div class="col-lg-12">

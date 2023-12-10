@@ -67,6 +67,9 @@ require_once('dbconfig.php');
             </div>
         </header>
         <div class="custom-layout col-12 d-flex w-100 text-center" style="position: relative; left:3    0px;">
+
+        <!-- CATEGORY -->
+
             <div class="card border-0 px-4 card1">
                 <div class="card-body py-4">
                     <div class="d-flex align-items-start">
@@ -89,6 +92,7 @@ require_once('dbconfig.php');
                     </div>
                 </div>
             </div>
+            <!-- PRODUCT -->
             <div class="card border-0 px-4 card2">
                 <div class="card-body py-4">
                     <div class="d-flex align-items-start">
@@ -111,6 +115,7 @@ require_once('dbconfig.php');
                     </div>
                 </div>
             </div>
+            <!-- INVENTORY -->
             <div class="card border-0 px-4 card3">
                 <div class="card-body py-4">
                     <div class="d-flex align-items-start">
@@ -133,6 +138,7 @@ require_once('dbconfig.php');
                     </div>
                 </div>
             </div>
+            <!-- RETURNED ITEM -->
             <div class="card border-0 px-4 card4">
                 <div class="card-body py-4">
                     <div class="d-flex align-items-start">
@@ -155,6 +161,7 @@ require_once('dbconfig.php');
                     </div>
                 </div>
             </div>
+            <!-- SALES -->
             <div class="card border-0 px-4 card5">
                 <div class="card-body py-4">
                     <div class="d-flex align-items-start">
@@ -178,6 +185,8 @@ require_once('dbconfig.php');
                 </div>
             </div>
         </div>
+
+        <!-- RECENTLY ADDED PRODUCTS -->
         <div class="row g-0 px-2">
             <div class="card mb-0 border-0 col-md-7">
                 <div class="card-header">
@@ -220,6 +229,8 @@ require_once('dbconfig.php');
                     </table>
                 </div>
             </div>
+
+            <!-- HIGHEST SELLING PRODUCTS -->
             <div class="card mb-0 border-0 col-4">
                 <div class="card-header">
                     <h5 class="card-title mb-0 py-2">

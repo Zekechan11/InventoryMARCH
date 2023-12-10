@@ -23,8 +23,8 @@ include_once('function/update_product.php');
     </div>
     <div class="card border-0">
         <div class="card-header shadow-sm">
-            <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#add-product">
-                Launch static backdrop modal
+            <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#add-product">
+                <i class="fa fa-plus"></i> Add Product
             </button>
         </div>
         <div class="col-lg-12">

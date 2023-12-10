@@ -23,8 +23,8 @@ include_once('function/sales.php');
     <section class="tables py-4">
         <div class="card border-0">
             <div class="card-header shadow-sm">
-                <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#add-sales">
-                    Launch static backdrop modal
+                <button type="button" style class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#add-sales">
+                    Launch static backdrop modal 
                 </button>
                 <div class="col-md-3">
                     <select id="inputState" class="form-select">
@@ -43,7 +43,7 @@ include_once('function/sales.php');
                     <table id="example" class=" display" style="width:100%;">
                         <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                             <tr>
-                                <th class="text-center">Product Id</th>
+                                <th class="text-center">Product Id</th>x`
                                 <th class="text-center">Product Name</th>
                                 <th class="text-center">Quantity</th>
                                 <th class="text-center">Price</th>
