@@ -44,6 +44,13 @@ require_once('dbconfig.php');
         /* Optional: Add a bottom border to the card header */
     }
 
+    .highest {
+        background-color: #B3061A;
+        /* Optional: Change the background color of the card header */
+        border-bottom: 1px solid #dee2e6;
+        /* Optional: Add a bottom border to the card header */
+    }
+
     .card-title {
         color: #ffff;
         /* Optional: Change the color of the card title */
@@ -232,7 +239,7 @@ require_once('dbconfig.php');
 
             <!-- HIGHEST SELLING PRODUCTS -->
             <div class="card mb-0 border-0 col-4">
-                <div class="card-header">
+                <div class="card-header highest">
                     <h5 class="card-title mb-0 py-2">
                         Highest Selling Products
                     </h5>

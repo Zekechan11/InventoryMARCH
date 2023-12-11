@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
 
     // Prepared statement for products_table
     $products_query = "INSERT INTO products_table (product_name, image, category_id, quantity, price, date_added) 
-    VALUES (?, ?, ?, ?, ?, ?, NOW())";
+    VALUES (?, ?, ?, ?, ?, NOW())";
 
     $products_statement = $conn->prepare($products_query);
 
