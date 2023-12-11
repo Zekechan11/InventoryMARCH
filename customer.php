@@ -29,19 +29,19 @@
                     <table id="example" class=" display" style="width:100%;">
                         <thead>
                             <tr>
-                                <th>Customer Id</th>
-                                <th>Customer Name</th>
-                                <th>Contact Number</th>
-                                <th>Address</th>
-                                <th>Action</th>
+                                <th class="text-center">Customer Id</th>
+                                <th class="text-center">Customer Name</th>
+                                <th class="text-center">Contact Number</th>
+                                <th class="text-center">Address</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>wqie</td>
-                                <td>Kakashi</td>
-                                <td>9870758</td>
+                                <td>Leonard Balabat</td>
+                                <td>09673520009</td>
+                                <td>Nailon Bogo City, Cebu</td>
                                 <td><i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-customer"></i> |
                                     <i type="button" class="fa fa-trash _delete_cus" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-customer"></i>
                                 </td>

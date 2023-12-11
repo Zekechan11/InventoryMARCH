@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Product</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Sales</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -31,14 +31,28 @@
                             <input type="text" class="form-control" id="price" placeholder="₱ 00.0" name="price" readonly>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <label for="inputState" class="form-label">Total Price</label>
-                        <input type="text" class="form-control" id="total_price" placeholder="₱ 00.0" name="total_price" readonly>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="inputState" class="form-label">Total Price</label>
+                            <input type="text" class="form-control" id="total_price" placeholder="₱ 00.0" name="total_price" readonly>
+                        </div>
+                        <!-- <div class="col-6">
+                            <label for="inputPassword4" class="form-label">Discount</label>
+                            <select id="product_name" class="form-select" name="product_name" onchange="displayProductPrice()">
+                                <option selected hidden="">Choose..</option>
+                                <option>10%</option>
+                                <option>30%</option>
+                                <option>50%</option>
+                                <option>80%</option>
+                            </select>
+                        </div> -->
+
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" name="add_sales" class="btn btn-primary">Add Sales</button>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" name="add_sales" class="btn btn-primary">Add Sales</button>
                 </form>
             </div>
         </div>

@@ -21,11 +21,6 @@
     </div>
     <section class="tables py-4">
         <div class="card border-0">
-        <div class="card-header shadow-sm">
-                <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#returned-products">
-                    <i class="fa fa-plus"></i> Returned Product
-                </button>
-            </div>
             <div class="card-body">
                 <div class="table-body col-12 text-center">
                     <table id="example" class=" display" style="width:100%;">

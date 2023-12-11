@@ -10,7 +10,7 @@
                 <form method='post' action='' enctype='multipart/form-data'>
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">Category</label>
+                            <label for="inputPassword4" class="form-label">Category Name</label>
                             <select id="category_name" class="form-select" name="category_name" >
                                 <option selected disabled value="">Choose...</option>
                                 <?php foreach ($categories as $category) : ?>

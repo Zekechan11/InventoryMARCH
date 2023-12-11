@@ -13,23 +13,23 @@ require_once('dbconfig.php');
     }
 
     .card1 {
-        background: linear-gradient(-45deg, #60efff 28%, #0061ff 100%);
+        background: linear-gradient(-45deg, #fd77e4 0%, #1ff4f1 100% );
     }
 
     .card2 {
-        background: linear-gradient(-45deg, #60efff 28%, #00ff87 100%);
+        background: linear-gradient(-45deg, #fd77e4 0%, #1ff4f1 100% );
     }
 
     .card3 {
-        background: linear-gradient(-45deg, #e81cff 28%, #40c9ff 100%);
+        background: linear-gradient(-45deg, #fd77e4 0%, #1ff4f1 100% );
     }
 
     .card4 {
-        background: linear-gradient(-45deg, #b84fce 0%, #d4acfb 100%);
+        background: linear-gradient(-45deg, #fd77e4 0%, #1ff4f1 100% );
     }
 
     .card5 {
-        background: linear-gradient(-45deg, #aefb2a 0%, #57ebde 100%);
+        background: linear-gradient(-45deg, #fd77e4 0%, #1ff4f1 100% );
     }
 
     .card-body {
@@ -38,7 +38,7 @@ require_once('dbconfig.php');
     }
 
     .card-header {
-        background-color: #6F1AB4;
+        background: linear-gradient(-45deg, #fd77e4 0%, #1ff4f1 100% );
         /* Optional: Change the background color of the card header */
         border-bottom: 1px solid #dee2e6;
         /* Optional: Add a bottom border to the card header */
@@ -73,7 +73,7 @@ require_once('dbconfig.php');
                 <h2 class="mb-2">Dashboard</h2>
             </div>
         </header>
-        <div class="custom-layout col-12 d-flex w-100 text-center" style="position: relative; left:3    0px;">
+        <div class="custom-layout col-12 d-flex w-100 text-center">
 
         <!-- CATEGORY -->
 
@@ -82,7 +82,7 @@ require_once('dbconfig.php');
                     <div class="d-flex align-items-start">
                         <div class="flex-grow-1">
                             <h4 class="mb-2">
-                                <i class="fa-solid fa-rectangle-list pe-2"></i></i>Category
+                                <i class="fa-solid fa-rectangle-list pe-2"></i>Category
                             </h4>
                             <p class="mb-2" style="font-size: large; font-weight:600;">
                                 <?php echo getCategoryCount($conn); ?>
@@ -255,9 +255,9 @@ require_once('dbconfig.php');
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
+                                <td>Coco Lumber</td>
+                                <td>10</td>
+                                <td>50</td>
                             </tr>
                         </tbody>
                     </table>
