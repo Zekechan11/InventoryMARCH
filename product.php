@@ -39,6 +39,7 @@ include_once('function/update_product.php');
                                 <th class="text-center">Instock</th>
                                 <th class="text-center">Price</th>
                                 <th class="text-center">Date</th>
+                                <th class="text-center" style="display: none;">Image</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -61,8 +62,9 @@ include_once('function/update_product.php');
                                     <td><?= (number_format($row['quantity'])); ?></td>
                                     <td>₱ <?= (number_format($row['price'], 2)); ?></td>
                                     <td><?= $row['date_added'] ?></td>
+                                    <td style="display: none;"><?= $row['image'] ?></td>
                                     <td>
-                                        <i class="fas fa-eye" type="button" style="color: blue;" data-bs-toggle="modal" data-bs-target="#view-modal"></i> |
+                                        <i class="fas fa-eye view_P" type="button" style="color: blue;" data-bs-toggle="modal" data-bs-target="#view-modal"></i> |
                                         <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-product"></i> |
                                         <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-product"></i>
                                     </td>
@@ -83,3 +85,31 @@ include_once('function/update_product.php');
 <?php require_once('modal/edit_product.php'); ?>
 <?php require_once('modal/view_products.php'); ?>
 <?php require_once('inc/footer.php'); ?>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const viewButton = document.querySelectorAll('.view_P');
+        const viewProductName = document.getElementById('product-name');
+        const viewCategory = document.getElementById('category-name');
+        const viewInstock = document.getElementById('quantity-num');
+        const viewPrice = document.getElementById('price-price');
+        const viewImageChan = document.getElementById('image-chan');
+
+        viewButton.forEach(button => {
+            button.addEventListener('click', function () {
+                const row = button.closest('tr');
+                const productName = row.querySelector('td:nth-child(2)').innerText;
+                const categoryName = row.querySelector('td:nth-child(3)').innerText;
+                const instockNum = row.querySelector('td:nth-child(4)').innerText;
+                const pricePrice = row.querySelector('td:nth-child(5)').innerText;
+                const imageChan = row.querySelector('td:nth-child(7)').innerText;
+
+                viewProductName.value = productName;
+                viewCategory.value = categoryName;
+                viewInstock.value = instockNum;
+                viewPrice.value = pricePrice;
+                viewImageChan.src = imageChan;
+            });
+        });
+    });
+</script>

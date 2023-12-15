@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
         $filename = $_FILES['files']['name'][$i];
 
         // Location
-        $target_file = './uploads/' . $filename;
+        $target_file = 'uploads/' . $filename;
 
         // file extension
         $file_extension = pathinfo(
