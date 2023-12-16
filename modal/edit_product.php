@@ -42,3 +42,28 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const viewButton = document.querySelectorAll('.view_P');
+        const viewProductName = document.getElementById('edit_product_name');
+        const viewCategory = document.getElementById('edit_category_name');
+        const viewInstock = document.getElementById('edit_quantity');
+        const viewPrice = document.getElementById('edit_price');
+
+        viewButton.forEach(button => {
+            button.addEventListener('click', function () {
+                const row = button.closest('tr');
+                const productName = row.querySelector('td:nth-child(2)').innerText;
+                const categoryName = row.querySelector('td:nth-child(3)').innerText;
+                const instockNum = row.querySelector('td:nth-child(4)').innerText;
+                const pricePrice = row.querySelector('td:nth-child(5)').innerText;
+
+                viewProductName.value = productName;
+                viewCategory.value = categoryName;
+                viewInstock.value = instockNum;
+                viewPrice.value = pricePrice;
+            });
+        });
+    });
+</script>

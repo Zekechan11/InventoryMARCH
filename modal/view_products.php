@@ -38,3 +38,31 @@
     </div>
   </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const viewButton = document.querySelectorAll('.view_P');
+        const viewProductName = document.getElementById('product-name');
+        const viewCategory = document.getElementById('category-name');
+        const viewInstock = document.getElementById('quantity-num');
+        const viewPrice = document.getElementById('price-price');
+        const viewImageChan = document.getElementById('image-chan');
+
+        viewButton.forEach(button => {
+            button.addEventListener('click', function () {
+                const row = button.closest('tr');
+                const productName = row.querySelector('td:nth-child(2)').innerText;
+                const categoryName = row.querySelector('td:nth-child(3)').innerText;
+                const instockNum = row.querySelector('td:nth-child(4)').innerText;
+                const pricePrice = row.querySelector('td:nth-child(5)').innerText;
+                const imageChan = row.querySelector('td:nth-child(7)').innerText;
+
+                viewProductName.value = productName;
+                viewCategory.value = categoryName;
+                viewInstock.value = instockNum;
+                viewPrice.value = pricePrice;
+                viewImageChan.src = imageChan;
+            });
+        });
+    });
+</script>
