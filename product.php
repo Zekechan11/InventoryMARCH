@@ -1,6 +1,6 @@
 <?php require_once('inc/header.php');
 require_once('function/add.php');
-include_once('function/update_product.php');
+include('function/update_product.php');
 ?>
 
 <div class="content-inner">

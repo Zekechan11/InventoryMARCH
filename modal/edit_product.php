@@ -10,6 +10,10 @@
                 <form method='post' action='' enctype='multipart/form-data'>
                     <div class="row">
                         <div class="col-md-6">
+                            <label for="edit_product_id" class="form-label">Product Id</label>
+                            <input type="text" class="form-control" name="edit_product_id" id="edit_product_id">
+                        </div>
+                        <div class="col-md-6">
                             <label for="edit_category_name" class="form-label">Category Name</label>
                             <input type="text" class="form-control" name="edit_category_name" id="edit_category_name">
                         </div>
@@ -33,11 +37,12 @@
                         <label for="edit_product_image" class="form-label">Product Image</label>
                         <input type="file" class="form-control" name="edit_files[]">
                     </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" name="update_product" class="btn btn-success">Save Changes</button>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="update_product" class="btn btn-success">Save Changes</button>
             </div>
         </div>
     </div>
@@ -46,6 +51,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const viewButton = document.querySelectorAll('.view_P');
+        const viewProductId = document.getElementById('edit_product_id');
         const viewProductName = document.getElementById('edit_product_name');
         const viewCategory = document.getElementById('edit_category_name');
         const viewInstock = document.getElementById('edit_quantity');
@@ -54,11 +60,13 @@
         viewButton.forEach(button => {
             button.addEventListener('click', function () {
                 const row = button.closest('tr');
+                const productId = row.querySelector('td:nth-child(1)').innerText;
                 const productName = row.querySelector('td:nth-child(2)').innerText;
                 const categoryName = row.querySelector('td:nth-child(3)').innerText;
                 const instockNum = row.querySelector('td:nth-child(4)').innerText;
                 const pricePrice = row.querySelector('td:nth-child(5)').innerText;
 
+                viewProductId.value = productId;
                 viewProductName.value = productName;
                 viewCategory.value = categoryName;
                 viewInstock.value = instockNum;
