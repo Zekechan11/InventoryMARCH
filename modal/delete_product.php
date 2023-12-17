@@ -12,8 +12,8 @@
                 </div>
                 <div class="modal-footer">
                     <!-- Input fields to store category_id and category_name -->
-                    <input type="hidden" id="delete-category-id" name="delete_category_id" value="">
-                    <input type="hidden" id="delete-category-name" name="delete_category_name" value="">
+                    <input  id="delete-product-id" name="delete_product_id" value="">
+                    <!-- <input type="hidden" id="delete-category-name" name="delete_category_name" value=""> -->
                     <!-- Close and Delete buttons -->
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-danger" name="delete_product">Delete</button>
@@ -22,3 +22,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const viewButton = document.querySelectorAll('.view_P');
+        const viewProductId = document.getElementById('delete-product-id');
+
+        viewButton.forEach(button => {
+            button.addEventListener('click', function () {
+                const row = button.closest('tr');
+                const productId = row.querySelector('td:nth-child(1)').innerText;
+
+                viewProductId.value = productId;
+            });
+        });
+    });
+</script>
