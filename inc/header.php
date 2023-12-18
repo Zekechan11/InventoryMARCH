@@ -8,8 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7b92f6b770.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="style-report.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -27,7 +29,7 @@
                             Dashboard
                         </a>
                     </li>
-               
+
                     <li>
                         <a href="product.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-sliders pe-2"></i>
@@ -46,7 +48,7 @@
                             Inventory
                         </a>
                     </li>
-                    <li>   
+                    <li>
                         <a href="customer.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-user pe-2"></i>
                             Customer
@@ -64,7 +66,7 @@
                             Returned Product
                         </a>
                     </li>
-               
+
                     <li>
                         <a href="sales_report.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-clipboard-list pe-2"></i>
@@ -75,12 +77,16 @@
             </div>
         </aside>
         <div class="main">
-            <nav class="navbar navbar-expand px-3 border-bottom shadow-sm bg-white">   <!--CARD_HEADER -->
+            <nav class="navbar navbar-expand px-3 border-bottom shadow-sm bg-white"> <!--CARD_HEADER -->
                 <button class="btn" id="sidebar-toggle" type="button"> <!--BUTTON -->
                     <i class="fa-solid fa-bars" style="font-size: 25px;"></i> <!--ICON -->
                 </button>
                 <div class="navbar-collapse navbar">
                     <ul class="navbar-nav">
+                        <a href="#" class="nav-link">
+                            <i class='bx bxs-bell icon'></i>
+                            <span class="badge">5</span>
+                        </a>
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
                                 <img src="image/yokai.jpg" class="avatar img-fluid rounded" alt="">

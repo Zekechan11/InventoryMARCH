@@ -30,10 +30,10 @@
                                 <th class="text-center">Customer Name</th>
                                 <th class="text-center">Category Name</th>
                                 <th class="text-center">Product Name</th>
+                                <th class="text-center">Description</th>
                                 <th class="text-center">Instock</th>
                                 <th class="text-center">Price</th>
                                 <th class="text-center">Date</th>
-                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody style="vertical-align: middle;">

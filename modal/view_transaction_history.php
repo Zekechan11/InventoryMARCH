@@ -28,7 +28,7 @@
                                         <tr>
                                             <td>1</td>
                                             <td>Coco Lumber</td>
-                                            <td>2</td>
+                                            <td><input class="col-md-2 text-center border-0" type="number"></td>
                                             <td>80.00</td>
                                             <td>160.00</td>
                                             <td>2023-12-11 22:50:21</td>
@@ -39,7 +39,7 @@
                                         <tr>
                                             <td>2</td>
                                             <td>Coco Lumber</td>
-                                            <td>5</td>
+                                            <td><input class="col-md-2 text-center border-0" type="number"></td>
                                             <td>80.00</td>
                                             <td>400.00</td>
                                             <td>2023-12-12 01:08:22</td>
@@ -66,40 +66,46 @@
                 <h5 class="modal-title" id="del-category-label">Returned Product</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" method="post">
-                <div class="modal-body">
-                    <p>Are you sure you want to returned this product?</p>
-                </div>
-                <div class="modal-footer">
-                    <!-- Close and Delete buttons -->
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-danger" name="return_product">Yes</button>
-                </div>
-            </form>
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="row">
+                        <p>Are you sure you want to returned this product?</p>
+                        <div class="col-md-10 mb-2">
+                            <label for="edit_quantity" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="edit_quantity" name="edit_quantity">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- Close and Delete buttons -->
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <button type="submit" class="btn btn-danger" name="return_product">Yes</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const minusIcons = document.querySelectorAll('.minus-icon');
 
-        minusIcons.forEach(function (icon) {
-            icon.addEventListener('click', function () {
+        minusIcons.forEach(function(icon) {
+            icon.addEventListener('click', function() {
                 // Show the second modal when the minus icon is clicked
                 $('#return-product').modal('show');
             });
         });
 
         // Set higher z-index for the second modal when shown
-        $('#return-product').on('show.bs.modal', function () {
-            setTimeout(function () {
+        $('#return-product').on('show.bs.modal', function() {
+            setTimeout(function() {
                 $('.modal-backdrop').last().after('<div class="modal-backdrop fade show"></div>');
             }, 0);
         });
 
         // Reset z-index when the second modal is closed
-        $('#return-product').on('hidden.bs.modal', function () {
+        $('#return-product').on('hidden.bs.modal', function() {
             $('.modal-backdrop').remove();
         });
     });

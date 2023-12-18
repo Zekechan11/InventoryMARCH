@@ -1,0 +1,41 @@
+:root {
+	--grey: #F1F0F6;
+	--dark-grey: #8D8D8D;
+	--light: #fff;
+	--dark: #000;
+	--green: #81D43A;
+	--light-green: #E3FFCB;
+	--blue: #1775F1;
+	--light-blue: #D0E4FF;
+	--dark-blue: #0C5FCD;
+	--red: #FC3B56;
+}
+
+nav .nav-link {
+	position: relative;
+}
+
+nav .nav-link .icon {
+	font-size: 20px;
+	color: var(--dark);
+    position: relative;
+    right: 20px;
+    top:4px;
+}
+
+nav .nav-link .badge {
+	position: absolute;
+	bottom:18px;
+	right: 20px;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	border: 2px solid var(--light);
+	background: var(--red);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--light);
+	font-size: 10px;
+	font-weight: 700;
+}

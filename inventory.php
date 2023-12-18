@@ -41,8 +41,7 @@ require_once('function/inventory.php');
                                     <td><?= $row['product_name'] ?></td>
                                     <td><?= $row['stock_in'] ?></td>
                                     <td>
-                                        <i class="fa-solid fa-plus" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#add-stock"></i> |
-                                        <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-stock"></i>
+                                        <i class="fa-solid fa-plus" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#add-stock"></i>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
