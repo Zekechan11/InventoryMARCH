@@ -66,8 +66,16 @@ require_once('function/delete_product.php');
                                     <td style="display: none;"><?= $row['image'] ?></td>
                                     <td>
                                         <i class="fas fa-eye view_P" type="button" style="color: blue;" data-bs-toggle="modal" data-bs-target="#view-modal"></i> |
-                                        <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-product"></i> |
-                                        <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-product"></i>
+                                        <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-product"
+                                        onclick="openEditProduct(
+                                            '<?= $row['product_id'] ?>',
+                                            '<?= $row['category_name'] ?>',
+                                            '<?= $row['product_name'] ?>',
+                                            '<?= $row['quantity'] ?>',
+                                            '<?= $row['price'] ?>'
+                                        )"></i> |
+                                        <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-product"
+                                        onclick="openDeleteProduct('<?= $row['product_id'] ?>')"></i>
                                     </td>
                                 </tr>
                             <?php

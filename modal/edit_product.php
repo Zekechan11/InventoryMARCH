@@ -54,29 +54,19 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const viewButton = document.querySelectorAll('.view_P');
-        const viewProductId = document.getElementById('edit_product_id');
-        const viewCategory = document.getElementById('edit_category_name');
-        const viewProductName = document.getElementById('edit_product_name');
-        const viewInstock = document.getElementById('edit_quantity');
-        const viewPrice = document.getElementById('edit_price');
+    function openEditProduct(product_id, category_name, product_name, quantity, price) {
 
-        viewButton.forEach(button => {
-            button.addEventListener('click', function () {
-                const row = button.closest('tr');
-                const productId = row.querySelector('td:nth-child(1)').innerText;
-                const categoryName = row.querySelector('td:nth-child(2)').innerText;
-                const productName = row.querySelector('td:nth-child(3)').innerText;
-                const instockNum = row.querySelector('td:nth-child(4)').innerText;
-                const pricePrice = row.querySelector('td:nth-child(5)').innerText;
+        document.getElementById('edit_product_id').value = product_id;
+        document.getElementById('edit_product_name').value = product_name;
+        document.getElementById('edit_quantity').value = quantity;
+        document.getElementById('edit_price').value = price;
 
-                viewProductId.value = productId;
-                viewCategory.value = categoryName;
-                viewProductName.value = productName;
-                viewInstock.value = instockNum;
-                viewPrice.value = pricePrice;
-            });
-        });
-    });
+        var selectElement = document.getElementById('edit_category_name');
+        for (var i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].value === category_name) {
+                selectElement.options[i].selected = true;
+                break;
+            }
+        }
+    }
 </script>
