@@ -1,8 +1,10 @@
 <?php
+include_once('dbconfig.php');
+
 // DELETE DATA IN DATABASE
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_product'], $_POST['delete-product-id'])) {
+if (isset($_POST['delete_product'])) {
     // get id from form submission
-    $delete_product_id = $_POST['delete-product-id'];
+    $delete_product_id = $_POST['delete_product_id'];
 
     try {
         // get connection
@@ -13,12 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_product'], $_P
         $stmt->bindParam(':product_id', $delete_product_id, PDO::PARAM_INT);
         // execute query
         $query = $stmt->execute();
-
-        // check if query is true
-        if ($query) {
-            header("location: product.php");
-            exit(); // Stop further execution
-        }
+        
     } catch (PDOException $th) {
         echo "Error Message:" . $th->getMessage();
     }
