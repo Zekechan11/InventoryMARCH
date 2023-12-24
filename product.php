@@ -47,7 +47,7 @@ require_once('function/delete_product.php');
                         <tbody>
                             <?php
 
-                            $stmt = $conn->prepare('SELECT p.product_id, c.category_name, p.product_name, p.image, p.quantity, p.price, p.date_added
+                            $stmt = $conn->prepare('SELECT p.product_id, c.category_name, c.category_id, p.product_name, p.image, p.quantity, p.price, p.date_added
                             FROM products_table p
                             INNER JOIN category_table c ON p.category_id = c.category_id
                             ORDER BY p.product_id ASC');
@@ -69,7 +69,7 @@ require_once('function/delete_product.php');
                                         <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-product"
                                         onclick="openEditProduct(
                                             '<?= $row['product_id'] ?>',
-                                            '<?= $row['category_name'] ?>',
+                                            '<?= $row['category_id'] ?>',
                                             '<?= $row['product_name'] ?>',
                                             '<?= $row['quantity'] ?>',
                                             '<?= $row['price'] ?>'
