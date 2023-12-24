@@ -9,7 +9,7 @@
             <div class="modal-body">
                 <form method='post' action='' enctype='multipart/form-data'>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="display: none;">
                             <label type="hidden" for="edit_product_id" class="form-label">Product Id</label>
                             <input type="text" class="form-control" name="edit_product_id" id="edit_product_id">
                         </div>
