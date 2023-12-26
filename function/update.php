@@ -44,9 +44,9 @@ if (isset($_POST['delete_category'])) {
         // execute query
         $query = $stmt->execute();
         // check if query is true
-        if ($query) {
-            header("location: category.php");
-        }
+        // if ($query) {
+        //     header("location: category.php");
+        // }
     } catch (PDOException $th) {
         echo "Error Message:" . $th->getMessage();
     }
