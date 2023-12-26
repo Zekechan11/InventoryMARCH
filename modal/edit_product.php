@@ -15,7 +15,7 @@
                         </div>
                         <div class="col-md-6">
                         <label for="inputPassword4" class="form-label">Category Name</label>
-                            <select class="form-select" name="category_name" id="edit_category_name">
+                            <select class="form-select" name="edit_category_name" id="edit_category_name">
                                 <option selected disabled value=""></option>
                                 <?php foreach ($categories as $category) : ?>
                                     <option value="<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
@@ -60,13 +60,6 @@
         document.getElementById('edit_product_name').value = product_name;
         document.getElementById('edit_quantity').value = quantity;
         document.getElementById('edit_price').value = price;
-
-        var selectElement = document.getElementById('edit_category_name');
-        for (var i = 0; i < selectElement.options.length; i++) {
-            if (selectElement.options[i].value === category_id) {
-                selectElement.options[i].selected = true;
-                break;
-            }
-        }
+        document.getElementById('edit_category_name').value = category_id;
     }
 </script>
