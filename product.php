@@ -47,9 +47,9 @@ require_once('function/delete_product.php');
                         <tbody>
                             <?php
 
-                            $stmt = $conn->prepare('SELECT p.product_id, c.category_name, c.category_id, p.product_name, p.image, p.quantity, p.price, p.date_added
+                            $stmt = $conn->prepare('SELECT p.product_id, COALESCE(c.category_name, "Category Deleted") AS category_name, c.category_id, p.product_name, p.image, p.quantity, p.price, p.date_added
                             FROM products_table p
-                            INNER JOIN category_table c ON p.category_id = c.category_id
+                            LEFT JOIN category_table c ON p.category_id = c.category_id
                             ORDER BY p.product_id ASC');
                             $stmt->execute();
                             $productList = $stmt->fetchAll();
