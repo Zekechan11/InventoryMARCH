@@ -1,6 +1,7 @@
 <?php
 require_once('inc/header.php');
 require_once('dbconfig.php');
+require_once('function/statistics.php');
 ?>
 <style>
     .card {
@@ -203,6 +204,7 @@ require_once('dbconfig.php');
                 </div>
                 <div class="card-body text-center" style="max-height: 300px; overflow-y: scroll;">
                     <table class="table mb-0 table-striped table-lg">
+                    <?php if (!empty($recentlyAddedProducts)) { ?>
                         <thead>
                             <tr>
                                 <th class="text-center">Product Id</th>
@@ -211,6 +213,7 @@ require_once('dbconfig.php');
                                 <th class="text-center">Price</th>
                             </tr>
                         </thead>
+                    <?php } ?>
                         <tbody>
                             <?php
                             $recentlyAddedQuery = "SELECT * FROM products_table WHERE date_added >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)";
