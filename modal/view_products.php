@@ -16,11 +16,10 @@
                   <center>
                     <p class="list-group-item list-group-item-success">Product Details</p>
                   </center>
-                  <li class="list-group-item"><b>Product Name</b> :<span class="label label-info pull-right"><input id="product-name"></span></li>
-                  <li class="list-group-item"><b>Category Name</b> :<span class="label label-primary pull-right"><input id="category-name"></span></li>
-                  <li class="list-group-item"><b>Instock</b> :<span class="label label-warning pull-right"><input id="quantity-num"></span></li>
-                  <li class="list-group-item"><b>Price</b> :<span class="label label-warning pull-right"><input id="price-price"></span></li>
-                  <li class="list-group-item col-md-12"><span class="text-muted"></span></li>
+                  <li class="list-group-item"><b>Category Name</b> :<span class="label label-info pull-right"><input class="border-0" id="product-name" readonly></span></li>
+                  <li class="list-group-item"><b>Product Name</b> :<span class="label label-primary pull-right"><input class="border-0" id="category-name" readonly></span></li>
+                  <li class="list-group-item"><b>Instock</b> :<span class="label label-warning pull-right"><input class="border-0" id="quantity-num" readonly></span></li>
+                  <li class="list-group-item"><b>Price</b> :<span class="label label-warning pull-right"><input class="border-0" id="price-price" readonly></span></li>
                 </ul>
               </div>
               <div class="col-md-6">

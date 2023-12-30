@@ -2,8 +2,8 @@
 <div class="modal fade" id="edit-product" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="edit-product-label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" style="background-color: #227EA2;">Edit Product</h1>
+            <div class="modal-header" style="background-color: #227EA2;">
+                <h1 class="modal-title fs-5 text-white">Edit Product</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -14,8 +14,13 @@
                             <input type="text" class="form-control" name="edit_product_id" id="edit_product_id">
                         </div>
                         <div class="col-md-6">
-                            <label for="edit_category_name" class="form-label">Category Name</label>
-                            <input type="text" class="form-control" name="edit_category_name" id="edit_category_name">
+                        <label for="inputPassword4" class="form-label">Category Name</label>
+                            <select id="category_name" class="form-select" name="category_name" id="edit_category_name">
+                                <option selected disabled value=""></option>
+                                <?php foreach ($categories as $category) : ?>
+                                    <option value="<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="col-md-6">
                             <label for="edit_product_name" class="form-label">Product Name</label>
@@ -52,8 +57,8 @@
     document.addEventListener('DOMContentLoaded', function () {
         const viewButton = document.querySelectorAll('.view_P');
         const viewProductId = document.getElementById('edit_product_id');
-        const viewProductName = document.getElementById('edit_product_name');
         const viewCategory = document.getElementById('edit_category_name');
+        const viewProductName = document.getElementById('edit_product_name');
         const viewInstock = document.getElementById('edit_quantity');
         const viewPrice = document.getElementById('edit_price');
 
@@ -61,14 +66,14 @@
             button.addEventListener('click', function () {
                 const row = button.closest('tr');
                 const productId = row.querySelector('td:nth-child(1)').innerText;
-                const productName = row.querySelector('td:nth-child(2)').innerText;
-                const categoryName = row.querySelector('td:nth-child(3)').innerText;
+                const categoryName = row.querySelector('td:nth-child(2)').innerText;
+                const productName = row.querySelector('td:nth-child(3)').innerText;
                 const instockNum = row.querySelector('td:nth-child(4)').innerText;
                 const pricePrice = row.querySelector('td:nth-child(5)').innerText;
 
                 viewProductId.value = productId;
-                viewProductName.value = productName;
                 viewCategory.value = categoryName;
+                viewProductName.value = productName;
                 viewInstock.value = instockNum;
                 viewPrice.value = pricePrice;
             });
