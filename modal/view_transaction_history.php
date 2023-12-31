@@ -9,49 +9,87 @@
             </div>
             <div class="modal-body">
                 <form method='post' action='' enctype='multipart/form-data'>
-                    <div class="card border-0 bg-dark">
-                        <div class="card-body">
-                            <div class="table-body col-12 text-center">
-                                <table id="example" class="table table-striped table-sm mx-auto">
-                                    <thead class="table table-dark" style="position: sticky; top: 0; background-color: white; z-index: 1;">
-                                        <tr>
-                                            <th class="text-center">Product Id</th>
-                                            <th class="text-center">Product Name</th>
-                                            <th class="text-center">Quantity</th>
-                                            <th class="text-center">Price</th>
-                                            <th class="text-center">Total Price</th>
-                                            <th class="text-center">Date</th>
-                                            <th class="text-center">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody style="vertical-align: middle;">
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Coco Lumber</td>
-                                            <td><input class="col-md-2 text-center border-0" type="number"></td>
-                                            <td>80.00</td>
-                                            <td>160.00</td>
-                                            <td>2023-12-11 22:50:21</td>
-                                            <td>
-                                                <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Coco Lumber</td>
-                                            <td><input class="col-md-2 text-center border-0" type="number"></td>
-                                            <td>80.00</td>
-                                            <td>400.00</td>
-                                            <td>2023-12-12 01:08:22</td>
-                                            <td>
-                                                <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+
+                    <div class="card-body">
+                        <div class="table-body col-12 text-center">
+                            <table id="example" class="table table-striped table-sm mx-auto">
+                                <thead class="table table-dark" style="position: sticky; top: 0; background-color: white; z-index: 1;">
+                                    <tr>
+                                        <th class="text-center">Product Id</th>
+                                        <th class="text-center">Product Name</th>
+                                        <th class="text-center">Quantity</th>
+                                        <th class="text-center">Price</th>
+                                        <th class="text-center">Total Price</th>
+                                        <th class="text-center">Date</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="vertical-align: middle;">
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Coco Lumber</td>
+                                        <td>90</td>
+                                        <td>80.00</td>
+                                        <td>160.00</td>
+                                        <td>2023-12-11 22:50:21</td>
+                                        <td>
+                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Coco Lumber</td>
+                                        <td>90</td>
+                                        <td>80.00</td>
+                                        <td>400.00</td>
+                                        <td>2023-12-12 01:08:22</td>
+                                        <td>
+                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Coco Lumber</td>
+                                        <td>90</td>
+                                        <td>80.00</td>
+                                        <td>400.00</td>
+                                        <td>2023-12-12 01:08:22</td>
+                                        <td>
+                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Coco Lumber</td>
+                                        <td>90</td>
+                                        <td>80.00</td>
+                                        <td>400.00</td>
+                                        <td>2023-12-12 01:08:22</td>
+                                        <td>
+                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+
+                    <div class="col-md-1" style="position: relative;left:1000px;">
+                        <label for="text" class="form-label">Voucher</label>
+                        <select class="form-select" name="edit_category_name" id="edit_category_name">
+                            <option selected disabled value=""></option>
+                            <option>10%</option>
+                            <option>30%</option>
+                            <option>50%</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 float-end">
+                        <label for="text" class="form-label">Total :</label>
+                        <input type="text">
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" name="process_transaction">Pay</button>
                 </form>
             </div>
         </div>
@@ -74,12 +112,16 @@
                             <label for="edit_quantity" class="form-label">Description</label>
                             <input type="text" class="form-control" id="edit_quantity" name="edit_quantity">
                         </div>
+                        <div class="col-md-3 mb-2">
+                            <label for="edit_quantity" class="form-label">Quantity</label>
+                            <input type="number" class="form-control" id="edit_quantity" name="edit_quantity">
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <!-- Close and Delete buttons -->
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                        <button type="submit" class="btn btn-danger" name="return_product">Yes</button>
-                    </div>
+            </div>
+            <div class="modal-footer">
+                <!-- Close and Delete buttons -->
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="submit" class="btn btn-danger" name="return_product">Yes</button>
                 </form>
             </div>
         </div>
