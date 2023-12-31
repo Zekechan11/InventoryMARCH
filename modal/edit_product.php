@@ -14,7 +14,7 @@
                             <input type="text" class="form-control" name="edit_product_id" id="edit_product_id">
                         </div>
                         <div class="col-md-6">
-                        <label for="inputPassword4" class="form-label">Category Name</label>
+                            <label for="inputPassword4" class="form-label">Category Name</label>
                             <select class="form-select" name="edit_category_name" id="edit_category_name">
                                 <option selected disabled value=""></option>
                                 <?php foreach ($categories as $category) : ?>
@@ -42,11 +42,10 @@
                         <label for="edit_product_image" class="form-label">Product Image</label>
                         <input type="file" class="form-control" name="edit_files[]">
                     </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" name="update_product" class="btn btn-success">Save Changes</button>
-                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="submit" name="update_product" class="btn btn-success">Save Changes</button>
                 </form>
             </div>
         </div>
