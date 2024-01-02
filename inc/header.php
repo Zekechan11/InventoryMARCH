@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7b92f6b770.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bell.css">
     <link rel="stylesheet" href="style-report.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -83,10 +83,32 @@
                 </button>
                 <div class="navbar-collapse navbar">
                     <ul class="navbar-nav">
-                        <a href="#" class="nav-link">
-                            <i class='bx bxs-bell icon'></i>
-                            <span class="badge">5</span>
-                        </a>
+                        <li class="drop-down">
+                            <div class="notify" style="cursor: pointer;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" class="nav-link">
+                                    <i class='bx bxs-bell icon'></i>
+                                    <span class="badge">5</span>
+                                </a>
+                            </div>
+                            <div class="dropdown-menu overflow-h-menu dropdown-menu-right">
+                                <div class="dropdown-item">
+                                    <h6>test</h6>
+                                    <span>Out of Stock</span>
+                                    <hr class="mt-1 mb-1">
+                                </div>
+                                <div class="dropdown-item">
+                                    <h6>test</h6>
+                                    <span>POGI</span>
+                                    <hr class="mt-1 mb-1">
+                                </div>
+                                <div class="dropdown-item">
+                                    <h6>test</h6>
+                                    <span>HANDSOME</span>
+                                    <hr class="mt-1 mb-1">
+                                </div>
+                            </div>
+                        </li>
+
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
                                 <img src="image/yokai.jpg" class="avatar img-fluid rounded" alt="">

@@ -39,3 +39,20 @@ nav .nav-link .badge {
 	font-size: 10px;
 	font-weight: 700;
 }
+
+*{
+    text-decoration: none;
+}
+
+/* Disable hover effect for dropdown items */
+.drop-down:hover {
+    background-color: initial;
+}
+
+.overflow-h-menu{
+	position: relative;
+	right: 90px;
+	top: 20px;
+    height: 300px !important;
+    overflow-y: scroll;
+}
