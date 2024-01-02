@@ -12,7 +12,7 @@
                 </div>
                 <div class="modal-footer">
                     <!-- Input fields to store category_id and category_name -->
-                    <input  id="delete_product_id" name="delete_product_id" value="">
+                    <input  id="delete_product_id" name="delete_product_id" value="" style="display: none;">
                     <!-- <input type="hidden" id="delete-category-name" name="delete_category_name" value=""> -->
                     <!-- Close and Delete buttons -->
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
