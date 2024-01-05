@@ -1,3 +1,7 @@
+<?php
+require('session_checker.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
