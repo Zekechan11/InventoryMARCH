@@ -1,6 +1,7 @@
 
 <?php
-require_once('function/logcon.php')
+require_once('function/logcon.php');
+
 ?>
 
 <!DOCTYPE html>

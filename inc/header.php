@@ -120,7 +120,7 @@ require('session_checker.php');
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a href="profile.php" class="dropdown-item">Profile</a>
                                 <a href="#" class="dropdown-item">Setting</a>
-                                <a href="#" class="dropdown-item">Logout</a>
+                                <a href="logout.php" class="dropdown-item">Logout</a>
                             </div>
                         </li>
                     </ul>
