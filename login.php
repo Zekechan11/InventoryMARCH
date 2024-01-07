@@ -2,6 +2,13 @@
 <?php
 require_once('function/logcon.php');
 
+session_start();
+
+if (isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
