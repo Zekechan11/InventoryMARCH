@@ -1,36 +1,25 @@
 <?php
 
-include_once 'dbconfig.php';
+    include_once 'dbconfig.php';
 
-// INSERT DATA INTO DATABASE
-if (isset($_POST['add_customer'])) {
-
-    // get data from inputs
-    $full_name = $_POST['full_name'];
-    $contact_number = $_POST['contact_number'];
-    $address = $_POST['address'];
+    //INSERT DATA IN DATABASE
+    if(isset($_POST['add_category'])) {
+    
+    //get data from inputs
+    $category_name = $_POST['category_name'];
 
     try {
-        // get connection
+        //get connection
         $connection = $newconnection->openConnection();
-
-        // query using named parameters
-        $query = "INSERT INTO customer_table(`full_name`, `contact_number`, `address`) VALUES(:full_name, :contact_number, :address)";
-
-        // prepare the query
+        //query using positional parameters
+        $query = "INSERT INTO category_table(`category_name`) VALUES(?)";
+        //prepare the query
         $stmt = $connection->prepare($query);
-
-        // bind parameters
-        $stmt->bindParam(':full_name', $full_name, PDO::PARAM_STR);
-        $stmt->bindParam(':contact_number', $contact_number, PDO::PARAM_INT);
-        $stmt->bindParam(':address', $address, PDO::PARAM_STR);
-
-        // execute query
-        $stmt->execute();
-
-        echo "Customer Added Successfully";
+        //execute query
+        $query = $stmt->execute([$category_name]);
+        echo "Category Added Successfully";
     } catch (PDOException $th) {
-        echo "Error Message:" . $th->getMessage();
+        echo "Error Message:" .$th->getMessage();
     }
 }
 

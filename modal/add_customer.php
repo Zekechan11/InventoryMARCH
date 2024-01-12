@@ -25,11 +25,11 @@
                             <input class="form-control" id="address" type="text">
                         </div>
                     </div>
+                    <button class="btn btn-success" type="button" id="btn-customer" name="">Save</button>
                 </form>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-success" type="button" id="btn-customer">Save</button>
             </div>
         </div>
     </div>
