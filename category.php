@@ -1,6 +1,6 @@
 <?php require_once('inc/header.php');
 require_once('function/category.php');
-require_once('function/update.php');
+require_once('function/updel_category.php');
 ?>
 
 <div class="content-inner">

@@ -62,7 +62,8 @@ require_once('function/customer.php');
                                 <td><?= $row['contact_number'] ?></td>
                                 <td><?= $row['address'] ?></td>
                                 <td><i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-customer"></i> |
-                                    <i type="button" class="fa fa-trash _delete_cus" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-customer"></i>
+                                    <i type="button" class="fa fa-trash _delete_cus" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-customer"
+                                    onclick="openDeleteCustomer('<?= $row['customer_id'] ?>')"></i>
                                 </td>
                             </tr>
                             <?php
