@@ -62,7 +62,8 @@ require_once('function/updel_customer.php')
                                 <td><?= $row['full_name'] ?></td>
                                 <td><?= $row['contact_number'] ?></td>
                                 <td><?= $row['address'] ?></td>
-                                <td><i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-customer"></i> |
+                                <td><i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-customer"
+                                onclick="openEditCustomer('<?= $row['customer_id'] ?>','<?= $row['full_name'] ?>','<?= $row['contact_number'] ?>','<?= $row['address'] ?>')"></i> |
                                     <i type="button" class="fa fa-trash _delete_cus" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-customer"
                                     onclick="openDeleteCustomer('<?= $row['customer_id'] ?>')"></i>
                                 </td>
