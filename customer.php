@@ -2,6 +2,7 @@
 
 require_once('inc/header.php');
 require_once('function/customer.php');
+require_once('function/updel_customer.php')
 
 ?>
 
