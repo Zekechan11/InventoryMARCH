@@ -10,26 +10,26 @@
                     <div class="row">
                         <div class="col-12">
                             <label class="form-label" for="modalInputEmail1">Customer Full Name</label>
-                            <input class="form-control" id="fullname" type="text">
+                            <input class="form-control" id="full_name" type="text" name="full_name">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <label class="form-label" for="modalInputEmail1">Contact Number</label>
-                            <input class="form-control" id="contact" type="text" minlength="11" maxlength="11">
+                            <input class="form-control" id="contact_number" name="contact_number" type="text" minlength="11" maxlength="11">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <label class="form-label" for="modalInputEmail1">Address</label>
-                            <input class="form-control" id="address" type="text">
+                            <input class="form-control" id="address" name="address" type="text">
                         </div>
                     </div>
+                    <button class="btn btn-success" type="submit" id="btn-customer" name="add_customer">Save</button>
                 </form>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-success" type="button" id="btn-customer">Save</button>
             </div>
         </div>
     </div>

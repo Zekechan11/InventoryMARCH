@@ -1,4 +1,10 @@
-<?php require_once('inc/header.php'); ?>
+<?php
+
+require_once('inc/header.php');
+require_once('function/customer.php');
+require_once('function/updel_customer.php')
+
+?>
 
 <div class="content-inner">
     <!-- Page Header-->
@@ -37,15 +43,35 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php
+                            // get connection
+                            $connection = $newconnection->openConnection();
+                            // prepare statement
+                            $stmt = $connection->prepare("SELECT * FROM customer_table");
+                            // execute
+                            $stmt->execute();
+                            // fetch
+                            $result = $stmt->fetchAll();
+
+                            if ($result) {
+                                foreach ($result as $row) {
+
+                            ?>
                             <tr>
-                                <td>1</td>
-                                <td>Leonard Balabat</td>
-                                <td>09673520009</td>
-                                <td>Nailon Bogo City, Cebu</td>
-                                <td><i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-customer"></i> |
-                                    <i type="button" class="fa fa-trash _delete_cus" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-customer"></i>
+                                <td><?= $row['customer_id'] ?></td>
+                                <td><?= $row['full_name'] ?></td>
+                                <td><?= $row['contact_number'] ?></td>
+                                <td><?= $row['address'] ?></td>
+                                <td><i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-customer"
+                                onclick="openEditCustomer('<?= $row['customer_id'] ?>','<?= $row['full_name'] ?>','<?= $row['contact_number'] ?>','<?= $row['address'] ?>')"></i> |
+                                    <i type="button" class="fa fa-trash _delete_cus" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-customer"
+                                    onclick="openDeleteCustomer('<?= $row['customer_id'] ?>')"></i>
                                 </td>
                             </tr>
+                            <?php
+                                }
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

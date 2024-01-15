@@ -132,6 +132,21 @@ INSERT INTO `sales_table` (`sale_id`, `product_id`, `quantity`, `price`, `total_
 --
 
 --
+-- Table structure for table `customer_table`
+--
+
+CREATE TABLE `customer_table` (
+  `customer_id` int(11) NOT NULL,
+  `full_name` varchar(45) NOT NULL,
+  `contact_number` int(11) NOT NULL,
+  `address` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
 -- Indexes for table `admin_table`
 --
 ALTER TABLE `admin_table`
@@ -163,8 +178,20 @@ ALTER TABLE `sales_table`
   ADD PRIMARY KEY (`sale_id`);
 
 --
+-- Indexes for table `customer_table`
+--
+ALTER TABLE `customer_table`
+  ADD PRIMARY KEY (`customer_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `customer_table`
+--
+ALTER TABLE `customer_table`
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `admin_table`

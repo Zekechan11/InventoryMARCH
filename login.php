@@ -1,4 +1,16 @@
 
+<?php
+require_once('function/logcon.php');
+
+session_start();
+
+if (isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Bree+Serif&family=Bubblegum+Sans&family=Fascinate+Inline&family=Irish+Grover&family=Oxanium:wght@500&family=Poppins&family=Work+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="logme.css">
+    <link rel="stylesheet" href="css/logme.css">
 </head>
 
 <body>
@@ -22,19 +34,19 @@
         </div>
         <div class="login-box">
         <?php  
-                if(isset($message))  
-                {  
-                     echo '<label class="text-danger">'.$message.'</label>';  
-                }  
-                ?>  
+            if(isset($error_message))  
+            {  
+                echo '<label style="color: red;">'.$error_message.'</label>';  
+            }  
+        ?>
             <h2>Login</h2>
-            <form action="logcon.php" method="POST">
+            <form action="" method="POST">
                 <div class="user-box">
-                    <input type="text" name="username" id="username" required="">
+                    <input type="text" name="username" id="username" required>
                     <label>Username</label>
                 </div>
                 <div class="user-box">
-                    <input type="password" name="password" id="pass" required="">
+                    <input type="password" name="password" id="pass" required>
                     <label>Password</label>
                 </div>
                 <div class="user-box" style="font-size: 12px;">
