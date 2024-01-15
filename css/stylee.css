@@ -27,7 +27,7 @@ li {
 h4 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.275rem;
-    color: var(--bs-emphasis-color);
+    color: #343131;
 }
 
 /* Layouts for admin dashboard */
