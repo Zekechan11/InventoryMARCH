@@ -11,6 +11,7 @@
                     <div class="col-12">
                             <label class="form-label" for="modalInputEmail1">Current Stock</label>
                             <input class="form-control" id="invent_stock" type="text" readonly>
+                            <input type="hidden" id="stonk_id" name="stonk_id">
                         </div>
                         <div class="col-12">
                             <label class="form-label" for="modalInputEmail1">Add Stock</label>
@@ -28,7 +29,8 @@
 </div>
 
 <script>
-    function addStock(stock_in) {
-        document.getElementById('invent_stock').value = stock_in;
+    function addStock(product_id, quantity) {
+        document.getElementById('stonk_id').value = product_id;
+        document.getElementById('invent_stock').value = quantity;
     }
 </script>

@@ -1,7 +1,7 @@
 <?php
 require_once('inc/header.php');
 require_once('function/inventory.php');
-require_once('add_stonk.php');
+require_once('function/add_stonk.php');
 ?>
 
 <div class="content-inner">
@@ -26,7 +26,7 @@ require_once('add_stonk.php');
         <div class="card border-0">
             <div class="card-body">
                 <div class="table-responsive text-center">
-                    <table id="example" class=" display" style="width:100%">
+                    <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
                                 <th class="text-center">Inventory Id</th>
@@ -36,13 +36,21 @@ require_once('add_stonk.php');
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($inventoryData as $row) : ?>
+                            <?php
+                            $stmt = $conn->prepare('SELECT product_id, product_name, quantity
+                                FROM products_table
+                                ORDER BY product_id ASC');
+                            $stmt->execute();
+                            $productList = $stmt->fetchAll();
+
+                            foreach ($productList as $productRow) :
+                            ?>
                                 <tr>
-                                    <td><?= $row['inventory_id'] ?></td>
-                                    <td><?= $row['product_name'] ?></td>
-                                    <td><?= $row['stock_in'] ?></td>
+                                    <td><?= $productRow['product_id'] ?></td>
+                                    <td><?= $productRow['product_name'] ?></td>
+                                    <td><?= (number_format($productRow['quantity'])); ?></td>
                                     <td>
-                                        <i class="fa-solid fa-plus" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#add-stock" onclick="addStock(<?= $row['stock_in'] ?>)"></i>
+                                        <i class="fa-solid fa-plus" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#add-stock" onclick="addStock('<?= $productRow['product_id'] ?>','<?= $productRow['quantity'] ?>')"></i>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

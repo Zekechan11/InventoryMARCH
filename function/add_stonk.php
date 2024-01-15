@@ -1,26 +1,30 @@
 <?php
+include_once 'dbconfig.php';
 
-    include_once 'dbconfig.php';
+// UPDATE STOCK IN DATABASE
+if (isset($_POST['add_stonk'])) {
 
-    //INSERT DATA IN DATABASE
-    if(isset($_POST['add_stonk'])) {
-    
-    //get data from inputs
-    $category_name = $_POST['new_stonk'];
+    // get data from inputs
+    $productId = $_POST['stonk_id']; // product ID
+    $newStock = $_POST['new_stonk']; // stock to be added
 
     try {
-        //get connection
+        // get connection
         $connection = $newconnection->openConnection();
-        //query using positional parameters
-        $query = "INSERT INTO category_table(`category_name`) VALUES(?)";
-        //prepare the query
+        // query using positional parameters
+        $query = "UPDATE products_table SET `quantity` = `quantity` + ? WHERE product_id = ?";
+        // prepare the query
         $stmt = $connection->prepare($query);
-        //execute query
-        $query = $stmt->execute([$category_name]);
-        echo "Category Added Successfully";
+        // execute query
+        $result = $stmt->execute([$newStock, $productId]);
+
+        if ($result) {
+            echo "Stock Added Successfully";
+        } else {
+            echo "Error executing query";
+        }
     } catch (PDOException $th) {
-        echo "Error Message:" .$th->getMessage();
+        echo "Error Message: " . $th->getMessage();
     }
 }
-
 ?>
