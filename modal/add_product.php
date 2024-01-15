@@ -43,7 +43,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="submit" class="btn btn-success">Add Category</button>
+                <button type="submit" name="submit" class="btn btn-success">Add Product</button>
                 </form>
             </div>
         </div>

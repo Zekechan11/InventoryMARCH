@@ -1,12 +1,21 @@
 <?php
 require_once('dbconfig.php');
 
+// Create a new connection instance
+$newConnection = new Connection();
+
+// Open the database connection
+$conn = $newConnection->openConnection();
+
 function getProducts($conn)
 {
     $stmt = $conn->query("SELECT * FROM products_table");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+$products = array();
+
+// Pass the database connection to getProducts function
 $products = getProducts($conn);
 
 if (isset($_POST['add_sales'])) {
@@ -52,4 +61,7 @@ FROM inventory_table i
 INNER JOIN products_table p ON i.product_id = p.product_id;');
 $stmt->execute();
 $inventoryData = $stmt->fetchAll();
+
+// Close the database connection when you're done
+$newConnection->closeConnection();
 ?>

@@ -1,53 +1,32 @@
-<?php require_once('inc/header.php'); ?>
-<!-- Edit Product Modal -->
-<div class="modal fade" id="returned-products" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="edit-product-label" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+
+<!-- Return Product Modal -->
+<div class="modal fade" id="return-product" tabindex="-1" role="dialog" aria-labelledby="del-category-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="edit-product-label">Customer's Returned Products</h1>
+                <h5 class="modal-title" id="del-category-label">Returned Product</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method='post' action='' enctype='multipart/form-data'>
-                    <section class="tables py-4">
-                        <div class="card border-0">
-                            <div class="card-body">
-                                <div class="table-body col-12 text-center">
-                                    <table id="example" class="table table-striped table-sm mx-auto">
-                                        <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
-                                            <tr>
-                                                <th class="text-center">Product Id</th>
-                                                <th class="text-center">Customer Name</th>
-                                                <th class="text-center">Category Name</th>
-                                                <th class="text-center">Product Name</th>
-                                                <th class="text-center">Instock</th>
-                                                <th class="text-center">Price</th>
-                                                <th class="text-center">Date</th>
-                                                <th class="text-center">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody style="vertical-align: middle;">
-                                                <tr>
-
-                                                <td>
-                                                    awkpoqkodwq
-                                                </td>
-                                                
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                <form action="" method="post">
+                    <div class="row">
+                        <p>Are you sure you want to returned this product?</p>
+                        <div class="col-md-10 mb-2">
+                            <label for="edit_quantity" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="edit_quantity" name="edit_quantity">
                         </div>
-                    </section>
-                </form>
+                        <div class="col-md-3 mb-2">
+                            <label for="edit_quantity" class="form-label">Quantity</label>
+                            <input type="number" class="form-control" id="edit_quantity" name="edit_quantity">
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="update_product" class="btn btn-primary">Save Changes</button>
+                <!-- Close and Delete buttons -->
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="submit" class="btn btn-danger" name="return_product">Yes</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
-<?php require_once('inc/footer.php'); ?>

@@ -36,8 +36,6 @@ include_once('function/sales.php');
             <section class="tables py-3">
                 <div class="card border-0">
                     <div class="card-header shadow-sm">
-                        <button type="button" class="btn btn-warning" style="float: right;" data-bs-toggle="modal" data-bs-target="#add-sales">
-                            <i class="fa fa-plus"></i> Add Sales</button>
                         <div class="col-md-3">
                             <select id="inputState" class="form-select">
                                 <option hidden>Choose Customer</option>
@@ -60,7 +58,6 @@ include_once('function/sales.php');
                                         <th class="text-center">Quantity</th>
                                         <th class="text-center">Price</th>
                                         <th class="text-center">Total Price</th>
-                                        <th class="text-center">Discount</th>
                                         <th class="text-center">Date</th>
                                         <th class="text-center">Action</th>
                                     </tr>
@@ -73,11 +70,9 @@ include_once('function/sales.php');
                                             <td><?= $sale['quantity'] ?></td>
                                             <td><?= $sale['price'] ?></td>
                                             <td><?= number_format($sale['quantity'] * $sale['price'], 2) ?></td>
-                                            <td>10%</td>
                                             <td><?= $sale['date'] ?></td>
                                             <td>
-                                                <i class="fa-solid fa-cart-plus" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#"></i> |
-                                                <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-sales"></i>
+                                                <i class="fa-solid fa-cart-plus" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#"></i>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -107,7 +102,8 @@ include_once('function/sales.php');
                                             <td><?= $sale['sale_id'] ?></td>
                                             <td><?= $sale['product_name'] ?></td>
                                             <td>
-                                                <i class="fas fa-eye" type="button" style="color: blue;" data-bs-toggle="modal" data-bs-target="#view-transaction"></i>
+                                                <i class="fas fa-eye" type="button" style="color: blue;" data-bs-toggle="modal" data-bs-target="#view-transaction"></i> |
+                                                <i class="fa-solid fa-print" type="button" style="color: blue;" data-bs-toggle="modal" data-bs-target="#"></i>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -187,5 +183,5 @@ include_once('function/sales.php');
 </script>
 
 <?php require_once('modal/add_sales.php'); ?>
-<?php require_once('modal/view_transaction_history.php'); ?>
+<?php require_once('modal/returned_products.php'); ?>
 <?php require_once('inc/footer.php'); ?>

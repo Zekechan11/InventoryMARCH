@@ -26,12 +26,11 @@
                             <input class="form-control" id="edit_address" name="edit_address" type="text">
                         </div>
                     </div>
-                    <button class="btn btn-success" type="submit" name="update_customer" id="btn-customer">Save</button>
-                </form>
             </div>
             <div class="modal-footer">
+                <button class="btn btn-success" type="submit" name="update_customer" id="btn-customer">Save</button>
                 <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
-                
+                </form>
             </div>
         </div>
     </div>
