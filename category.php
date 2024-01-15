@@ -57,7 +57,7 @@ require_once('function/updel_category.php');
                                         <td><?= $row['category_id'] ?></td>
                                         <td><?= $row['category_name'] ?></td>
                                         <td>
-                                            <i class="fas fa-eye view_P" type="button" style="color: blue;" data-bs-toggle="modal" data-bs-target="#view-category"></i> |
+                                            <i class="fas fa-eye view_P" type="button" style="color: blue;" data-bs-toggle="modal" data-bs-target="#view-category" onclick="openViewCategory('<?= $row['category_id'] ?>')"></i> |
                                             <i class="fa fa-edit edit_C" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-category"></i> |
                                             <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-category"></i>
                                         </td>

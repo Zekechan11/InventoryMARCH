@@ -4,32 +4,42 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Category List</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
       </div>
       <div class="modal-body">
         <section class="content container-fluid">
           <div class="box box-success">
             <div class="row">
-              <div class="col-md-6">
-                <ul class="list-group">
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                <?php
+                  $connection = $newconnection->openConnection();
 
-                  <center>
-                    <p class="list-group-item list-group-item-success">List of Category</p>
-                  </center>
-                  <li class="list-group-item"><span><input class="border-0" id="product-name" disabled></span></li>
-                  <li class="list-group-item"><span><input class="border-0" id="category-name" disabled></span></li>
-                  <li class="list-group-item"><span><input class="border-0" id="quantity-num" disabled></span></li>
-                  <li class="list-group-item"><span><input class="border-0" id="price-price" disabled></span></li>
-                </ul>
-              </div>
-              <div class="col-md-6">
-                <ul class="list-group">
-                  <center>
-                    <p class="list-group-item list-group-item-success">Product Image</p>
-                  </center>
-                  <img id="image-chan" alt="Product Image" class="img-responsive">
-                </ul>
-              </div>
+                  $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : null;
+
+                  $stmt = $connection->prepare("SELECT * FROM products_table WHERE category_id = ?");
+                  $stmt->bindParam(1, $category_id);
+                  $stmt->execute();
+                  $result = $stmt->fetchAll();
+
+                  if ($result) {
+                    foreach ($result as $row) {
+                  ?>
+                      <tr>
+                        <td><?= $row['product_id'] ?></td>
+                        <td><?= $row['product_name'] ?></td>
+                      </tr>
+                  <?php
+                    }
+                  }
+                ?>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -37,3 +47,10 @@
     </div>
   </div>
 </div>
+
+<script>
+  function openViewCategory(category_id) {
+    var newUrl = window.location.href.split('?')[0] + '?category_id=' + category_id;
+    window.history.pushState({ path: newUrl }, '', newUrl);
+  }
+</script>
