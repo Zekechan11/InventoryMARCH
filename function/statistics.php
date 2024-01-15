@@ -31,4 +31,6 @@ function getInventoryCount($conn)
     return $result['inventory_count'];
 }
 
-?>
+$recentlyAddedQuery = "SELECT * FROM products_table WHERE date_added >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)";
+$recentlyAddedResult = $conn->query($recentlyAddedQuery);
+$recentlyAddedProducts = $recentlyAddedResult->fetchAll(PDO::FETCH_ASSOC);

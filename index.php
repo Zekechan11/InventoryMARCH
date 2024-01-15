@@ -216,9 +216,6 @@ require_once('function/statistics.php');
                     <?php } ?>
                         <tbody>
                             <?php
-                            $recentlyAddedQuery = "SELECT * FROM products_table WHERE date_added >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)";
-                            $recentlyAddedResult = $conn->query($recentlyAddedQuery);
-                            $recentlyAddedProducts = $recentlyAddedResult->fetchAll(PDO::FETCH_ASSOC);
 
                             if (empty($recentlyAddedProducts)) {
                                 echo "No products added in the last 7 days.\n";
