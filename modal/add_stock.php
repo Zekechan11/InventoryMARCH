@@ -8,17 +8,27 @@
             <div class="modal-body">
                 <form enctype="form-data" method="POST">
                     <div class="row">
+                    <div class="col-12">
+                            <label class="form-label" for="modalInputEmail1">Current Stock</label>
+                            <input class="form-control" id="invent_stock" type="text" readonly>
+                        </div>
                         <div class="col-12">
-                            <label class="form-label" for="modalInputEmail1">Stock</label>
-                            <input class="form-control" id="fullname" type="text">
+                            <label class="form-label" for="modalInputEmail1">Add Stock</label>
+                            <input class="form-control" id="new_stonk" name="new_stonk" type="text">
                         </div>
                     </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-success" type="submit" id="btn-customer">Save</button>
+                <button class="btn btn-success" type="submit" id="btn-customer" name="add_stonk">Save</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function addStock(stock_in) {
+        document.getElementById('invent_stock').value = stock_in;
+    }
+</script>
