@@ -1,8 +1,8 @@
 <div class="modal fade text-start" id="edit-customer" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Add Customer</h5>
+            <div class="modal-header" style="background-color: #227EA2; color:white;">
+                <h5 class="modal-title" id="myModalLabel">Edit Customer</h5>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -28,8 +28,8 @@
                     </div>
             </div>
             <div class="modal-footer">
+                <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancel</button>
                 <button class="btn btn-success" type="submit" name="update_customer" id="btn-customer">Save</button>
-                <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
                 </form>
             </div>
         </div>

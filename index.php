@@ -85,9 +85,11 @@ require_once('function/statistics.php');
                             <h4 class="mb-2">
                                 <i class="fa-solid fa-rectangle-list pe-2"></i>Category
                             </h4>
-                            <p class="mb-2" style="font-size: large; font-weight:600;">
+                            <center>
+                            <p class="mb-2" style="font-size: large; font-weight:600; color:#3E3D41;">
                                 <?php echo getCategoryCount($conn); ?>
                             </p>
+                            </center>
                             <div class="mb-0">
                                 <span class="badge me-2">
                                     +9.0%
@@ -108,9 +110,11 @@ require_once('function/statistics.php');
                             <h4 class="mb-2">
                                 <i class="fa-solid fa-box pe-2"></i>Products
                             </h4>
-                            <p class="mb-2" style="font-size: large; font-weight:600;">
+                            <center>
+                            <p class="mb-2" style="font-size: large; font-weight:600; color:#3E3D41;">
                                 <?php echo getProductCount($conn); ?>
                             </p>
+                            </center>
                             <div class="mb-0">
                                 <span class="badge me-2">
                                     +9.0%
@@ -131,9 +135,11 @@ require_once('function/statistics.php');
                             <h4 class="mb-2">
                                 <i class="fa-solid fa-box pe-2"></i>Inventory
                             </h4>
-                            <p class="mb-2" style="font-size: large; font-weight:600;">
+                            <center>
+                            <p class="mb-2" style="font-size: large; font-weight:600; color:#3E3D41;">
                                 <?php echo getInventoryCount($conn); ?>
                             </p>
+                            </center>
                             <div class="mb-0">
                                 <span class="badge me-2">
                                     +9.0%
@@ -154,9 +160,11 @@ require_once('function/statistics.php');
                             <h4 class="mb-2">
                                 <i class="fa-solid fa-box pe-2"></i>Returned Items
                             </h4>
-                            <p class="mb-2" style="font-size: large; font-weight:600;">
+                            <center>
+                            <p class="mb-2" style="font-size: large; font-weight:600; color:#3E3D41;">
                                 300
                             </p>
+                            </center>
                             <div class="mb-0">
                                 <span class="badge me-2">
                                     +9.0%
@@ -177,9 +185,11 @@ require_once('function/statistics.php');
                             <h4 class="mb-2">
                                 <i class="fa-solid fa-box pe-2"></i>Sales
                             </h4>
-                            <p class="mb-2" style="font-size: large; font-weight:600;">
+                            <center>
+                            <p class="mb-2" style="font-size: large; font-weight:600; color:#3E3D41;">
                                 300
                             </p>
+                            </center>
                             <div class="mb-0">
                                 <span class="badge me-2">
                                     +9.0%
@@ -198,7 +208,7 @@ require_once('function/statistics.php');
         <div class="row g-0 px-2">
             <div class="card mb-0 border-0 col-md-7">
                 <div class="card-header">
-                    <h5 class="card-title mb-0 py-2">
+                    <h5 class="card-title mb-0 py-2" style="color:#3E3D41;">
                         Recently Added Products
                     </h5>
                 </div>
@@ -226,7 +236,7 @@ require_once('function/statistics.php');
                                         <td><?= $product['product_id'] ?></td>
                                         <td><?= $product['product_name'] ?></td>
                                         <td><?= $product['quantity'] ?></td>
-                                        <td><?= $product['price'] ?></td>
+                                        <td>₱ <?= $product['price'] ?></td>
                                     </tr>
                             <?php
                                 }
@@ -240,7 +250,7 @@ require_once('function/statistics.php');
             <!-- HIGHEST SELLING PRODUCTS -->
             <div class="card mb-0 border-0 col-4">
                 <div class="card-header highest">
-                    <h5 class="card-title mb-0 py-2">
+                    <h5 class="card-title mb-0 py-2" style="color:#3E3D41;">
                         Highest Selling Products
                     </h5>
                 </div>

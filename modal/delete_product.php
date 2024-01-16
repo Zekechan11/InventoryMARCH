@@ -15,7 +15,7 @@
                     <input  id="delete_product_id" name="delete_product_id" value="" style="display: none;">
                     <!-- <input type="hidden" id="delete-category-name" name="delete_category_name" value=""> -->
                     <!-- Close and Delete buttons -->
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-danger" name="delete_product">Delete</button>
                 </div>
             </form>

@@ -9,7 +9,6 @@
             </div>
             <div class="modal-body">
                 <form method='post' action='' enctype='multipart/form-data'>
-
                     <div class="card-body">
                         <div class="table-body col-12 text-center">
                             <table id="example" class="table table-striped table-sm mx-auto">
@@ -60,9 +59,9 @@
                             </table>
                         </div>
                     </div>
-
+                   
                     <div class="col-md-1" style="position: relative;left:1000px;">
-                        <label for="text" class="form-label">Voucher</label>
+                        <label for="text" class="form-label">Voucher :</label>
                         <select class="form-select" name="edit_category_name" id="edit_category_name">
                             <option selected disabled value=""></option>
                             <option>10%</option>
@@ -70,9 +69,19 @@
                             <option>50%</option>
                         </select>
                     </div>
-                    <div class="col-md-4 float-end">
+                    <div class="row">
+                    <div class="col-md-3">
+                        <label for="text" class="form-label">Cash :</label>
+                        <input type="text" placeholder="₱ 00.0">
+                    </div>
+                    <div class="col-md-3">
                         <label for="text" class="form-label">Total :</label>
-                        <input type="text">
+                        <input type="text" placeholder="₱ 00.0">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="text" class="form-label">Change :</label>
+                        <input type="text" placeholder="₱ 00.0">
+                    </div>
                     </div>
             </div>
             <div class="modal-footer">

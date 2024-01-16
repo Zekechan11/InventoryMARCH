@@ -183,5 +183,6 @@ include_once('function/sales.php');
 </script>
 
 <?php require_once('modal/add_sales.php'); ?>
+<?php require_once('modal/view_transaction_history.php'); ?>v
 <?php require_once('modal/returned_products.php'); ?>
 <?php require_once('inc/footer.php'); ?>

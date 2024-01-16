@@ -54,5 +54,4 @@ require_once('function/inventory.php');
 </div>
 
 <?php include_once('modal/add_stock.php');?>
-<?php include_once('modal/delete_stock.php');?>
 <?php require_once('inc/footer.php'); ?>
