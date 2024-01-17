@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION['username'] = $username;
 
-            header("Location: index.php");
+            header("Location: dashboard.php");
             exit();
         } else {
             $error_message = "Incorrect username or password";
@@ -70,4 +70,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 

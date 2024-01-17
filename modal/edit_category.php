@@ -2,8 +2,8 @@
 <div class="modal fade" id="edit-category" tabindex="-1" aria-labelledby="edit-category-label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="edit-category-label">Edit Category</h5>
+            <div class="modal-header" style="background-color: #227EA2;">
+                <h5 class="modal-title text-white" id="edit-category-label">Edit Category</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="post" action="">
@@ -15,8 +15,8 @@
                     <input type="hidden" id="edit-category-id" name="edit_category_id">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" name="update_category">Save changes</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success" name="update_category">Save changes</button>
                 </div>
             </form>
         </div>

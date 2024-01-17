@@ -15,7 +15,7 @@ require_once('dbconfig.php');
         <div class="container-fluid">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 px-3 py-1">
-                    <li class="breadcrumb-item"><a class="fw-light" href="index.php">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a class="fw-light" href="dashboard.php">Dashboard</a></li>
                     <li class="breadcrumb-item active fw-light" aria-current="page">Manage Transactions</li>
                 </ol>
             </nav>
@@ -109,6 +109,7 @@ require_once('dbconfig.php');
                                     <tr>
                                         <th class="text-center">Customer Id</th>
                                         <th class="text-center">Customer Name</th>
+                                        <th class="text-center">Pending</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -117,6 +118,7 @@ require_once('dbconfig.php');
                                         <tr>
                                             <td><?= $sale['sale_id'] ?></td>
                                             <td><?= $sale['product_name'] ?></td>
+                                            <td>pending</td>
                                             <td>
                                                 <i class="fas fa-eye" type="button" style="color: blue;" data-bs-toggle="modal" data-bs-target="#view-transaction"></i> |
                                                 <i class="fa-solid fa-print" type="button" style="color: blue;" data-bs-toggle="modal" data-bs-target="#"></i>
@@ -131,20 +133,16 @@ require_once('dbconfig.php');
             </section>
         </div>
         <div class="tab-pane fade" id="history-tab-pane" role="tabpanel" aria-labelledby="history-tab" tabindex="0">
-            <section class="tables py-3">
+        <section class="tables py-3">
                 <div class="card border-0">
                     <div class="card-body">
                         <div class="table-body col-12 text-center">
-                            <table id="example1" class=" display" style="width:100%;">
+                            <table class="table table-striped table-hover" style="width:100%;">
                                 <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                                     <tr>
-                                        <th class="text-center">Product Id</th>
-                                        <th class="text-center">Product Name</th>
-                                        <th class="text-center">Quantity</th>
-                                        <th class="text-center">Price</th>
-                                        <th class="text-center">Total Price</th>
-                                        <th class="text-center">Discount</th>
-                                        <th class="text-center">Date</th>
+                                        <th class="text-center">Customer Id</th>
+                                        <th class="text-center">Customer Name</th>
+                                        <th class="text-center">Pending</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -153,14 +151,10 @@ require_once('dbconfig.php');
                                         <tr>
                                             <td><?= $sale['sale_id'] ?></td>
                                             <td><?= $sale['product_name'] ?></td>
-                                            <td><?= $sale['quantity'] ?></td>
-                                            <td><?= $sale['price'] ?></td>
-                                            <td><?= number_format($sale['quantity'] * $sale['price'], 2) ?></td>
-                                            <td>10%</td>
-                                            <td><?= $sale['date'] ?></td>
+                                            <td>Paid</td>
                                             <td>
-                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
-                                        </td>
+                                                <i class="fas fa-eye" type="button" style="color: blue;" data-bs-toggle="modal" data-bs-target="#view-purchased"></i>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -173,31 +167,7 @@ require_once('dbconfig.php');
     </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const minusIcons = document.querySelectorAll('.minus-icon');
-
-        minusIcons.forEach(function(icon) {
-            icon.addEventListener('click', function() {
-                // Show the second modal when the minus icon is clicked
-                $('#return-product').modal('show');
-            });
-        });
-
-        // Set higher z-index for the second modal when shown
-        $('#return-product').on('show.bs.modal', function() {
-            setTimeout(function() {
-                $('.modal-backdrop').last().after('<div class="modal-backdrop fade show"></div>');
-            }, 0);
-        });
-
-        // Reset z-index when the second modal is closed
-        $('#return-product').on('hidden.bs.modal', function() {
-            $('.modal-backdrop').remove();
-        });
-    });
-</script>
-
 <?php require_once('modal/add_sales.php'); ?>
-<?php require_once('modal/returned_products.php'); ?>
+<?php require_once('modal/view_transaction_history.php'); ?>
+<?php require_once('modal/view_customer_purchased.php'); ?>
 <?php require_once('inc/footer.php'); ?>

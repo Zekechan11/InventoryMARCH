@@ -16,7 +16,7 @@ require_once('function/add_stonk.php');
         <div class="container-fluid">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 px-3 py-1">
-                    <li class="breadcrumb-item"><a class="fw-light" href="index.php">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a class="fw-light" href="dashboard.php">Dashboard</a></li>
                     <li class="breadcrumb-item active fw-light" aria-current="page">Manage Inventory</li>
                 </ol>
             </nav>
@@ -57,11 +57,33 @@ require_once('function/add_stonk.php');
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </section>
         </div>
-    </section>
+        <div class="tab-pane fade" id="history-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            <section class="tables py-4">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <div class="table-responsive text-center">
+                            <table id="example1" class=" display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Inventory Id</th>
+                                        <th class="text-center">Product Name</th>
+                                        <th class="text-center">Stock In</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
 </div>
 
-<?php include_once('modal/add_stock.php');?>
-<?php include_once('modal/delete_stock.php');?>
+<?php include_once('modal/add_stock.php'); ?>
 <?php require_once('inc/footer.php'); ?>

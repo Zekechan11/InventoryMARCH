@@ -1,7 +1,7 @@
 <div class="modal fade text-start" id="add-stock" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="background-color: #227EA2; color:white;">
                 <h5 class="modal-title" id="myModalLabel">Add Stock</h5>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>

@@ -7,12 +7,14 @@
                 <div class="row g-0 w-100">
                     <div class="col-6">
                         <div class="p-3 m-1">
-                            <h4>Welcome Back, ME</h4>
-                            <p class="mb-0">Admin Dashboard, Inventory</p>
+                            <h4>Welcome Back, Admin</h4>
+                            <p class="mb-0">Name : </p>
+                            <p class="mb-0">Email : </p>
                         </div>
+
                     </div>
                     <div class="col-6 align-self-end text-end">
-                        <img src="image/INV.png" class="img-fluid illustration-img" alt="">
+                        <img src="image/yokai.jpg" class="img-fluid illustration-img" alt="">
                     </div>
                 </div>
             </div>

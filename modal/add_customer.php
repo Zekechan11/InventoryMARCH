@@ -1,7 +1,7 @@
 <div class="modal fade text-start" id="add-customer" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="background-color: #227EA2; color:white;">
                 <h5 class="modal-title" id="myModalLabel">Add Customer</h5>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -27,8 +27,8 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-success" type="submit" id="btn-customer" name="add_customer">Add</button>
-                <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancel</button>
+                <button class="btn btn-success" type="submit" id="btn-customer" name="add_customer">Add Customer</button>
                 </form>
             </div>
         </div>

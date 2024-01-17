@@ -14,7 +14,7 @@
                     <!-- Input fields to store category_id and category_name -->
                     <input type="hidden" id="delete_customer_id" name="delete_customer_id" value="">
                     <!-- Close and Delete buttons -->
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-danger" name="delete_customer">Delete</button>
                 </div>
             </form>
