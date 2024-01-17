@@ -1,5 +1,6 @@
 <?php require_once('inc/header.php');
 include_once('function/sales.php');
+require_once('dbconfig.php');
 ?>
 
 <div class="content-inner">
@@ -39,7 +40,22 @@ include_once('function/sales.php');
                         <div class="col-md-3">
                             <select id="inputState" class="form-select">
                                 <option hidden>Choose Customer</option>
-                                <option>Edison Pagatpat</option>
+                                <?php
+                                $newconnection = new Connection();
+
+                                try {
+                                    $pdo = $newconnection->openConnection();
+                                    $query = "SELECT full_name FROM customer_table";
+                                    $stmt = $pdo->query($query);
+                                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                        echo "<option>" . $row['full_name'] . "</option>";
+                                    }
+                                } catch (PDOException $e) {
+                                    echo "Error: " . $e->getMessage();
+                                } finally {
+                                    $newconnection->closeConnection();
+                                }
+                                ?>
                             </select>
                             <div class="col-md-2 bg-black " style="position: relative;width:50px;height:30px;left:310px;bottom:35px;border-radius:5px;"">
                                 <p class=" mb-0 text-center" style="font-size: 15px; font-weight:600;color:white;position:relative;top:5px;">
