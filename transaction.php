@@ -79,25 +79,36 @@ require_once('dbconfig.php');
                                         <th class="text-center">Product Name</th>
                                         <th class="text-center">Quantity</th>
                                         <th class="text-center">Price</th>
-                                        <th class="text-center">Total Price</th>
                                         <th class="text-center">Date</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody style="vertical-align: middle;">
-                                    <?php foreach ($sales_data as $sale) : ?>
+                                <tbody>
+                                    <?php
+
+                                    $stmt = $conn->prepare('SELECT p.product_id, COALESCE(c.category_name, "Category Deleted") AS category_name, c.category_id, p.product_name, p.image, p.quantity, p.price, p.date_added
+                                    FROM products_table p
+                                    LEFT JOIN category_table c ON p.category_id = c.category_id
+                                    ORDER BY p.product_id ASC');
+                                    $stmt->execute();
+                                    $productList = $stmt->fetchAll();
+
+                                    foreach ($productList as $row) {
+                                    ?>
                                         <tr>
-                                            <td><?= $sale['sale_id'] ?></td>
-                                            <td><?= $sale['product_name'] ?></td>
-                                            <td><?= $sale['quantity'] ?></td>
-                                            <td><?= $sale['price'] ?></td>
-                                            <td><?= number_format($sale['quantity'] * $sale['price'], 2) ?></td>
-                                            <td><?= $sale['date'] ?></td>
+                                            <td><?= $row['product_id'] ?></td>
+                                            
+                                            <td><?= $row['product_name'] ?></td>
+                                            <td><?= (number_format($row['quantity'])); ?></td>
+                                            <td>₱ <?= (number_format($row['price'], 2)); ?></td>
+                                            <td><?= $row['date_added'] ?></td>
                                             <td>
                                                 <i class="fa-solid fa-cart-plus" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#"></i>
                                             </td>
                                         </tr>
-                                    <?php endforeach; ?>
+                                    <?php
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
