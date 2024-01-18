@@ -31,6 +31,9 @@
                     <input type="date" class="form-control" id="inputCity">
                 </div>
             </div>
+            <div class="col-md-11">
+                <button type="submit" name="filter" class="btn btn-success float-end">Filter</button>
+            </div>
         </form>
     </div>
     <section class="tables py-4">

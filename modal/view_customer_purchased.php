@@ -1,10 +1,10 @@
 <?php require_once('inc/header.php'); ?>
 <!-- Edit Product Modal -->
-<div class="modal fade" id="view-transaction" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="edit-product-label" aria-hidden="true">
+<div class="modal fade" id="view-purchased" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="edit-product-label" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="edit-product-label">Customer's Purchased</h1>
+                <h1 class="modal-title fs-5" id="edit-product-label">History Purchased</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -20,6 +20,7 @@
                                         <th class="text-center">Price</th>
                                         <th class="text-center">Total Price</th>
                                         <th class="text-center">Date</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody style="vertical-align: middle;">
@@ -30,6 +31,9 @@
                                         <td>80.00</td>
                                         <td>160.00</td>
                                         <td>2023-12-11 22:50:21</td>
+                                        <td>
+                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
@@ -38,6 +42,9 @@
                                         <td>80.00</td>
                                         <td>400.00</td>
                                         <td>2023-12-12 01:08:22</td>
+                                        <td>
+                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
@@ -46,6 +53,9 @@
                                         <td>80.00</td>
                                         <td>400.00</td>
                                         <td>2023-12-12 01:08:22</td>
+                                        <td>
+                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
@@ -54,20 +64,17 @@
                                         <td>80.00</td>
                                         <td>400.00</td>
                                         <td>2023-12-12 01:08:22</td>
+                                        <td>
+                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                   
-                    <div class="col-md-1" style="position: relative;left:1000px;">
+                    <div class="col-md-0" style="position: relative;left:1000px;">
                         <label for="text" class="form-label">Voucher :</label>
-                        <select class="form-select" name="edit_category_name" id="edit_category_name">
-                            <option selected disabled value=""></option>
-                            <option>10%</option>
-                            <option>30%</option>
-                            <option>50%</option>
-                        </select>
+                        <label for="">30%</label>
                     </div>
                     <div class="row">
                     <div class="col-md-3">
@@ -84,12 +91,34 @@
                     </div>
                     </div>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success" name="process_transaction">Pay</button>
-                </form>
-            </div>
         </div>
     </div>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const minusIcons = document.querySelectorAll('.minus-icon');
+
+        minusIcons.forEach(function(icon) {
+            icon.addEventListener('click', function() {
+                // Show the second modal when the minus icon is clicked
+                $('#return-product').modal('show');
+            });
+        });
+
+        // Set higher z-index for the second modal when shown
+        $('#return-product').on('show.bs.modal', function() {
+            setTimeout(function() {
+                $('.modal-backdrop').last().after('<div class="modal-backdrop fade show"></div>');
+            }, 0);
+        });
+
+        // Reset z-index when the second modal is closed
+        $('#return-product').on('hidden.bs.modal', function() {
+            $('.modal-backdrop').remove();
+        });
+    });
+</script>
+
 <?php require_once('inc/footer.php'); ?>
+<?php require_once('modal/returned_products.php'); ?>

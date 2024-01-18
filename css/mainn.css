@@ -151,9 +151,13 @@ li.active a {
 }
 
 
+/* PROFILE CARD */
 .illustration {
-    background-color: orange;
-    color:  var(--bs-emphasis-color);
+    background-color: #175F7C; 
+    color:white;
+}
+.illustration h4 {
+    color:white;
 }
 
 .illustration-img {
