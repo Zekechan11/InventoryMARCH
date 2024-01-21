@@ -11,7 +11,7 @@
                 <form method='post' action='' enctype='multipart/form-data'>
                     <div class="card-body">
                         <div class="table-body col-12 text-center">
-                            <table id="example" class="table table-striped table-sm mx-auto">
+                            <table class="table table-striped table-sm mx-auto">
                                 <thead class="table table-dark" style="position: sticky; top: 0; background-color: white; z-index: 1;">
                                     <tr>
                                         <th class="text-center">Product Id</th>
