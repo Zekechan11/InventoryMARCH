@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="col-md-11">
-                <button type="submit" name="filter" class="btn btn-primary btn-sm float-end" style="position: relative;bottom:15px;">Filter</button>
+                <button type="submit" name="filter" class="btn btn-primary btn-sm float-end" style="position: relative;bottom:15px;">pink</button>
             </div>
         </form>
     </div>

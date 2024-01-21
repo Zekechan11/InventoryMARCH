@@ -22,13 +22,19 @@ include_once('function/sales.php');
     </div>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" style="color: black;" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Transaction</button>
+            <button class="nav-link active" id="home-tab" style="color: black;" data-bs-toggle="tab" 
+            data-bs-target="#home-tab-pane" type="button" role="tab"
+            aria-controls="home-tab-pane" aria-selected="true">Transaction</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" style="color: black;" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Pending</button>
+            <button class="nav-link" id="profile-tab" style="color: black;" data-bs-toggle="tab" 
+            data-bs-target="#profile-tab-pane" type="button" role="tab" 
+            aria-controls="profile-tab-pane" aria-selected="false">Pending</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="history-tab" style="color: black;" data-bs-toggle="tab" data-bs-target="#history-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">History</button>
+            <button class="nav-link" id="history-tab" style="color: black;" data-bs-toggle="tab" 
+            data-bs-target="#history-tab-pane" type="button" role="tab" 
+            aria-controls="profile-tab-pane" aria-selected="false">History</button>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">

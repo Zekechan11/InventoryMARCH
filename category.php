@@ -11,7 +11,7 @@ require_once('function/updel_category.php');
         </div>
     </header>
     <!-- Breadcrumb-->
-    <div class="bg-white">
+    <div class="bg-white" >
         <div class="container-fluid">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 px-3 py-1">
