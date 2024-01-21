@@ -63,8 +63,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             }
                             ?>
                         </select>
-                        <div class="col-md-2 bg-black " style="position: relative;width:50px;height:30px;left:310px;bottom:35px;border-radius:5px;"">
-                                <p class=" mb-0 text-center" style="font-size: 15px; font-weight:600;color:white;position:relative;top:5px;">
+                            <div class="col-md-2 bg-black " style="position: relative;width:50px;height:30px;left:310px;bottom:35px;border-radius:5px;"">
+                            <p class=" mb-0 text-center" style="font-size: 15px; font-weight:600;color:white;position:relative;top:5px;">
                             10
                             </p>
                         </div>
@@ -79,6 +79,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <th class="text-center">Product Name</th>
                                     <th class="text-center">Quantity</th>
                                     <th class="text-center">Price</th>
+                                    <th class="text-center">Total Price</th>
                                     <th class="text-center">Date</th>
                                     <th class="text-center">Action</th>
                                 </tr>
@@ -86,10 +87,10 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <tbody>
                                 <?php
 
-                                $stmt = $conn->prepare('SELECT p.product_id, COALESCE(c.category_name, "Category Deleted") AS category_name, c.category_id, p.product_name, p.image, p.quantity, p.price, p.date_added
-                                    FROM products_table p
-                                    LEFT JOIN category_table c ON p.category_id = c.category_id
-                                    ORDER BY p.product_id ASC');
+                                $stmt = $conn->prepare('SELECT p.product_id, COALESCE(c.category_name, "Category Deleted") AS category_name,
+                                c.category_id,p.product_name,p.image,p.quantity,p.price,
+                                p.date_added,(p.quantity * p.price) AS total_price FROM products_table p
+                                LEFT JOIN category_table c ON p.category_id = c.category_id ORDER BY p.product_id ASC');
                                 $stmt->execute();
                                 $productList = $stmt->fetchAll();
 
@@ -97,13 +98,13 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 ?>
                                     <tr>
                                         <td><?= $row['product_id'] ?></td>
-
                                         <td><?= $row['product_name'] ?></td>
                                         <td><?= (number_format($row['quantity'])); ?></td>
                                         <td>₱ <?= (number_format($row['price'], 2)); ?></td>
+                                        <td>₱ <?= (number_format($row['total_price'], 2)); ?></td>
                                         <td><?= $row['date_added'] ?></td>
                                         <td>
-                                            <i class="fa-solid fa-cart-plus" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#"></i>
+                                            <i class="fa-solid fa-cart-plus" name="add_sales" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#"></i>
                                         </td>
                                     </tr>
                                 <?php

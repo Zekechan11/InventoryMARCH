@@ -38,6 +38,15 @@
   </div>
 </div>
 
+
+<style>
+    #image-chan {
+        max-height: 350px; /* Adjust the value as needed */
+        width: auto;
+    }
+</style>
+
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const viewButton = document.querySelectorAll('.view_P');

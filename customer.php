@@ -58,7 +58,7 @@ require_once('function/updel_customer.php')
                             <tr>
                                 <td><?= $row['customer_id'] ?></td>
                                 <td><?= $row['full_name'] ?></td>
-                                <td><?= $row['contact_number'] ?></td>
+                                <td><?php echo ($row['contact_number'][0] == '0') ? $row['contact_number'] : '0' . $row['contact_number']; ?></td>
                                 <td><?= $row['address'] ?></td>
                                 <td><i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#edit-customer"
                                 onclick="openEditCustomer('<?= $row['customer_id'] ?>','<?= $row['full_name'] ?>','<?= $row['contact_number'] ?>','<?= $row['address'] ?>')"></i> |
