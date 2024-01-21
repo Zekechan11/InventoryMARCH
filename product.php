@@ -16,7 +16,7 @@ require_once('function/delete_product.php');
         <div class="container-fluid">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 px-3 py-1">
-                    <li class="breadcrumb-item"><a class="fw-light" href="dashboard.php">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a class="fw-light" href=".php">Dashboard</a></li>
                     <li class="breadcrumb-item active fw-light" aria-current="page">Manage Product</li>
                 </ol>
             </nav>
