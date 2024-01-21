@@ -59,30 +59,6 @@ require_once('function/add_stonk.php');
                 </div>
             </section>
         </div>
-        <div class="tab-pane fade" id="history-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            <section class="tables py-4">
-                <div class="card border-0">
-                    <div class="card-body">
-                        <div class="table-responsive text-center">
-                            <table id="example1" class=" display" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">Inventory Id</th>
-                                        <th class="text-center">Product Name</th>
-                                        <th class="text-center">Stock In</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-
 </div>
 
 <?php include_once('modal/add_stock.php'); ?>
