@@ -40,7 +40,7 @@ require_once('dbconfig.php');
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-            <section class="tables py-3">
+           
                 <div class="card border-0">
                     <div class="card-header shadow-sm">
                         <div class="col-md-3">
@@ -72,7 +72,7 @@ require_once('dbconfig.php');
                     </div>
                     <div class="card-body">
                         <div class="table-body col-12 text-center">
-                            <table id="example" class=" display" style="width:100%;">
+                            <table id="example1" class=" display" style="width:100%;">
                                 <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                                     <tr>
                                         <th class="text-center">Product Id</th>
@@ -114,7 +114,7 @@ require_once('dbconfig.php');
                         </div>
                     </div>
                 </div>
-            </section>
+         
         </div>
         <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
             <section class="tables py-3">

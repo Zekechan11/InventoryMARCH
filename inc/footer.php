@@ -8,8 +8,20 @@
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script>
-        new DataTable('#example');
-        new DataTable('#example1');
+              $(document).ready(function () {
+        $('#example').DataTable({
+            "scrollY": "380px", // Set the desired height for vertical scrolling
+            "scrollCollapse": true,
+            // "paging": false, // You can leave the pagination enabled if needed
+        });
+    });
+        $(document).ready(function () {
+        $('#example1').DataTable({
+            "scrollY": "300px", // Set the desired height for vertical scrolling
+            "scrollCollapse": true,
+            // "paging": false, // You can leave the pagination enabled if needed
+        });
+    });
 
         if (document.querySelector('.sidebar-nav')) {
             var currentUrl = window.location.href;
