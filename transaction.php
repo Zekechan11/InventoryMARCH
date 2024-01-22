@@ -43,6 +43,9 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="card border-0">
                 <div class="card-header shadow-sm">
+            <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#add-category">
+                <i class="fa fa-circle-arrow-right"></i> Process
+            </button>
                     <div class="col-md-3">
                         <select id="inputState" class="form-select">
                             <option hidden>Choose Customer</option>
@@ -104,7 +107,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <td>₱ <?= (number_format($row['total_price'], 2)); ?></td>
                                         <td><?= $row['date_added'] ?></td>
                                         <td>
-                                            <i class="fa-solid fa-cart-plus" name="add_sales" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#"></i>
+                                            <i class="fa-solid fa-cart-plus" name="add_sales" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#addto-cart"></i>
                                         </td>
                                     </tr>
                                 <?php
@@ -234,4 +237,5 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php require_once('modal/add_sales.php'); ?>
 <?php require_once('modal/view_transaction_history.php'); ?>
 <?php require_once('modal/view_customer_purchased.php'); ?>
+<?php require_once('modal/cart.php'); ?>
 <?php require_once('inc/footer.php'); ?>
