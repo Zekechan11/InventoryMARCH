@@ -8,7 +8,7 @@ require_once('function/add_stonk.php');
     <!-- Page Header-->
     <header class="bg-white px-4">
         <div class="container-fluid px-0">
-            <h2 class="mb-0">Manage Inventory</h2>
+            <h2 class="mb-0" >Manage Inventory</h2>
         </div>
     </header>
     <!-- Breadcrumb-->
@@ -23,7 +23,7 @@ require_once('function/add_stonk.php');
         </div>
     </div>
     <section class="tables py-4">
-        <div class="card border-0">
+        <div class="card border-0" >
             <div class="card-body">
                 <div class="table-responsive text-center">
                     <table id="example" class="display" style="width:100%">

@@ -22,7 +22,7 @@ require_once('function/delete_product.php');
             </nav>
         </div>
     </div>
-    <div class="card border-0">
+    <div class="card border-0" >
         <div class="card-header shadow-sm">
             <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#add-product">
                 <i class="fa fa-plus"></i> Add Product
