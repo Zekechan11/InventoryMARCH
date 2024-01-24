@@ -43,8 +43,12 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="card border-0">
                 <div class="card-header shadow-sm">
-            <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#add-category">
+            <button type="button" class="btn btn-success float-end ms-3" data-bs-toggle="modal" data-bs-target="#add-category">
                 <i class="fa fa-circle-arrow-right"></i> Process
+            </button>
+
+            <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#add-category">
+                <i class="fa fa-eye"></i> View
             </button>
                     <div class="col-md-3">
                         <select id="inputState" class="form-select" onchange="updateProcessButton(this.value)">
