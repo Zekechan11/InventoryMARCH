@@ -47,25 +47,25 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <i class="fa fa-circle-arrow-right"></i> Process
             </button>
                     <div class="col-md-3">
-                        <select id="inputState" class="form-select">
-                            <option hidden>Choose Customer</option>
-                            <?php
-                            $newconnection = new Connection();
+                        <select id="inputState" class="form-select" onchange="updateProcessButton(this.value)">
+                        <option hidden>Choose Customer</option>
+                        <?php
+                        $newconnection = new Connection();
 
-                            try {
-                                $pdo = $newconnection->openConnection();
-                                $query = "SELECT full_name FROM customer_table";
-                                $stmt = $pdo->query($query);
-                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                    echo "<option>" . $row['full_name'] . "</option>";
-                                }
-                            } catch (PDOException $e) {
-                                echo "Error: " . $e->getMessage();
-                            } finally {
-                                $newconnection->closeConnection();
+                        try {
+                            $pdo = $newconnection->openConnection();
+                            $query = "SELECT customer_id, full_name FROM customer_table";
+                            $stmt = $pdo->query($query);
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                echo "<option value='" . $row['customer_id'] . "|" . $row['full_name'] . "'>" . $row['full_name'] . "</option>";
                             }
-                            ?>
-                        </select>
+                        } catch (PDOException $e) {
+                            echo "Error: " . $e->getMessage();
+                        } finally {
+                            $newconnection->closeConnection();
+                        }
+                        ?>
+                    </select>
                             <div class="col-md-2 bg-black " style="position: relative;width:50px;height:30px;left:310px;bottom:35px;border-radius:5px;"">
                             <p class=" mb-0 text-center" style="font-size: 15px; font-weight:600;color:white;position:relative;top:5px;">
                             10
@@ -107,7 +107,13 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <td>₱ <?= (number_format($row['total_price'], 2)); ?></td>
                                         <td><?= $row['date_added'] ?></td>
                                         <td>
-                                            <i class="fa-solid fa-cart-plus" name="add_sales" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#addto-cart"></i>
+                                            <i class="fa-solid fa-cart-plus" name="add_sales" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#addto-cart"
+                                            onclick="openPorn(
+                                                '<?= $row['product_id'] ?>',
+                                                '<?= $row['product_name'] ?>',
+                                                '<?= $row['quantity'] ?>',
+                                                '<?= $row['price'] ?>'
+                                            )"></i>
                                         </td>
                                     </tr>
                                 <?php
@@ -239,3 +245,15 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php require_once('modal/view_customer_purchased.php'); ?>
 <?php require_once('modal/cart.php'); ?>
 <?php require_once('inc/footer.php'); ?>
+
+
+<script>
+    function updateProcessButton(selectedValue) {
+        var values = selectedValue.split("|");
+        var customerId = values[0];
+        var customerName = values[1];
+
+        document.getElementById('iamkiraId').value = customerId;
+        document.getElementById('iamkira').value = customerName;
+    }
+</script>
