@@ -11,7 +11,7 @@
                 <div class="input-group mb-3">
                         <input type="" id="prody_id" name="prody_id">
                         <input type="" id="prody_name" name="prody_name">
-                        <input type="" id="quantimmy" name="quantimmy">
+                        <!-- <input type="" id="quantimmy" name="quantimmy"> -->
                         <input type="" id="pricekun" name="pricekun">
                         <input type="" id="iamkiraId" name="iamkiraId">
                         <input type="" id="iamkira" name="iamkira">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-success" name="save_quantity">Add</button>
+                    <button type="submit" class="btn btn-success" name="save_quantity_add">Add</button>
                 </div>
             </form>
         </div>
@@ -36,7 +36,7 @@
     function openPorn(product_id, product_name, quantity, price) {
         document.getElementById('prody_id').value = product_id;
         document.getElementById('prody_name').value = product_name;
-        document.getElementById('quantimmy').value = quantity;
+        // document.getElementById('quantimmy').value = quantity;
         document.getElementById('pricekun').value = price;
     }
 

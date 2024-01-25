@@ -1,5 +1,6 @@
 <?php require_once('inc/header.php');
 include_once('function/sales.php');
+include_once('function/add_transaction.php');
 include_once('status.php');
 require_once('dbconfig.php');
 
