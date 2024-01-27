@@ -14,60 +14,43 @@
                             <table class="table table-striped table-sm mx-auto">
                                 <thead class="table table-dark" style="position: sticky; top: 0; background-color: white; z-index: 1;">
                                     <tr>
-                                        <th class="text-center">Product Id</th>
+                                        <th class="text-center">Transaction Id</th>
+                                        <th class="text-center">Customer Name</th>
                                         <th class="text-center">Product Name</th>
-                                        <th class="text-center">Quantity</th>
                                         <th class="text-center">Price</th>
-                                        <th class="text-center">Total Price</th>
-                                        <th class="text-center">Date</th>
+                                        <th class="text-center">Quantity</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody style="vertical-align: middle;">
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Coco Lumber</td>
-                                        <td>90</td>
-                                        <td>80.00</td>
-                                        <td>160.00</td>
-                                        <td>2023-12-11 22:50:21</td>
-                                        <td>
-                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Coco Lumber</td>
-                                        <td>90</td>
-                                        <td>80.00</td>
-                                        <td>400.00</td>
-                                        <td>2023-12-12 01:08:22</td>
-                                        <td>
-                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Coco Lumber</td>
-                                        <td>90</td>
-                                        <td>80.00</td>
-                                        <td>400.00</td>
-                                        <td>2023-12-12 01:08:22</td>
-                                        <td>
-                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Coco Lumber</td>
-                                        <td>90</td>
-                                        <td>80.00</td>
-                                        <td>400.00</td>
-                                        <td>2023-12-12 01:08:22</td>
-                                        <td>
-                                            <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                        // get connection
+                                        $connection = $newconnection->openConnection();
+                                        // prepare statement
+                                        $stmt = $connection->prepare("SELECT * FROM transaction_table");
+                                        // execute
+                                        $stmt->execute();
+                                        // fetch
+                                        $result = $stmt->fetchAll();
+
+                                        if ($result) {
+                                            foreach ($result as $row) {
+
+                                    ?>
+                                                <tr>
+                                                    <td><?= $row['transaction_id'] ?></td>
+                                                    <td><?= $row['customer_name'] ?></td>
+                                                    <td><?= $row['product_name'] ?></td>
+                                                    <td><?= $row['price'] ?></td>
+                                                    <td><?= $row['quantity'] ?></td>
+                                                    <td>
+                                                        <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
+                                                    </td>
+                                                </tr>
+                                        <?php
+                                            }
+                                        }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>

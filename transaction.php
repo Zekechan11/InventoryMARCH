@@ -48,7 +48,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <i class="fa fa-circle-arrow-right"></i> Process
             </button>
 
-            <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#add-category">
+            <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#view-purchased">
                 <i class="fa fa-eye"></i> View
             </button>
                     <div class="col-md-3">

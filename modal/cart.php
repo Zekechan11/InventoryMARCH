@@ -9,12 +9,12 @@
             <form action="" method="post">
                 <div class="modal-body">
                 <div class="input-group mb-3">
-                        <input type="" id="prody_id" name="prody_id">
-                        <input type="" id="prody_name" name="prody_name">
+                        <input type="hidden" id="prody_id" name="prody_id">
+                        <input type="hidden" id="prody_name" name="prody_name">
                         <!-- <input type="" id="quantimmy" name="quantimmy"> -->
-                        <input type="" id="pricekun" name="pricekun">
-                        <input type="" id="iamkiraId" name="iamkiraId">
-                        <input type="" id="iamkira" name="iamkira">
+                        <input type="hidden" id="pricekun" name="pricekun">
+                        <input type="hidden" id="iamkiraId" name="iamkiraId">
+                        <input type="hidden" id="iamkira" name="iamkira">
                         <!-- <input type="" id="statuss" name="statuss">
                         <input type="" id="dateee" name="dateee"> -->
 
