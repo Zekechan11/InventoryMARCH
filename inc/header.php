@@ -10,6 +10,7 @@ require('session_checker.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>March & Marc Inventory</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://kit.fontawesome.com/7b92f6b770.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/mainn.css">
     <link rel="stylesheet" href="css/belll.css">

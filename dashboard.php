@@ -67,6 +67,31 @@ require_once('function/statistics.php');
     }
 </style>
 
+<script type="text/javascript">
+    google.charts.load('current', {'packages': ['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Category', 'Products', 'Inventory', 'Returned', 'Sales'],
+            ['2021', 1000, 400, 1000, 400, 100],
+            ['2022', 1170, 460, 1000, 400, 100],
+            ['2023', 660, 1120,  1000, 400, 100],
+            ['2024', 1030, 540,  1000, 400, 100]
+        ]);
+
+        var options = {
+            // title: 'Sales and Expenses Over Time',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+</script>
+
+
 <div class="wrapper">
     <main class="content">
         <header class="bg-white px-2 py-2" style="background-color: red;">
@@ -203,6 +228,13 @@ require_once('function/statistics.php');
                 </div>
             </div>
         </div>
+
+        <div class="row g-0 px-2">
+            <div class="card mb-0 border-0 col-md-11">
+                <div id="chart_div" style="height: 300px;"></div>
+            </div>
+        </div>
+
 
         <!-- RECENTLY ADDED PRODUCTS -->
         <div class="row g-0 px-2">
