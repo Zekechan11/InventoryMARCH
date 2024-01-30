@@ -55,23 +55,23 @@
                             </table>
                         </div>
                     </div>
-                    <div class="col-md-0" style="position: relative;left:1000px;">
+                    <!-- <div class="col-md-0" style="position: relative;left:1000px;">
                         <label for="text" class="form-label">Voucher :</label>
                         <label for="">30%</label>
-                    </div>
+                    </div> -->
                     <div class="row">
-                    <div class="col-md-3">
+                    <!-- <div class="col-md-3">
                         <label for="text" class="form-label">Cash :</label>
                         <input type="text" placeholder="₱ 00.0">
-                    </div>
+                    </div> -->
                     <div class="col-md-3">
                         <label for="text" class="form-label">Total :</label>
-                        <input type="text" placeholder="₱ 00.0">
+                        <input type="text" placeholder="₱ 00.0" readonly>
                     </div>
-                    <div class="col-md-3">
+                    <!-- <div class="col-md-3">
                         <label for="text" class="form-label">Change :</label>
                         <input type="text" placeholder="₱ 00.0">
-                    </div>
+                    </div> -->
                     </div>
             </div>
         </div>

@@ -44,7 +44,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="card border-0">
                 <div class="card-header shadow-sm">
-            <button type="button" class="btn btn-success float-end ms-3" data-bs-toggle="modal" data-bs-target="#add-category">
+            <button type="button" class="btn btn-success float-end ms-3" data-bs-toggle="modal" data-bs-target="#view-transaction">
                 <i class="fa fa-circle-arrow-right"></i> Process
             </button>
 
