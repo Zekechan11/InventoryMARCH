@@ -6,19 +6,7 @@ header('Access-Control-Allow-Methods: *');
 header('Access-Control-Allow-Credentials: true');
 header('Content-type: json/application');
 
-// Database connection parameters
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'march_inventory';
-
-// Create a connection to the database
-$mysqli = new mysqli($host, $username, $password, $database);
-
-// Check connection
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
-}
+include('connection.php');
 
 // Query to fetch data from the users table
 $sql = "SELECT * FROM products_table";
