@@ -17,28 +17,7 @@
                                         <th class="text-center">Product Name</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php
-                                    $connection = $newconnection->openConnection();
-
-                                    $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : null;
-
-                                    $stmt = $connection->prepare("SELECT * FROM products_table WHERE category_id = ?");
-                                    $stmt->bindParam(1, $category_id);
-                                    $stmt->execute();
-                                    $result = $stmt->fetchAll();
-
-                                    if ($result) {
-                                        foreach ($result as $row) {
-                                    ?>
-                                            <tr>
-                                                <td><?= $row['product_id'] ?></td>
-                                                <td><?= $row['product_name'] ?></td>
-                                            </tr>
-                                    <?php
-                                        }
-                                    }
-                                    ?>
+                                <tbody id="table-body">
                                 </tbody>
                             </table>
                         </div>
@@ -50,10 +29,30 @@
 </div>
 
 <script>
-    function openViewCategory(category_id) {
-        var newUrl = window.location.href.split('?')[0] + '?category_id=' + category_id;
-        window.history.pushState({
-            path: newUrl
-        }, '', newUrl);
+    function openViewCategory(product_id) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var data = JSON.parse(xhr.responseText);
+                var tableBody = document.getElementById('table-body');
+                tableBody.innerHTML = '';
+                for (var i = 0; i < data.length; i++) {
+                    var newRow = document.createElement('tr');
+                    var productIdCell = document.createElement('td');
+                    var productNameCell = document.createElement('td');
+
+                    productIdCell.textContent = data[i].product_id;
+                    productNameCell.textContent = data[i].product_name;
+
+                    newRow.appendChild(productIdCell);
+                    newRow.appendChild(productNameCell);
+
+                    tableBody.appendChild(newRow);
+                }
+            }
+        };
+
+        xhr.open('GET', 'api/get_product.php?id=' + product_id, true);
+        xhr.send();
     }
 </script>

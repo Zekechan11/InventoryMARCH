@@ -8,8 +8,9 @@ header('Content-type: json/application');
 
 include('connection.php');
 
-// Query to fetch data from the users table
-$sql = "SELECT * FROM products_table";
+$category_id = isset($_GET['id']) ? $_GET['id'] : null;
+
+$sql = "SELECT * FROM products_table WHERE category_id = $category_id";
 $result = $mysqli->query($sql);
 
 // Check if the query was successful
