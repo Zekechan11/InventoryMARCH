@@ -1,4 +1,3 @@
-<?php require_once('inc/header.php'); ?>
 <!-- Edit Product Modal -->
 <div class="modal fade" id="view-purchased" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="edit-product-label" aria-hidden="true">
     <div class="modal-dialog modal-xl">
