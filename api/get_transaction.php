@@ -9,7 +9,9 @@ header('Content-type: json/application');
 include('connection.php');
 
 // Query to fetch data from the users table
-$sql = "SELECT * FROM transaction_table";
+$customer_id = isset($_GET['id']) ? $_GET['id'] : null;
+
+$sql = "SELECT * FROM transaction_table WHERE customer_id = $customer_id";
 $result = $mysqli->query($sql);
 
 // Check if the query was successful
