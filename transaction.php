@@ -32,9 +32,6 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="home-tab" style="color: black;" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Transaction</button>
         </li>
-        <!-- <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" style="color: black;" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Pending</button>
-        </li> -->
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="history-tab" style="color: black;" data-bs-toggle="tab" data-bs-target="#history-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">History</button>
         </li>
@@ -71,7 +68,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         }
                         ?>
                     </select>
-                            <div class="col-md-2 bg-black " style="position: relative;width:50px;height:30px;left:310px;bottom:35px;border-radius:5px;"">
+                            <div class="col-md-2 bg-black " style="position: relative;width:50px;height:30px;left:310px;bottom:35px;border-radius:5px;">
                             <p class=" mb-0 text-center" style="font-size: 15px; font-weight:600;color:white;position:relative;top:5px;">
                             10
                             </p>
@@ -131,63 +128,6 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
 
         </div>
-        <!-- <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            <section class="tables py-3">
-                <div class="card border-0">
-                    <div class="card-body">
-                        <div class="table-body col-12 text-center">
-                            <table class="table table-striped table-hover" style="width:100%;">
-                                <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
-                                    <tr>
-                                        <th class="text-center">Customer Id</th>
-                                        <th class="text-center">Customer Name</th>
-                                        <th class="text-center">Pending</th>
-                                        <th class="text-center">Date</th>
-                                        <th class="text-center">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody style="vertical-align: middle;">
-                                    <?php
-
-                                    foreach ($sales_data as $row) {
-
-                                        switch ($row['status']) {
-                                            case 1:
-                                                $status_icon = 'fa-solid fa-clock-rotate-left';
-                                                $status_color = 'th-color-orange ';
-                                                break;
-                                            case 2:
-                                                $status_icon = 'fa-check-circle';
-                                                $status_color = 'th-color-green';
-                                                break;
-                                        }
-                                    ?>
-                                        <tr>
-                                            <td><?= $row['product_id'] ?></td>
-                                            <td><?= $row['product_name'] ?></td>
-                                            <td>
-                                                <span class="th-badge <?php echo $status_color ?>">
-                                                    <?= $status[$row['status']] ?>
-                                                    <i class="fas <?php echo $status_icon ?> ml-1"></i>
-
-                                                </span>
-                                            </td>
-
-                                            <td><?= $row['date'] ?></td>
-                                            <td>
-                                                <i class="fas fa-eye" type="button" style="color: blue;" data-bs-toggle="modal" data-bs-target="#view-transaction"></i>
-                                            </td>
-                                        </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div> -->
 
         <div class="tab-pane fade" id="history-tab-pane" role="tabpanel" aria-labelledby="history-tab" tabindex="0">
             <section class="tables py-3">
@@ -260,5 +200,10 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         document.getElementById('iamkiraId').value = customerId;
         document.getElementById('iamkira').value = customerName;
+
+        var newUrl = window.location.href.split('?')[0] + '?id=' + customerId;
+        window.history.pushState({
+            path: newUrl
+        }, '', newUrl);
     }
 </script>
