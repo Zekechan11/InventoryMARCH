@@ -42,7 +42,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="card border-0">
                 <div class="card-header shadow-sm">
             <button type="button" class="btn btn-success float-end ms-3" data-bs-toggle="modal" data-bs-target="#view-transaction">
-                <i class="fa fa-circle-arrow-right"></i> Process
+                <i class="fa fa-circle-arrow-right" onclick="openViewCart(<?php echo isset($_GET['id']) ? (int)$_GET['id'] : ''; ?>)"></i>
             </button>
 
             <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#view-purchased">

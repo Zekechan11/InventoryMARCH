@@ -78,6 +78,35 @@
 </div>
 
 <script>
+    function openViewCart(product_id) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var data = JSON.parse(xhr.responseText);
+                var tableBody = document.getElementById('table-body');
+                tableBody.innerHTML = '';
+                for (var i = 0; i < data.length; i++) {
+                    var newRow = document.createElement('tr');
+                    var productIdCell = document.createElement('td');
+                    var productNameCell = document.createElement('td');
+
+                    productIdCell.textContent = data[i].product_id;
+                    productNameCell.textContent = data[i].product_name;
+
+                    newRow.appendChild(productIdCell);
+                    newRow.appendChild(productNameCell);
+
+                    tableBody.appendChild(newRow);
+                }
+            }
+        };
+
+        xhr.open('GET', 'api/get_product.php?id=' + product_id, true);
+        xhr.send();
+    }
+</script>
+
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         const minusIcons = document.querySelectorAll('.minus-icon');
 
