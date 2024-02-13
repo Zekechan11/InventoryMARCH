@@ -59,7 +59,7 @@ require('session_checker.php');
                             Customer
                         </a>
                     </li>
-                    <li id="tsrct">
+                    <li id="transaction_active">
                         <a href="transaction.php" class="sidebar-link" style="font-size: 18px;">
                             <i class="fa-solid fa-signal pe-2"></i>
                             Transactions

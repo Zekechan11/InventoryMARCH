@@ -33,6 +33,10 @@
                 if (link.href === currentUrl) {
                     link.parentElement.classList.add('active');
                     ifAlive = true;
+                } else if (currentUrl.indexOf("view_item.php") !== -1) {
+                    link.parentElement.classList.remove('active');
+                    document.getElementById("transaction_active").classList.add('active');
+                    ifAlive = true;
                 } else {
                     link.parentElement.classList.remove('active');
                 }
