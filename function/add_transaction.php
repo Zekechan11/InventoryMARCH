@@ -18,7 +18,7 @@ if(isset($_POST['save_quantity_add'])) {
         $connection = $newconnection->openConnection();
 
         // Query using named parameters
-        $query = "INSERT INTO transaction_table(product_name, price, quantity, product_id, customer_id, customer_name) VALUES(:product_name, :price, :quantity, :product_id, :customer_id, :customer_name)";
+        $query = "INSERT INTO cart_table(product_name, price, quantity, product_id, customer_id, customer_name) VALUES(:product_name, :price, :quantity, :product_id, :customer_id, :customer_name)";
 
         // Prepare the query
         $stmt = $connection->prepare($query);
