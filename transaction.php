@@ -1,8 +1,10 @@
 <?php require_once('inc/header.php');
 include_once('function/sales.php');
 include_once('function/add_transaction.php');
+include_once('function/customer.php');
 include_once('status.php');
 require_once('dbconfig.php');
+
 
 $sql = "SELECT * FROM sales_table";
 $stmt = $conn->query($sql);
@@ -40,8 +42,11 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0"> 
         <div class="card mb-0">
         <div class="card-header">
-        <button type="button" class="btn btn-warning" style="float: right;" data-bs-toggle="modal" data-bs-target="#add-customer-transaction">
-            <i class="fa fa-plus"></i> Add Transaction</button>
+        <form action="" method="POST">
+            <input type="hidden" id="cus_id" name="train_customer_id">
+            <button type="submit" class="btn btn-warning" style="float: right;" name="add_transaction">
+                <i class="fa fa-plus"></i> Add Transaction</button>
+        </form>
         <div class="col-md-3">
                         <select id="inputState" class="form-select" onchange="updateProcessButton(this.value)">
                         <option hidden>Choose Customer</option>
@@ -50,7 +55,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                         try {
                             $pdo = $newconnection->openConnection();
-                            $query = "SELECT customer_id, full_name FROM customer_table";
+                            $query = "SELECT customer_id, full_name FROM customer_table WHERE status='NONE'";
                             $stmt = $pdo->query($query);
                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                 echo "<option value='" . $row['customer_id'] . "|" . $row['full_name'] . "'>" . $row['full_name'] . "</option>";
@@ -77,7 +82,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <tr>
                                 <th class="text-center">Customer Id</th>
                                 <th class="text-center">Customer Name</th>
-                                <th class="text-center">Contact Number</th>
+                                <!-- <th class="text-center">Contact Number</th> -->
                                 <th class="text-center">Address</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -87,7 +92,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             // get connection
                             $connection = $newconnection->openConnection();
                             // prepare statement
-                            $stmt = $connection->prepare("SELECT * FROM customer_table");
+                            $stmt = $connection->prepare("SELECT * FROM customer_table WHERE status='PENDING'");
                             // execute
                             $stmt->execute();
                             // fetch
@@ -100,7 +105,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <tr>
                                 <td><?= $row['customer_id'] ?></td>
                                 <td><?= $row['full_name'] ?></td>
-                                <td><?php echo ($row['contact_number'][0] == '0') ? $row['contact_number'] : '0' . $row['contact_number']; ?></td>
+                                <!-- <td><?php echo ($row['contact_number'][0] == '0') ? $row['contact_number'] : '0' . $row['contact_number']; ?></td> -->
                                 <td><?= $row['address'] ?></td>
                                 <td><i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#add-customer-transaction"
                                 onclick="openEditCustomer('<?= $row['customer_id'] ?>','<?= $row['full_name'] ?>','<?= $row['contact_number'] ?>','<?= $row['address'] ?>')"></i> |
@@ -184,3 +189,12 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 require_once('inc/footer.php');
 require_once('modal/add_customer_transaction.php')
 ?>
+
+<script>
+    function updateProcessButton(selectedValue) {
+        var values = selectedValue;
+        var customerId = values[0];
+
+        document.getElementById('cus_id').value = customerId;
+    }
+</script>

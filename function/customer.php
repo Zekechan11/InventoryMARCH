@@ -37,4 +37,31 @@ if (isset($_POST['add_customer'])) {
     }
 }
 
+if (isset($_POST['add_transaction'])) {
+
+    // get data from inputs
+    $customer_id = $_POST['train_customer_id'];
+    $status = "PENDING";
+
+    try {
+        // get connection
+        $connection = $newconnection->openConnection();
+        // prepare query statement using named parameters
+        $stmt = $connection->prepare("UPDATE customer_table
+                SET status=:status
+                WHERE customer_id=:customer_id");
+
+        // get data inputs
+        $data = [
+            ':status' => $status,
+            ':customer_id' => $customer_id
+        ];
+        // execute the query statement
+        $query = $stmt->execute($data);
+        
+    } catch (PDOException $th) {
+        echo "Error Message:" . $th->getMessage();
+    }
+}
+
 ?>
