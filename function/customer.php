@@ -9,13 +9,15 @@ if (isset($_POST['add_customer'])) {
     $full_name = $_POST['full_name'];
     $contact_number = $_POST['contact_number'];
     $address = $_POST['address'];
+    $status = "NONE";
 
     try {
         // get connection
         $connection = $newconnection->openConnection();
 
         // query using named parameters
-        $query = "INSERT INTO customer_table(`full_name`, `contact_number`, `address`) VALUES(:full_name, :contact_number, :address)";
+        $query = "INSERT INTO customer_table(`full_name`, `contact_number`, `address`, `status`)
+        VALUES(:full_name, :contact_number, :address, :status)";
 
         // prepare the query
         $stmt = $connection->prepare($query);
@@ -24,6 +26,7 @@ if (isset($_POST['add_customer'])) {
         $stmt->bindParam(':full_name', $full_name, PDO::PARAM_STR);
         $stmt->bindParam(':contact_number', $contact_number, PDO::PARAM_INT);
         $stmt->bindParam(':address', $address, PDO::PARAM_STR);
+        $stmt->bindParam(':status', $status, PDO::PARAM_STR);
 
         // execute query
         $stmt->execute();
