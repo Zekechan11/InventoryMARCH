@@ -1,4 +1,7 @@
-<?php include_once('inc/header.php');?>
+<?php
+include_once('inc/header.php');
+require_once('dbconfig.php');
+?>
 
 <div class="row">
     <div class="col-12 col-md-6 d-flex">
@@ -7,9 +10,19 @@
                 <div class="row g-0 w-100">
                     <div class="col-6">
                         <div class="p-3 m-1">
+                        <?php
+                            $connection = $newconnection->openConnection();
+                            $stmt = $connection->prepare("SELECT * FROM admin_table");
+                            $stmt->execute();
+                            $result = $stmt->fetchAll();
+                            ?>
                             <h4>Welcome Back, Admin</h4>
-                            <p class="mb-0">Name : </p>
-                            <p class="mb-0">Email : </p>
+                            <?php
+                                foreach ($result as $row) {
+                            ?>
+                           <p class="mb-0">Name : <?= $row['first_name'].' '.$row['last_name'] ?></p>
+                            <p class="mb-0">Username : <?= $row['username'] ?></p>
+                            <?php } ?>
                         </div>
 
                     </div>

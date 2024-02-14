@@ -37,12 +37,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-3">
+                        <!-- <div class="form-group row mb-3">
                             <label for="about" class="col-sm-3 col-form-label">About</label>
                             <div class="col-sm-9">
                                 <textarea name="about" placeholder="About" class="form-control" id="about"></textarea>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row mb-3">
                             <label for="preview" class="col-sm-3 col-form-label">Preview</label>
