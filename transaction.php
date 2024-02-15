@@ -47,10 +47,10 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <button type="submit" class="btn btn-warning" style="float: right;" name="add_transaction">
                 <i class="fa fa-plus"></i> Add Transaction</button>
         </form>
-        <div class="col-md-3">
-                        <select id="inputState" class="form-select" onchange="updateProcessButton(this.value)">
-                        <option hidden>Choose Customer</option>
-                        <?php
+            <div class="col-md-3">
+                <select id="inputState" class="form-select" onchange="updateProcessButton(this.value)">
+                    <option hidden>Choose Customer</option>
+                    <?php
                         $newconnection = new Connection();
 
                         try {
@@ -65,14 +65,9 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         } finally {
                             $newconnection->closeConnection();
                         }
-                        ?>
-                    </select>
-                            <!-- <div class="col-md-2 bg-black " style="position: relative;width:50px;height:30px;left:310px;bottom:35px;border-radius:5px;">
-                            <p class=" mb-0 text-center" style="font-size: 15px; font-weight:600;color:white;position:relative;top:5px;">
-                            10
-                            </p>
-                        </div> -->
-                    </div>
+                    ?>
+                </select>
+            </div>
         </div>
         <div class="col-lg-12">
             <div class="card-body text-center">
@@ -82,7 +77,6 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <tr>
                                 <th class="text-center">Customer Id</th>
                                 <th class="text-center">Customer Name</th>
-                                <!-- <th class="text-center">Contact Number</th> -->
                                 <th class="text-center">Address</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -105,12 +99,13 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <tr>
                                 <td><?= $row['customer_id'] ?></td>
                                 <td><?= $row['full_name'] ?></td>
-                                <!-- <td><?php echo ($row['contact_number'][0] == '0') ? $row['contact_number'] : '0' . $row['contact_number']; ?></td> -->
                                 <td><?= $row['address'] ?></td>
-                                <td><i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#add-customer-transaction"
-                                onclick="openEditCustomer('<?= $row['customer_id'] ?>','<?= $row['full_name'] ?>','<?= $row['contact_number'] ?>','<?= $row['address'] ?>')"></i> |
+                                <td>
+                                    <a href="view_item.php"><i type="button" class="fa-solid fa-plus" type="button" style="color: green"></i></a>  |
+                                    <i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#add-customer-transaction"
+                                        onclick="openEditCustomer('<?= $row['customer_id'] ?>','<?= $row['full_name'] ?>','<?= $row['contact_number'] ?>','<?= $row['address'] ?>')"></i> |
                                     <i type="button" class="fa fa-trash _delete_cus" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-customer"
-                                    onclick="openDeleteCustomer('<?= $row['customer_id'] ?>')"></i>
+                                        onclick="openDeleteCustomer('<?= $row['customer_id'] ?>')"></i>
                                 </td>
                             </tr>
                             <?php

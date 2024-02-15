@@ -39,30 +39,10 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <i class="fa fa-eye"></i> View
             </button>
                     <div class="col-md-3">
-                        <select id="inputState" class="form-select" onchange="updateProcessButton(this.value)">
-                        <option hidden>Choose Customer</option>
-                        <?php
-                        $newconnection = new Connection();
-
-                        try {
-                            $pdo = $newconnection->openConnection();
-                            $query = "SELECT customer_id, full_name FROM customer_table";
-                            $stmt = $pdo->query($query);
-                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                echo "<option value='" . $row['customer_id'] . "|" . $row['full_name'] . "'>" . $row['full_name'] . "</option>";
-                            }
-                        } catch (PDOException $e) {
-                            echo "Error: " . $e->getMessage();
-                        } finally {
-                            $newconnection->closeConnection();
-                        }
-                        ?>
-                    </select>
-                            <div class="col-md-2 bg-black " style="position: relative;width:50px;height:30px;left:310px;bottom:35px;border-radius:5px;">
-                            <p class=" mb-0 text-center" style="font-size: 15px; font-weight:600;color:white;position:relative;top:5px;">
-                            10
-                            </p>
-                        </div>
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
                     </div>
                 </div>
                 <div class="card-body">
