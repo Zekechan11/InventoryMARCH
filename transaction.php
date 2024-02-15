@@ -101,7 +101,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= $row['full_name'] ?></td>
                                 <td><?= $row['address'] ?></td>
                                 <td>
-                                    <a href="view_item.php"><i type="button" class="fa-solid fa-plus" type="button" style="color: green"></i></a>  |
+                                    <a href="view_item.php?id=<?= $row['customer_id'] ?>"><i type="button" class="fa-solid fa-plus" type="button" style="color: green"></i></a>  |
                                     <i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#add-customer-transaction"
                                         onclick="openEditCustomer('<?= $row['customer_id'] ?>','<?= $row['full_name'] ?>','<?= $row['contact_number'] ?>','<?= $row['address'] ?>')"></i> |
                                     <i type="button" class="fa fa-trash _delete_cus" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-customer"
