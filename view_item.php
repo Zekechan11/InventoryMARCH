@@ -1,5 +1,6 @@
 <?php require_once('inc/header.php');
 include_once('function/sales.php');
+include_once('function/process.php');
 include_once('function/add_transaction.php');
 include_once('status.php');
 require_once('dbconfig.php');
@@ -39,10 +40,14 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <i class="fa fa-eye"></i> View
             </button>
                     <div class="col-md-3">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
+                    <?php
+                        foreach ($resultC as $row) {
+                    ?>
+                        <input type="text" value="<?= $row['customer_id'] ?>">
+                        <input type="text" value="<?= $row['full_name'] ?>">
+                        <input type="text" value="<?= $row['address'] ?>">
+                        <input type="text" value="<?= $row['contact_number'] ?>">
+                    <?php } ?>
                     </div>
                 </div>
                 <div class="card-body">
