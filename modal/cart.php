@@ -13,8 +13,8 @@
                         <input type="hidden" id="prody_name" name="prody_name">
                         <!-- <input type="" id="quantimmy" name="quantimmy"> -->
                         <input type="hidden" id="pricekun" name="pricekun">
-                        <input type="hidden" id="iamkiraId" name="iamkiraId">
-                        <input type="hidden" id="iamkira" name="iamkira">
+                        <input type="hidde" id="idchann" name="idchann" value="<?= $customer_id ?>">
+                        <input type="hidden" id="namechann" name="namechann" value="<?= $full_name?>">
                         <!-- <input type="" id="statuss" name="statuss">
                         <input type="" id="dateee" name="dateee"> -->
 

@@ -41,7 +41,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </button>
                     <div class="col-md-3">
                     <?php
-                        foreach ($resultC as $row) {
+                        foreach ($resultCurse as $row) {
                     ?>
                         <input type="text" value="<?= $row['customer_id'] ?>">
                         <input type="text" value="<?= $row['full_name'] ?>">
@@ -113,17 +113,17 @@ require_once('inc/footer.php');
 ?>
 
 <script>
-    function updateProcessButton(selectedValue) {
-        var values = selectedValue.split("|");
-        var customerId = values[0];
-        var customerName = values[1];
+    // function updateProcessButton(selectedValue) {
+    //     var values = selectedValue.split("|");
+    //     var customerId = values[0];
+    //     var customerName = values[1];
 
-        document.getElementById('iamkiraId').value = customerId;
-        document.getElementById('iamkira').value = customerName;
+    //     document.getElementById('iamkiraId').value = customerId;
+    //     document.getElementById('iamkira').value = customerName;
 
-        var newUrl = window.location.href.split('?')[0] + '?id=' + customerId;
-        window.history.pushState({
-            path: newUrl
-        }, '', newUrl);
-    }
+    //     var newUrl = window.location.href.split('?')[0] + '?id=' + customerId;
+    //     window.history.pushState({
+    //         path: newUrl
+    //     }, '', newUrl);
+    // }
 </script>

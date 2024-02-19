@@ -10,8 +10,8 @@ if(isset($_POST['save_quantity_add'])) {
     $price = $_POST['pricekun'];
     $quantity = $_POST['quantityx'];
     $product_id = $_POST['prody_id'];
-    $customer_id = $_POST['iamkiraId'];
-    $customer_name = $_POST['iamkira'];
+    $customer_id = $_POST['idchann'];
+    $customer_name = $_POST['namechann'];
 
     try {
         // Get connection
