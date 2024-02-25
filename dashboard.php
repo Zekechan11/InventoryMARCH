@@ -12,7 +12,7 @@ require_once('function/statistics.php');
         margin-bottom: 20px;
         /* Optional: Add some spacing between cards */
     }
-
+/* 
     .card1 {
         background: linear-gradient(-45deg, #fd77e4 0%, #1ff4f1 100% );
     }
@@ -31,7 +31,7 @@ require_once('function/statistics.php');
 
     .card5 {
         background: linear-gradient(-45deg, #fd77e4 0%, #1ff4f1 100% );
-    }
+    } */
 
     .card-body {
         text-align: left;
@@ -64,6 +64,31 @@ require_once('function/statistics.php');
 
     .badge {
         color: black;
+    }
+
+    .logo {
+        position: relative;
+        bottom: 16px;
+        right: 40px;
+        width: 65px;
+        height: 65px;
+        border-radius: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 7px;
+    }
+
+    .card1 {
+        height: 65px;
+        background-color: #EEF5FF;
+    }
+
+    .logo i {
+        color: #fff;
+        /* Example icon color */
+        font-size: 25px;
+        /* Example icon size */
     }
 </style>
 
@@ -103,126 +128,91 @@ require_once('function/statistics.php');
 
         <!-- CATEGORY -->
 
-            <div class="card border-0 px-4 card1">
-                <div class="card-body py-4">
+        <div class="card border-0 px-4 card1">
+                <div class="card-body">
                     <div class="d-flex align-items-start">
-                        <div class="flex-grow-1">
-                            <h4 class="mb-2">
-                                <i class="fa-solid fa-rectangle-list pe-2"></i>Category
-                            </h4>
-                            <center>
-                            <p class="mb-2" style="font-size: large; font-weight:600; color:#3E3D41;">
+                        <div class="logo" style="background-color:#E8C872;">
+                            <i class="fa-solid fa-rectangle-list pe-4" style="position: relative;left:9px;"></i>
+                        </div>
+                        <div class="text-center" style="font-size: 20px; text-align: center;position:relative;right:30px;">
+                            <p>Category</p>
+                        </div>
+                        <div class="text">
+                            <p class="mb-2" style="font-size: large; font-weight:600;position:relative;top:2px;right:15px; color:#3E3D41;">
                                 <?php echo getCategoryCount($conn); ?>
                             </p>
-                            </center>
-                            <div class="mb-0">
-                                <span class="badge me-2">
-                                    +9.0%
-                                </span>
-                                <span class="text-muted">
-                                    Since last months
-                                </span>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- PRODUCT -->
-            <div class="card border-0 px-4 card2">
-                <div class="card-body py-4">
+            <div class="card border-0 px-4 card1">
+                <div class="card-body">
                     <div class="d-flex align-items-start">
-                        <div class="flex-grow-1">
-                            <h4 class="mb-2">
-                                <i class="fa-solid fa-box pe-2"></i>Products
-                            </h4>
-                            <center>
-                            <p class="mb-2" style="font-size: large; font-weight:600; color:#3E3D41;">
-                                <?php echo getProductCount($conn); ?>
-                            </p>
-                            </center>
-                            <div class="mb-0">
-                                <span class="badge me-2">
-                                    +9.0%
-                                </span>
-                                <span class="text-muted">
-                                    Since last months
-                                </span>
-                            </div>
+                        <div class="logo" style="background-color:#F9B572;">
+                        <i class="fa-solid fa-box pe-4" style="position: relative;left:9px;"></i>
+                        </div>
+                        <div class="text-center" style="font-size: 20px; text-align: center;position:relative;right:30px;">
+                            <p>Product</p>
+                        </div>
+                        <div class="text">
+                        <p class="mb-2" style="font-size: large; font-weight:600;position:relative;top:2px;right:15px; color:#3E3D41;">
+                                    <?php echo getProductCount($conn); ?>
+                                </p>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- INVENTORY -->
-            <div class="card border-0 px-4 card3">
-                <div class="card-body py-4">
+            <div class="card border-0 px-4 card1">
+                <div class="card-body">
                     <div class="d-flex align-items-start">
-                        <div class="flex-grow-1">
-                            <h4 class="mb-2">
-                                <i class="fa-solid fa-box pe-2"></i>Inventory
-                            </h4>
-                            <center>
-                            <p class="mb-2" style="font-size: large; font-weight:600; color:#3E3D41;">
-                                <?php echo getInventoryCount($conn); ?>
-                            </p>
-                            </center>
-                            <div class="mb-0">
-                                <span class="badge me-2">
-                                    +9.0%
-                                </span>
-                                <span class="text-muted">
-                                    Since last months
-                                </span>
-                            </div>
+                        <div class="logo" style="background-color:#40A2D8;">
+                        <i class="fa-solid fa-boxes-stacked pe-4" style="position: relative;left:9px;"></i>
+                        </div>
+                        <div class="text-center" style="font-size: 20px; text-align: center;position:relative;right:30px;">
+                            <p>Inventory</p>
+                        </div>
+                        <div class="text">
+                        <p class="mb-2" style="font-size: large; font-weight:600;position:relative;top:2px;right:15px; color:#3E3D41;">
+                                    <?php echo getInventoryCount($conn); ?>
+                                </p>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- RETURNED ITEM -->
-            <div class="card border-0 px-4 card4">
-                <div class="card-body py-4">
+            <div class="card border-0 px-2 card1">
+                <div class="card-body">
                     <div class="d-flex align-items-start">
-                        <div class="flex-grow-1">
-                            <h4 class="mb-2">
-                                <i class="fa-solid fa-box pe-2"></i>Returned Items
-                            </h4>
-                            <center>
-                            <p class="mb-2" style="font-size: large; font-weight:600; color:#3E3D41;">
-                                300
-                            </p>
-                            </center>
-                            <div class="mb-0">
-                                <span class="badge me-2">
-                                    +9.0%
-                                </span>
-                                <span class="text-muted">
-                                    Since last months
-                                </span>
-                            </div>
+                        <div class="logo" style="background-color:#FF8080;">
+                        <i class="fa-solid fa-people-carry-box pe-4" style="position: relative;left:9px;"></i>
+                        </div>
+                        <div class="text-center" style="font-size: 17px; text-align: center;position:relative;right:25px; top:7px;">
+                            <p style="position: relative;bottom:10px;">Returned Item</p>
+                        </div>
+                        <div class="text">
+                        <p class="mb-2" style="font-size: large; font-weight:600;position:relative;top:2px;right:10px; color:#3E3D41;">
+                                    300
+                                </p>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- SALES -->
-            <div class="card border-0 px-4 card5">
-                <div class="card-body py-4">
+            <div class="card border-0 px-4 card1">
+                <div class="card-body">
                     <div class="d-flex align-items-start">
-                        <div class="flex-grow-1">
-                            <h4 class="mb-2">
-                                <i class="fa-solid fa-box pe-2"></i>Sales
-                            </h4>
-                            <center>
-                            <p class="mb-2" style="font-size: large; font-weight:600; color:#3E3D41;">
-                                300
-                            </p>
-                            </center>
-                            <div class="mb-0">
-                                <span class="badge me-2">
-                                    +9.0%
-                                </span>
-                                <span class="text-muted">
-                                    Since last months
-                                </span>
-                            </div>
+                        <div class="logo" style="background-color:#7ED7C1;">
+                        <i class="fa-solid fa-boxes-packing pe-4" style="position: relative;left:9px;"></i>
+                        </div>
+                        <div class="text-center" style="font-size: 20px; text-align: center;position:relative;right:30px;">
+                            <p>Sales</p>
+                        </div>
+                        <div class="text">
+                        <p class="mb-2" style="font-size: large; font-weight:600;position:relative;top:2px;right:15px; color:#3E3D41;">
+                                    300
+                                </p>
                         </div>
                     </div>
                 </div>
