@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <form method='post' action='' enctype='multipart/form-data'>
-                    <div class="card-body">
+                    <!-- <div class="card-body">
                         <div class="table-body col-12 text-center">
                             <table class="table table-striped table-sm mx-auto">
                                 <thead class="table table-dark" style="position: sticky; top: 0; background-color: white; z-index: 1;">
@@ -58,7 +58,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div> -->
                    
                     <div class="col-md-1" style="position: relative;left:1000px;">
                         <label for="text" class="form-label">Voucher :</label>

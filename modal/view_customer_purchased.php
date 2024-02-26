@@ -26,7 +26,7 @@
                                         // get connection
                                         $connection = $newconnection->openConnection();
                                         // prepare statement
-                                        $stmt = $connection->prepare("SELECT * FROM cart_table WHERE customer_id='$customer_id'");
+                                        $stmt = $connection->prepare("SELECT * FROM transaction_table WHERE customer_id='$customer_id'");
                                         // execute
                                         $stmt->execute();
                                         // fetch
