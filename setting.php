@@ -1,4 +1,6 @@
-<?php include_once('inc/header.php'); ?>
+<?php
+include_once('inc/header.php');
+?>
 
 <div class="container mt-3 mb-5">
     <div class="row">
@@ -12,28 +14,28 @@
                         <div class="form-group row mb-3">
                             <label for="firstname" class="col-sm-3 col-form-label">First Name *</label>
                             <div class="col-sm-9">
-                                <input name="firstname" class="form-control" type="text" placeholder="First Name" id="firstname" value="">
+                                <input value="<?php echo $_SESSION['first_name']; ?>" name="firstname" class="form-control" type="text" placeholder="First Name" id="firstname">
                             </div>
                         </div>
 
                         <div class="form-group row mb-3">
                             <label for="lastname" class="col-sm-3 col-form-label">Last Name *</label>
                             <div class="col-sm-9">
-                                <input name="lastname" class="form-control" type="text" placeholder="Last Name" id="lastname" value="">
+                                <input value="<?php echo $_SESSION['last_name']; ?>" name="lastname" class="form-control" type="text" placeholder="Last Name" id="lastname">
                             </div>
                         </div>
 
                         <div class="form-group row mb-3">
                             <label for="email" class="col-sm-3 col-form-label">User Name *</label>
                             <div class="col-sm-9">
-                                <input name="email" class="form-control" type="text" placeholder="User Name" id="email" value="">
+                                <input value="<?php echo $_SESSION['username']; ?>" name="email" class="form-control" type="text" placeholder="User Name" id="email">
                             </div>
                         </div>
 
                         <div class="form-group row mb-3">
                             <label for="password" class="col-sm-3 col-form-label">Password *</label>
                             <div class="col-sm-9">
-                                <input name="password" class="form-control" type="password" placeholder="Password" id="password">
+                                <input value="<?php echo $_SESSION['password']; ?>" name="password" class="form-control" type="text" placeholder="Password">
                             </div>
                         </div>
 

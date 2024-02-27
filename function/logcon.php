@@ -55,8 +55,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
+            $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
             session_start();
-            $_SESSION['username'] = $username;
+            $_SESSION['admin_id'] = $admin['admin_id'];
+            $_SESSION['first_name'] = $admin['first_name'];
+            $_SESSION['last_name'] = $admin['last_name'];
+            $_SESSION['username'] = $admin['username'];
+            $_SESSION['password'] = $admin['password'];
 
             header("Location: dashboard.php");
             exit();
