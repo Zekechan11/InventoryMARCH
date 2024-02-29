@@ -1,4 +1,6 @@
 <!-- Edit Product Modal -->
+<?php include_once('function/cart_fun.php');?>
+
 <div class="modal fade" id="view-purchased" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="edit-product-label" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -43,7 +45,7 @@
                                                     <td><?= $row['price'] ?></td>
                                                     <td><?= $row['quantity'] ?></td>
                                                     <td>
-                                                        <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#return-product"></i>
+                                                        <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#remove-cart-item" onclick="openRemoveCartI('<?= $row['transaction_id'] ?>')"></i>
                                                     </td>
                                                 </tr>
                                         <?php
@@ -113,23 +115,23 @@
         minusIcons.forEach(function(icon) {
             icon.addEventListener('click', function() {
                 // Show the second modal when the minus icon is clicked
-                $('#return-product').modal('show');
+                $('#remove-cart-item').modal('show');
             });
         });
 
         // Set higher z-index for the second modal when shown
-        $('#return-product').on('show.bs.modal', function() {
+        $('#remove-cart-item').on('show.bs.modal', function() {
             setTimeout(function() {
                 $('.modal-backdrop').last().after('<div class="modal-backdrop fade show"></div>');
             }, 0);
         });
 
         // Reset z-index when the second modal is closed
-        $('#return-product').on('hidden.bs.modal', function() {
+        $('#remove-cart-item').on('hidden.bs.modal', function() {
             $('.modal-backdrop').remove();
         });
     });
 </script>
 
 <?php require_once('inc/footer.php'); ?>
-<?php require_once('modal/returned_products.php'); ?>
+<?php require_once('modal/cart_remove.php'); ?>
