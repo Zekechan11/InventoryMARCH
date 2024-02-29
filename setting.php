@@ -1,5 +1,6 @@
 <?php
 include_once('inc/header.php');
+include_once('function/update_admin.php')
 ?>
 
 <div class="container mt-3 mb-5">
@@ -25,32 +26,36 @@ include_once('inc/header.php');
                     <!-- PROFILE TAB -->
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <form action="your_process_script.php" method="post" enctype="multipart/form-data">
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <?php
+                                    include('function/admin.php');
+                                    foreach ($result as $row) {
+                                ?>
                                 <div class="form-group row mb-3">
                                     <label for="firstname" class="col-sm-3 col-form-label">First Name *</label>
                                     <div class="col-sm-9">
-                                        <input value="<?php echo $_SESSION['first_name']; ?>" name="firstname" class="form-control" type="text" placeholder="First Name" id="firstname">
+                                        <input value="<?= $row['first_name'] ?>" name="adminFirstname" class="form-control" type="text" placeholder="First Name" id="adminFirstname">
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-3">
                                     <label for="lastname" class="col-sm-3 col-form-label">Last Name *</label>
                                     <div class="col-sm-9">
-                                        <input value="<?php echo $_SESSION['last_name']; ?>" name="lastname" class="form-control" type="text" placeholder="Last Name" id="lastname">
+                                        <input value="<?= $row['last_name'] ?>" name="adminLastname" class="form-control" type="text" placeholder="Last Name" id="adminLastname">
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-3">
                                     <label for="email" class="col-sm-3 col-form-label">User Name *</label>
                                     <div class="col-sm-9">
-                                        <input value="<?php echo $_SESSION['username']; ?>" name="email" class="form-control" type="text" placeholder="User Name" id="email">
+                                        <input value="<?= $row['username'] ?>" name="adminUsername" class="form-control" type="text" placeholder="User Name" id="adminUsername">
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-3">
                                     <label for="preview" class="col-sm-3 col-form-label">Preview</label>
                                     <div class="col-sm-9">
-                                        <img src="<?php echo $_SESSION['profile_pic']; ?>" class="img-thumbnail" width="125" height="100">
+                                        <img src="<?= $row['profile_pic'] ?>" id="selectedImage" class="img-thumbnail" width="125" height="100">
                                     </div>
                                     <input type="hidden" name="old_image" value="">
                                 </div>
@@ -58,10 +63,12 @@ include_once('inc/header.php');
                                 <div class="form-group row mb-3">
                                     <label for="image" class="col-sm-3 col-form-label">Image</label>
                                     <div class="col-sm-9">
-                                        <input type="file" name="image" id="image" aria-describedby="fileHelp">
+                                        <input type="file" name="imageInput" aria-describedby="fileHelp" id="imageInput" accept="image/*" onchange="displayImage()">
                                         <small id="fileHelp" class="text-muted"></small>
                                     </div>
                                 </div>
+                                
+                                <?php } ?>
 
                                 <div class="form-group row">
                                     <div class="col-sm-9 offset-sm-3 d-flex justify-content-end">
@@ -116,3 +123,21 @@ include_once('inc/header.php');
 </div>
 
 <?php include_once('inc/footer.php'); ?>
+
+
+<script>
+    function displayImage() {
+  const input = document.getElementById('imageInput');
+  const image = document.getElementById('selectedImage');
+
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      image.src = e.target.result;
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>

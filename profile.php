@@ -10,14 +10,9 @@ require_once('dbconfig.php');
                 <div class="row g-0 w-100">
                     <div class="col-6">
                         <div class="p-3 m-1">
-                        <?php
-                            $connection = $newconnection->openConnection();
-                            $stmt = $connection->prepare("SELECT * FROM admin_table");
-                            $stmt->execute();
-                            $result = $stmt->fetchAll();
-                            ?>
                             <h4>Welcome Back, Admin</h4>
                             <?php
+                                include('function/admin.php');
                                 foreach ($result as $row) {
                             ?>
                            <p class="mb-0">Name : <?= $row['first_name'].' '.$row['last_name'] ?></p>
