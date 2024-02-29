@@ -26,7 +26,7 @@
                                         // get connection
                                         $connection = $newconnection->openConnection();
                                         // prepare statement
-                                        $stmt = $connection->prepare("SELECT * FROM transaction_table WHERE customer_id='$customer_id'");
+                                        $stmt = $connection->prepare("SELECT * FROM transaction_table WHERE status='UNPAID' AND customer_id='$customer_id'");
                                         // execute
                                         $stmt->execute();
                                         // fetch
@@ -37,7 +37,7 @@
 
                                     ?>
                                                 <tr>
-                                                    <td><?= $row['cart_id'] ?></td>
+                                                    <td><?= $row['transaction_id'] ?></td>
                                                     <td><?= $row['customer_name'] ?></td>
                                                     <td><?= $row['product_name'] ?></td>
                                                     <td><?= $row['price'] ?></td>

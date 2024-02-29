@@ -1,14 +1,14 @@
 <?php require_once('inc/header.php');
 include_once('function/sales.php');
-include_once('function/add_transaction.php');
+include_once('function/remove_transaction.php');
 include_once('function/customer.php');
 include_once('status.php');
 require_once('dbconfig.php');
 
 
-$sql = "SELECT * FROM sales_table";
-$stmt = $conn->query($sql);
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// $sql = "SELECT * FROM sales_table";
+// $stmt = $conn->query($sql);
+// $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <link rel="stylesheet" href="css/badge.css">
@@ -101,11 +101,9 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= $row['full_name'] ?></td>
                                 <td><?= $row['address'] ?></td>
                                 <td>
-                                    <a href="view_item.php?id=<?= $row['customer_id'] ?>&name=<?= $row['full_name'] ?>"><i type="button" class="fa-solid fa-plus" type="button" style="color: green"></i></a>  |
-                                    <i type="button" class="fa fa-edit edit_E" style="color: green" data-bs-toggle="modal" data-bs-target="#add-customer-transaction"
-                                        onclick="openEditCustomer('<?= $row['customer_id'] ?>','<?= $row['full_name'] ?>','<?= $row['contact_number'] ?>','<?= $row['address'] ?>')"></i> |
-                                    <i type="button" class="fa fa-trash _delete_cus" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#del-customer"
-                                        onclick="openDeleteCustomer('<?= $row['customer_id'] ?>')"></i>
+                                    <a href="view_item.php?id=<?= $row['customer_id'] ?>&name=<?= $row['full_name'] ?>"><i type="button" class="fa-solid fa-plus" type="button" style="color: green"></i></a>  | 
+                                    <i type="button" class="fa fa-trash _delete_cus" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#remove-trans"
+                                        onclick="openRevCustomer('<?= $row['customer_id'] ?>')"></i>
                                 </td>
                             </tr>
                             <?php
@@ -176,13 +174,14 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 
-<?php require_once('modal/add_sales.php'); ?>
-<?php require_once('modal/view_transaction_history.php'); ?>
-<?php require_once('modal/view_customer_purchased.php'); ?>
-<?php require_once('modal/cart.php'); ?>
 <?php
+require_once('modal/add_sales.php');
+require_once('modal/remove_transaction.php');
+require_once('modal/cart.php');
+require_once('modal/add_customer_transaction.php');
 require_once('inc/footer.php');
-require_once('modal/add_customer_transaction.php')
+// require_once('modal/view_transaction_history.php');
+// require_once('modal/view_customer_purchased.php');
 ?>
 
 <script>
