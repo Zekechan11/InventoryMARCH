@@ -106,8 +106,8 @@ require_once('dbconfig.php');
 
 <?php
 require_once('modal/add_sales.php');
-require_once('modal/view_transaction_history.php');
-require_once('modal/view_customer_purchased.php');
+require_once('modal/process_transaction.php');
+require_once('modal/view_cart.php');
 require_once('modal/cart.php');
 require_once('inc/footer.php');
 ?>
