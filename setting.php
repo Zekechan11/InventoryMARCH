@@ -67,7 +67,7 @@ include_once('function/update_admin.php')
                                         <small id="fileHelp" class="text-muted"></small>
                                     </div>
                                 </div>
-                                
+
                                 <?php } ?>
 
                                 <div class="form-group row">
@@ -81,33 +81,33 @@ include_once('function/update_admin.php')
 
                         <!-- PASSWORD TAB -->
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <form action="your_process_script.php" method="post" enctype="multipart/form-data">
+                            <form action="" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group row mb-3">
-                                    <label for="lastname" class="col-sm-3 col-form-label">Old password *</label>
+                                    <label for="oldPassword" class="col-sm-3 col-form-label">Old password *</label>
                                     <div class="col-sm-9">
-                                        <input value="" name="lastname" class="form-control" type="text" placeholder="Old password" id="lastname">
+                                        <input value="" name="oldPassword" class="form-control" type="text" placeholder="Old password" id="oldPassword">
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-3">
-                                    <label for="email" class="col-sm-3 col-form-label">New password *</label>
+                                    <label for="newPassword" class="col-sm-3 col-form-label">New password *</label>
                                     <div class="col-sm-9">
-                                        <input value="" name="email" class="form-control" type="text" placeholder="New password" id="email">
+                                        <input value="" name="newPassword" class="form-control" type="text" placeholder="New password" id="newPassword">
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-3">
-                                    <label for="password" class="col-sm-3 col-form-label">Confirm new password *</label>
+                                    <label for="confirmPassword" class="col-sm-3 col-form-label">Confirm new password *</label>
                                     <div class="col-sm-9">
-                                        <input value="" name="password" class="form-control" type="text" placeholder="Confirm new password">
+                                        <input value="" name="confirmPassword" class="form-control" type="text" placeholder="Confirm new password">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <div class="col-sm-9 offset-sm-3 d-flex justify-content-end">
                                         <!-- <button type="reset" class="btn btn-secondary me-2">Reset</button> -->
-                                        <button type="submit" class="btn btn-success" name="edit_profile">Update Password</button>
+                                        <button type="submit" class="btn btn-success" name="update_password">Update Password</button>
                                     </div>
                                 </div>
                             </form>

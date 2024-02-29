@@ -62,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['first_name'] = $admin['first_name'];
             $_SESSION['last_name'] = $admin['last_name'];
             $_SESSION['username'] = $admin['username'];
+            $_SESSION['password'] = $admin['password'];
             $_SESSION['profile_pic'] = $admin['profile_pic'];
 
             header("Location: dashboard.php");
