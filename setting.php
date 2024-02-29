@@ -49,7 +49,7 @@ include_once('inc/header.php');
                         <div class="form-group row mb-3">
                             <label for="preview" class="col-sm-3 col-form-label">Preview</label>
                             <div class="col-sm-9">
-                                <img src="" class="img-thumbnail" width="125" height="100">
+                                <img src="<?php echo $_SESSION['profile_pic']; ?>" class="img-thumbnail" width="125" height="100">
                             </div>
                             <input type="hidden" name="old_image" value="">
                         </div>
