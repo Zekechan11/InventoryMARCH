@@ -5,9 +5,9 @@ include_once('function/add_transaction.php');
 include_once('status.php');
 require_once('dbconfig.php');
 
-$sql = "SELECT * FROM sales_table";
-$stmt = $conn->query($sql);
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// $sql = "SELECT * FROM sales_table";
+// $stmt = $conn->query($sql);
+// $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <div class="content-inner">
