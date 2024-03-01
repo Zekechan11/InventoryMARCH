@@ -1,4 +1,5 @@
-<?php require_once('inc/header.php');
+<?php
+require_once('inc/header.php');
 include_once('function/sales.php');
 include_once('function/remove_transaction.php');
 include_once('function/customer.php');
@@ -178,7 +179,7 @@ require_once('dbconfig.php');
 require_once('modal/add_sales.php');
 require_once('modal/remove_transaction.php');
 require_once('modal/cart.php');
-require_once('modal/add_customer_transaction.php');
+require_once('modal/add_transaction.php');
 require_once('inc/footer.php');
 // require_once('modal/view_transaction_history.php');
 // require_once('modal/view_customer_purchased.php');
