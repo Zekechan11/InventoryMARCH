@@ -46,6 +46,16 @@
                 menuLinks[0].parentElement.classList.add('active');
             }
         }
+
+
+// COUNT OUT OF STICK
+fetch("api/get_stock.php")
+  .then(response => response.json())
+  .then(data => {
+    const count = data.count;
+    const nameTag = document.getElementById("stockCounter").innerHTML = count;
+  });
+
     </script>
 
 </body>

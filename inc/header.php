@@ -93,7 +93,7 @@ require('session_checker.php');
                             <div class="notify" style="cursor: pointer;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <a href="#" class="nav-link">
                                     <i class='bx bxs-bell icon'></i>
-                                    <span class="badge">5</span>
+                                    <span class="badge" id="stockCounter"></span>
                                 </a>
                             </div>
                             <div class="dropdown-menu overflow-h-menu dropdown-menu-right">
