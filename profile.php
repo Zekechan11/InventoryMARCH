@@ -17,12 +17,12 @@ require_once('dbconfig.php');
                             ?>
                            <p class="mb-0">Name : <?= $row['first_name'].' '.$row['last_name'] ?></p>
                             <p class="mb-0">Username : <?= $row['username'] ?></p>
-                            <?php } ?>
                         </div>
 
                     </div>
                     <div class="col-6 align-self-end text-end">
-                        <img src="image/yokai.jpg" class="img-fluid illustration-img" alt="">
+                        <img src="<?= $row['profile_pic'] ?>" class="img-fluid illustration-img" alt="">
+                        <?php } ?>
                     </div>
                 </div>
             </div>
