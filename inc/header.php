@@ -97,21 +97,7 @@ require('session_checker.php');
                                 </a>
                             </div>
                             <div class="dropdown-menu overflow-h-menu dropdown-menu-right">
-                                <div class="dropdown-item">
-                                    <h6>test</h6>
-                                    <span>Out of Stock</span>
-                                    <hr class="mt-1 mb-1">
-                                </div>
-                                <div class="dropdown-item">
-                                    <h6>test</h6>
-                                    <span>POGI</span>
-                                    <hr class="mt-1 mb-1">
-                                </div>
-                                <div class="dropdown-item">
-                                    <h6>test</h6>
-                                    <span>HANDSOME</span>
-                                    <hr class="mt-1 mb-1">
-                                </div>
+                                <div id="dropdown-container"></div>
                             </div>
                         </li>
 

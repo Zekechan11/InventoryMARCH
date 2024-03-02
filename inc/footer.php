@@ -49,12 +49,36 @@
 
 
 // COUNT OUT OF STICK
-fetch("api/get_stock.php")
+fetch("api/get_zero_stock.php")
   .then(response => response.json())
   .then(data => {
     const count = data.count;
     const nameTag = document.getElementById("stockCounter").innerHTML = count;
   });
+
+
+// DISPLAY OUT OF STICK PRODUCT
+fetch('api/get_zero_product.php')
+    .then(response =>  response.json())
+    .then(data => {
+        displayData(data);
+    });
+
+function displayData(data) {
+    const container = document.getElementById('dropdown-container');
+
+    data.forEach(item => {
+        const div = document.createElement('div');
+        div.classList.add('dropdown-item');
+        const span = document.createElement('span');
+        span.textContent = item.product_name;
+        const hr = document.createElement('hr');
+        hr.classList.add('mt-1', 'mb-1');
+        div.appendChild(span);
+        div.appendChild(hr);
+        container.appendChild(div);
+    });
+}
 
     </script>
 
