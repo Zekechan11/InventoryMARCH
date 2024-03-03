@@ -47,13 +47,22 @@
             }
         }
 
+// DISPLAY IMAGE
+fetch("api/get_profile.php")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        const profile = data[0].profile_pic;
+        console.log(profile);
+        const profileGet = document.getElementById("profileLink").src = profile;
+    });
 
 // COUNT OUT OF STICK
 fetch("api/get_zero_stock.php")
   .then(response => response.json())
   .then(data => {
     const count = data.count;
-    const nameTag = document.getElementById("stockCounter").innerHTML = count;
+    const counterGet = document.getElementById("stockCounter").innerHTML = count;
   });
 
 

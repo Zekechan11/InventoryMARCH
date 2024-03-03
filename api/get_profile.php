@@ -8,7 +8,8 @@ header('Content-type: json/application');
 
 include('connection.php');
 
-$sql = "SELECT * FROM admin_table WHERE category_id = $category_id";
+
+$sql = "SELECT profile_pic FROM admin_table LIMIT 1";
 $result = $mysqli->query($sql);
 
 // Check if the query was successful
