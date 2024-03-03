@@ -141,4 +141,40 @@ if (isset($_POST['update_password'])) {
             break;
     }    
 }
+
+// RESTORE TO DEFAULT
+if(isset($_POST['reset_profile'])) {
+    
+    //get data from inputs
+    $admin_Id = $_SESSION['admin_id'];
+    $admin_Fname = "Hardware";
+    $admin_Lname = "Admin";
+    $admin_Uname = "admin";
+    $admin_Pname = "image/default_profile.png";
+
+    try {
+        //get connection
+        $connection = $newconnection->openConnection();
+        //query using positional parameters
+        $query = "UPDATE admin_table
+                  SET first_name=:first_name, last_name=:last_name, username=:username, profile_pic=:profile_pic
+                  WHERE admin_id=:admin_id";
+
+        $data = [
+            ':first_name' => $admin_Fname,
+            ':last_name' => $admin_Lname,
+            ':username' => $admin_Uname,
+            ':profile_pic' => $admin_Pname,
+            ':admin_id' => $admin_Id
+        ];
+        //prepare the query
+        $stmt = $connection->prepare($query);
+        //execute query
+        $query = $stmt->execute($data);
+        echo "Category Added Successfully";
+    } catch (PDOException $th) {
+        echo "Error Message:" . $th->getMessage();
+    }
+}
+
 ?>

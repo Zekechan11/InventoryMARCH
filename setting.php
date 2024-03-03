@@ -72,7 +72,7 @@ include_once('function/update_admin.php')
 
                                 <div class="form-group row">
                                     <div class="col-sm-9 offset-sm-3 d-flex justify-content-end">
-                                        <button type="reset" class="btn btn-secondary me-2">Reset</button>
+                                        <button type="submit" class="btn btn-secondary me-2" name="reset_profile">Reset</button>
                                         <button type="submit" class="btn btn-success" name="edit_profile">Save</button>
                                     </div>
                                 </div>
