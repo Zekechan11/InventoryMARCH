@@ -171,7 +171,7 @@ if(isset($_POST['reset_profile'])) {
         $stmt = $connection->prepare($query);
         //execute query
         $query = $stmt->execute($data);
-        echo "Category Added Successfully";
+        echo "Profile has been reset to default";
     } catch (PDOException $th) {
         echo "Error Message:" . $th->getMessage();
     }

@@ -1,6 +1,6 @@
 <?php
 include_once('inc/header.php');
-include_once('function/update_admin.php')
+include_once('function/admin_setting.php')
 ?>
 
 <div class="container mt-3 mb-5">
