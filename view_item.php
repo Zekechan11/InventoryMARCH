@@ -39,14 +39,16 @@ require_once('dbconfig.php');
             <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#view-purchased">
                 <i class="fa fa-eye"></i> View
             </button>
-                    <div class="col-md-3">
+                    <div class="ms-3">
                     <?php
                         foreach ($resultCurse as $row) {
                     ?>
-                        <input type="text" value="<?= $row['customer_id'] ?>">
-                        <input type="text" value="<?= $row['full_name'] ?>">
-                        <input type="text" value="<?= $row['address'] ?>">
-                        <input type="text" value="<?= $row['contact_number'] ?>">
+                        <ul class="list-group">
+                            <li class="list-group-item">Customer Id: <b><?= $row['customer_id'] ?></b></li>
+                            <li class="list-group-item">Full Name: <b><?= $row['full_name'] ?></b></li>
+                            <li class="list-group-item">Address : <b><?= $row['address'] ?></b></li>
+                            <li class="list-group-item">Phone Number: <b><?= $row['contact_number'] ?></b></li>
+                        </ul>
                     <?php } ?>
                     </div>
                 </div>
