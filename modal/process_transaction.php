@@ -21,19 +21,19 @@
                     <div class="col">
                         <div class="col-md-3">
                             <label for="text" class="form-label">Sub Total :</label>
-                            <input type="text" placeholder="₱ 00.0" value="100">
+                            <input type="text" id="subtotal" placeholder="₱ 00.0" value="100">
                         </div>
                         <div class="col-md-3">
                             <label for="text" class="form-label">Cash :</label>
-                            <input type="text" placeholder="₱ 00.0">
+                            <input type="text" id="cash" placeholder="₱ 00.0">
                         </div>
                         <div class="col-md-3">
                             <label for="text" class="form-label">Total :</label>
-                            <input type="text" placeholder="₱ 00.0" readonly>
+                            <input type="text" id="total" placeholder="₱ 00.0" readonly>
                         </div>
                         <div class="col-md-3">
                             <label for="text" class="form-label">Change :</label>
-                            <input type="text" placeholder="₱ 00.0" readonly>
+                            <input type="text" id="change" placeholder="₱ 00.0" readonly>
                         </div>
                     </div>
             </div>
@@ -45,4 +45,28 @@
     </div>
 </div>
 
-<?php require_once('inc/footer.php'); ?>
+<script>
+    const cashInput = document.getElementById('cash');
+    const totalInput = document.getElementById('total');
+    const changeInput = document.getElementById('change');
+    const subtotalInput = document.getElementById('subtotal');
+
+    function calculate() {
+        const cash = parseFloat(cashInput.value);
+        const subtotal = parseFloat(subtotalInput.value);
+
+        // Calculate total
+        const total = subtotal;
+
+        // Display total
+        totalInput.value = + total.toFixed(2);
+
+        // Calculate and display change
+        const change = cash - total;
+        changeInput.value = + change.toFixed(2);
+    }
+
+    cashInput.addEventListener('input', calculate);
+
+    calculate();
+</script>
