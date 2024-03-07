@@ -11,7 +11,7 @@
                 <form method='post' action='' enctype='multipart/form-data'>
                     <div class="">
                         <label for="text" class="form-label">Voucher:</label>
-                        <select class="form-select" name="edit_category_name" id="edit_category_name">
+                        <select class="form-select" name="selected_voucher" id="selected_voucher">
                             <option selected value="0">None</option>
                             <option value="10">10%</option>
                             <option value="30">30%</option>
@@ -50,13 +50,15 @@
     const totalInput = document.getElementById('total');
     const changeInput = document.getElementById('change');
     const subtotalInput = document.getElementById('subtotal');
+    const voucherSelect = document.getElementById('selected_voucher');
 
     function calculate() {
         const cash = parseFloat(cashInput.value);
         const subtotal = parseFloat(subtotalInput.value);
+        const voucherDiscount = parseFloat(voucherSelect.value);
 
-        // Calculate total
-        const total = subtotal;
+       // Calculate total after discount
+       const total = subtotal - (subtotal * voucherDiscount);
 
         // Display total
         totalInput.value = + total.toFixed(2);
@@ -67,6 +69,7 @@
     }
 
     cashInput.addEventListener('input', calculate);
+    voucherSelect.addEventListener('change', calculate);
 
     calculate();
 </script>
