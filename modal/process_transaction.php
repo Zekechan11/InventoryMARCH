@@ -13,9 +13,9 @@
                         <label for="text" class="form-label">Voucher:</label>
                         <select class="form-select" name="selected_voucher" id="selected_voucher">
                             <option selected value="0">None</option>
-                            <option value="10">10%</option>
-                            <option value="30">30%</option>
-                            <option value="50">50%</option>
+                            <option value="0.10">10%</option>
+                            <option value="0.30">30%</option>
+                            <option value="0.50">50%</option>
                         </select>
                     </div>
                     <div class="col">
@@ -53,19 +53,25 @@
     const voucherSelect = document.getElementById('selected_voucher');
 
     function calculate() {
-        const cash = parseFloat(cashInput.value);
-        const subtotal = parseFloat(subtotalInput.value);
+        let cash = parseFloat(cashInput.value);
+        let subtotal = parseFloat(subtotalInput.value);
+
+        cash = isNaN(cash) ? 0 : cash;
+        subtotal = isNaN(subtotal) ? 0 : subtotal;
+
+        let total = subtotal;
+
         const voucherDiscount = parseFloat(voucherSelect.value);
+        if (voucherDiscount > 0) {
+            total -= (total * voucherDiscount) / 100;
+        }
 
-       // Calculate total after discount
-       const total = subtotal - (subtotal * voucherDiscount);
+        totalInput.value = total.toFixed(2);
 
-        // Display total
-        totalInput.value = + total.toFixed(2);
+        let change = cash - total;
+        change = change < 0 ? 0 : change;
 
-        // Calculate and display change
-        const change = cash - total;
-        changeInput.value = + change.toFixed(2);
+        changeInput.value = change.toFixed(2);
     }
 
     cashInput.addEventListener('input', calculate);
