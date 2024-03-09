@@ -80,32 +80,32 @@
 </div>
 
 <script>
-    function openViewCart(product_id) {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                var data = JSON.parse(xhr.responseText);
-                var tableBody = document.getElementById('table-body');
-                tableBody.innerHTML = '';
-                for (var i = 0; i < data.length; i++) {
-                    var newRow = document.createElement('tr');
-                    var productIdCell = document.createElement('td');
-                    var productNameCell = document.createElement('td');
+    // function openViewCart(product_id) {
+    //     var xhr = new XMLHttpRequest();
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState == 4 && xhr.status == 200) {
+    //             var data = JSON.parse(xhr.responseText);
+    //             var tableBody = document.getElementById('table-body');
+    //             tableBody.innerHTML = '';
+    //             for (var i = 0; i < data.length; i++) {
+    //                 var newRow = document.createElement('tr');
+    //                 var productIdCell = document.createElement('td');
+    //                 var productNameCell = document.createElement('td');
 
-                    productIdCell.textContent = data[i].product_id;
-                    productNameCell.textContent = data[i].product_name;
+    //                 productIdCell.textContent = data[i].product_id;
+    //                 productNameCell.textContent = data[i].product_name;
 
-                    newRow.appendChild(productIdCell);
-                    newRow.appendChild(productNameCell);
+    //                 newRow.appendChild(productIdCell);
+    //                 newRow.appendChild(productNameCell);
 
-                    tableBody.appendChild(newRow);
-                }
-            }
-        };
+    //                 tableBody.appendChild(newRow);
+    //             }
+    //         }
+    //     };
 
-        xhr.open('GET', 'api/get_product.php?id=' + product_id, true);
-        xhr.send();
-    }
+    //     xhr.open('GET', 'api/get_product.php?id=' + product_id, true);
+    //     xhr.send();
+    // }
 </script>
 
 <script>
@@ -133,5 +133,4 @@
     });
 </script>
 
-<?php require_once('inc/footer.php'); ?>
 <?php require_once('modal/cart_remove.php'); ?>
