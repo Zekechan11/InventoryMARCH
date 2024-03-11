@@ -21,7 +21,7 @@
                     <div class="col">
                         <div class="col-md-3">
                             <label for="text" class="form-label">Sub Total :</label>
-                            <input type="text" id="subtotal" placeholder="₱ 00.0" value="100">
+                            <input type="text" id="subtotal" placeholder="₱ 00.0">
                         </div>
                         <div class="col-md-3">
                             <label for="text" class="form-label">Cash :</label>
@@ -78,4 +78,11 @@
     voucherSelect.addEventListener('change', calculate);
 
     calculate();
+
+    fetch('api/get_total.php?id=<?= $customer_id ?>')
+        .then(response => response.json())
+        .then(data => {
+            const getotal = data.total;
+            const displaytotal = document.getElementById("subtotal").value = getotal;
+        });
 </script>

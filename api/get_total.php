@@ -8,8 +8,10 @@ header('Content-type: json/application');
 
 include('connection.php');
 
+$customer_id = isset($_GET['id']) ? $_GET['id'] : null;
+
 $sql = "SELECT SUM(price * quantity) AS total FROM transaction_table
-        WHERE customer_id = '1' AND status = 'UNPAID'";
+        WHERE customer_id = $customer_id AND status = 'UNPAID'";
 $result = $mysqli->query($sql);
 
 // Check if the query was successful
