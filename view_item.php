@@ -1,6 +1,7 @@
 <?php require_once('inc/header.php');
-include_once('function/process.php');
+include_once('function/transact_customer.php');
 include_once('function/add_transaction.php');
+include_once('function/process.php');
 require_once('dbconfig.php');
 
 // $sql = "SELECT * FROM sales_table";

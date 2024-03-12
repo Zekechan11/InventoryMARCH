@@ -19,21 +19,22 @@
                         </select>
                     </div>
                     <div class="col">
+                        <input type="hidden" name="customer_id" value="<?= $customer_id ?>">
                         <div class="col-md-3">
                             <label for="text" class="form-label">Sub Total :</label>
-                            <input type="text" id="subtotal" placeholder="₱ 00.0">
+                            <input type="text" name="subtotal" id="subtotal" placeholder="₱ 00.0">
                         </div>
                         <div class="col-md-3">
                             <label for="text" class="form-label">Cash :</label>
-                            <input type="text" id="cash" placeholder="₱ 00.0">
+                            <input type="text" name="cash" id="cash" placeholder="₱ 00.0">
                         </div>
                         <div class="col-md-3">
                             <label for="text" class="form-label">Total :</label>
-                            <input type="text" id="total" placeholder="₱ 00.0" readonly>
+                            <input type="text" name="total" id="total" placeholder="₱ 00.0" readonly>
                         </div>
                         <div class="col-md-3">
                             <label for="text" class="form-label">Change :</label>
-                            <input type="text" id="change" placeholder="₱ 00.0" readonly>
+                            <input type="text" name="change" id="change" placeholder="₱ 00.0" readonly>
                         </div>
                     </div>
             </div>
