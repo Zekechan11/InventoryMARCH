@@ -17,7 +17,7 @@ if (isset($_POST['save_quantity_add'])) {
 
     try {
         // Check if the product already exists for the given user
-        $stmt = $connection->prepare("SELECT * FROM transaction_table WHERE product_id = :product_id AND customer_id = :customer_id");
+        $stmt = $connection->prepare("SELECT * FROM transaction_table WHERE product_id = :product_id AND customer_id = :customer_id AND status = 'UNPAID'");
         $stmt->bindParam(':product_id', $product_id);
         $stmt->bindParam(':customer_id', $customer_id);
         $stmt->execute();

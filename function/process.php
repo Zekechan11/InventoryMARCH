@@ -13,6 +13,7 @@ include_once 'dbconfig.php';
     $total = $_POST['total'];
     $change = $_POST['change'];
     $transaction_code = generateTransactionCode(15);
+    $status = "PAID";
 
     if($voucher != 0) {
         $voucher = ltrim($voucher, '0.');
@@ -38,7 +39,17 @@ include_once 'dbconfig.php';
         // Execute query
         $stmt->execute();
 
-        //$transactQuery = "UPDATE transaction_table ";
+        $transactQuery = "UPDATE transaction_table 
+                          SET status = :status, transaction_code = :transaction_code
+                          WHERE customer_id = :customer_id AND status = 'UNPAID'";
+        // Prepare the query
+        $stmt = $connection->prepare($transactQuery);
+        // Bind parameters
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':transaction_code', $transaction_code);
+        $stmt->bindParam(':customer_id', $customer_id);
+        // Execute query
+        $stmt->execute();
 
         echo "Transaction Recorded Successfully";
     } catch (PDOException $th) {
