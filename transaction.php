@@ -1,9 +1,9 @@
 <?php
 require_once('inc/header.php');
-include_once('function/sales.php');
+//include_once('function/sales.php');
 include_once('function/remove_transaction.php');
 include_once('function/customer.php');
-include_once('status.php');
+//include_once('status.php');
 require_once('dbconfig.php');
 
 
@@ -136,20 +136,20 @@ require_once('dbconfig.php');
                                 <tbody style="vertical-align: middle;">
                                     <?php
 
-                                    foreach ($sales_data as $row) {
+                                    // foreach ($sales_data as $row) {
 
-                                        switch ($row['status']) {
-                                            case 1:
-                                                $status_icon = 'fa-solid fa-clock-rotate-left';
-                                                $status_color = 'th-color-orange ';
-                                                break;
-                                            case 2:
-                                                $status_icon = 'fa-check-circle';
-                                                $status_color = 'th-color-green';
-                                                break;
-                                        }
+                                    //     switch ($row['status']) {
+                                    //         case 1:
+                                    //             $status_icon = 'fa-solid fa-clock-rotate-left';
+                                    //             $status_color = 'th-color-orange ';
+                                    //             break;
+                                    //         case 2:
+                                    //             $status_icon = 'fa-check-circle';
+                                    //             $status_color = 'th-color-green';
+                                    //             break;
+                                    //     }
                                     ?>
-                                        <tr>
+                                        <!-- <tr>
                                             <td><?= $row['product_id'] ?></td>
                                             <td><?= $row['product_name'] ?></td>
                                             <td>
@@ -161,9 +161,9 @@ require_once('dbconfig.php');
                                             </td>
 
                                             <td><?= $row['date'] ?></td>
-                                        </tr>
+                                        </tr> -->
                                     <?php
-                                    }
+                                    // }
                                     ?>
                                 </tbody>
                             </table>
@@ -176,7 +176,7 @@ require_once('dbconfig.php');
 </div>
 
 <?php
-require_once('modal/add_sales.php');
+//require_once('modal/add_sales.php');
 require_once('modal/remove_transaction.php');
 require_once('modal/cart.php');
 require_once('modal/add_transaction.php');

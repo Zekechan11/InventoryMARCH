@@ -1,8 +1,6 @@
 <?php require_once('inc/header.php');
-include_once('function/sales.php');
 include_once('function/process.php');
 include_once('function/add_transaction.php');
-include_once('status.php');
 require_once('dbconfig.php');
 
 // $sql = "SELECT * FROM sales_table";
@@ -68,6 +66,9 @@ require_once('dbconfig.php');
                             </thead>
                             <tbody>
                                 <?php
+
+                                $newConnection = new Connection();
+                                $conn = $newConnection->openConnection();
 
                                 $stmt = $conn->prepare('SELECT p.product_id, COALESCE(c.category_name, "Category Deleted") AS category_name,
                                 c.category_id,p.product_name,p.image,p.quantity,p.price,
