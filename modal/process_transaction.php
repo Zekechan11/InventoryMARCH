@@ -20,6 +20,7 @@
                     </div>
                     <div class="col">
                         <input type="hidden" name="customer_id" value="<?= $customer_id ?>">
+                        <input type="hidden" name="customer_name" value="<?= $customer_name ?>">
                         <div class="col-md-3">
                             <label for="text" class="form-label">Sub Total :</label>
                             <input type="text" name="subtotal" id="subtotal" placeholder="₱ 00.0">

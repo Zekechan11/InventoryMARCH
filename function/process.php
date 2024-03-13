@@ -8,6 +8,7 @@ include_once 'dbconfig.php';
     //get data from inputs
     $voucher = $_POST['selected_voucher'];
     $customer_id = $_POST['customer_id'];
+    $customer_name = $_POST['customer_name'];
     $subtotal = $_POST['subtotal'];
     $cash = $_POST['cash'];
     $total = $_POST['total'];
@@ -24,13 +25,14 @@ include_once 'dbconfig.php';
         // Get connection
         $connection = $newconnection->openConnection();
         // Query using named parameters
-        $query = "INSERT INTO sales_table (voucher, customer_id, subtotal, cash, total, remainder, transaction_code)
-                  VALUES (:voucher, :customer_id, :subtotal, :cash, :total, :change, :transaction_code)";
+        $query = "INSERT INTO sales_table (voucher, customer_id, customer_name, subtotal, cash, total, remainder, transaction_code)
+                  VALUES (:voucher, :customer_id, :customer_name, :subtotal, :cash, :total, :change, :transaction_code)";
         // Prepare the query
         $stmt = $connection->prepare($query);
         // Bind parameters
         $stmt->bindParam(':voucher', $voucher);
         $stmt->bindParam(':customer_id', $customer_id);
+        $stmt->bindParam(':customer_name', $customer_name);
         $stmt->bindParam(':subtotal', $subtotal);
         $stmt->bindParam(':cash', $cash);
         $stmt->bindParam(':total', $total);
