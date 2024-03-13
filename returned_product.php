@@ -1,4 +1,6 @@
-<?php require_once('inc/header.php');
+<?php
+require_once('inc/header.php');
+require_once('dbconfig.php');
 ?>
 
 <div class="content-inner">
@@ -28,16 +30,40 @@
                             <tr>
                                 <th class="text-center">Product Id</th>
                                 <th class="text-center">Customer Name</th>
-                                <th class="text-center">Category Name</th>
-                                <th class="text-center">Product Name</th>
-                                <th class="text-center">Description</th>
-                                <th class="text-center">Instock</th>
-                                <th class="text-center">Price</th>
+                                <th class="text-center">Discount</th>
+                                <th class="text-center">Subtotal</th>
+                                <th class="text-center">Cash</th>
+                                <th class="text-center">Total</th>
+                                <th class="text-center">Change</th>
                                 <th class="text-center">Date</th>
                             </tr>
                         </thead>
                         <tbody style="vertical-align: middle;">
-                           
+                        <?php
+                            // get connection
+                            $connection = $newconnection->openConnection();
+                            // prepare statement
+                            $stmt = $connection->prepare("SELECT * FROM sales_table");
+                            // execute
+                            $stmt->execute();
+                            // fetch
+                            $result = $stmt->fetchAll();
+
+                            if ($result) {
+                                foreach ($result as $row) {
+
+                            ?>
+                            <tr>
+                                <td><?= $row['sale_id'] ?></td>
+                                <td><?= $row['customer_name'] ?></td>
+                                <td><?= $row['voucher'] ?>%</td>
+                                <td>₱ <?= $row['subtotal'] ?></td>
+                                <td>₱ <?= $row['cash'] ?></td>
+                                <td>₱ <?= $row['total'] ?></td>
+                                <td>₱ <?= $row['remainder'] ?></td>
+                                <td><?= $row['date'] ?></td>
+                            </tr>
+                           <?php } } ?>
                         </tbody>
                     </table>
                 </div>
