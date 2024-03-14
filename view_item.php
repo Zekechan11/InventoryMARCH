@@ -30,26 +30,27 @@ require_once('dbconfig.php');
     </div>
 
     <div class="card border-0">
-                <div class="card-header shadow-sm">
-            <button type="button" class="btn btn-success float-end ms-3" data-bs-toggle="modal" data-bs-target="#view-transaction">
-                <i class="fa fa-circle-arrow-right" onclick="openViewCart(<?php echo isset($_GET['id']) ? (int)$_GET['id'] : ''; ?>)"></i>
-            </button>
+        <div class="card-header shadow-sm">
+            <div class="row float-end">
+                <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#view-transaction">
+                    <i class="fa fa-circle-arrow-right" onclick="openViewCart(<?php echo isset($_GET['id']) ? (int)$_GET['id'] : ''; ?>)"></i>
+                    Process
+                </button>
 
-            <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#view-purchased">
-                <i class="fa fa-eye"></i> View
-            </button>
-                    <div class="ms-3">
-                    <?php
-                        foreach ($resultCurse as $row) {
-                    ?>
+                <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#view-purchased">
+                    <i class="fa fa-eye"></i> View
+                </button>
+            </div>
+            
+                <div>
+                    <?php foreach ($resultCurse as $row) { ?>
                         <ul class="list-group">
-                            <li class="list-group-item">Customer Id: <b><?= $row['customer_id'] ?></b></li>
                             <li class="list-group-item">Full Name: <b><?= $row['full_name'] ?></b></li>
                             <li class="list-group-item">Address : <b><?= $row['address'] ?></b></li>
                             <li class="list-group-item">Phone Number: <b><?= $row['contact_number'] ?></b></li>
                         </ul>
                     <?php } ?>
-                    </div>
+                </div>
                 </div>
                 <div class="card-body">
                     <div class="table-body col-12 text-center">

@@ -9,10 +9,10 @@ include_once 'dbconfig.php';
     $voucher = $_POST['selected_voucher'];
     $customer_id = $_POST['customer_id'];
     $customer_name = $_POST['customer_name'];
-    $subtotal = $_POST['subtotal'];
-    $cash = $_POST['cash'];
-    $total = $_POST['total'];
-    $change = $_POST['change'];
+    $subtotal = $_POST['process_subtotal'];
+    $cash = $_POST['process_cash'];
+    $total = $_POST['process_total'];
+    $change = $_POST['process_change'];
     $transaction_code = generateTransactionCode(15);
     $status = "PAID";
 

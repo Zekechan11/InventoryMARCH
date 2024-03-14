@@ -20,22 +20,22 @@
                     </div>
                     <div class="col">
                         <input type="hidden" name="customer_id" value="<?= $customer_id ?>">
-                        <input type="hidden" name="customer_name" value="<?= $customer_name ?>">
-                        <div class="col-md-3">
+                        <input type="hidden" name="customer_name" value="<?= $full_name ?>">
+                        <div>
                             <label for="text" class="form-label">Sub Total :</label>
-                            <input type="text" name="subtotal" id="subtotal" placeholder="₱ 00.0">
+                            <input type="text" class="form-control" name="process_subtotal" id="process_subtotal" placeholder="₱ 00.0" readonly>
                         </div>
-                        <div class="col-md-3">
+                        <div>
                             <label for="text" class="form-label">Cash :</label>
-                            <input type="text" name="cash" id="cash" placeholder="₱ 00.0">
+                            <input type="text" class="form-control" name="process_cash" id="process_cash" placeholder="₱ 00.0">
                         </div>
-                        <div class="col-md-3">
+                        <div>
                             <label for="text" class="form-label">Total :</label>
-                            <input type="text" name="total" id="total" placeholder="₱ 00.0" readonly>
+                            <input type="text" class="form-control" name="process_total" id="process_total" placeholder="₱ 00.0" readonly>
                         </div>
-                        <div class="col-md-3">
+                        <div>
                             <label for="text" class="form-label">Change :</label>
-                            <input type="text" name="change" id="change" placeholder="₱ 00.0" readonly>
+                            <input type="text" class="form-control" name="process_change" id="process_change" placeholder="₱ 00.0" readonly>
                         </div>
                     </div>
             </div>
@@ -48,10 +48,10 @@
 </div>
 
 <script>
-    const cashInput = document.getElementById('cash');
-    const totalInput = document.getElementById('total');
-    const changeInput = document.getElementById('change');
-    const subtotalInput = document.getElementById('subtotal');
+    const cashInput = document.getElementById('process_cash');
+    const totalInput = document.getElementById('process_total');
+    const changeInput = document.getElementById('process_change');
+    const subtotalInput = document.getElementById('process_subtotal');
     const voucherSelect = document.getElementById('selected_voucher');
 
     function calculate() {
@@ -68,12 +68,12 @@
             total -= (total * voucherDiscount) / 100;
         }
 
-        totalInput.value = total.toFixed(2);
+        totalInput.value = total.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });;
 
         let change = cash - total;
         change = change < 0 ? 0 : change;
 
-        changeInput.value = change.toFixed(2);
+        changeInput.value = change.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
     }
 
     cashInput.addEventListener('input', calculate);
@@ -85,6 +85,7 @@
         .then(response => response.json())
         .then(data => {
             const getotal = data.total;
-            const displaytotal = document.getElementById("subtotal").value = getotal;
+            subtotalInput.value = getotal.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
+            calculate();
         });
 </script>

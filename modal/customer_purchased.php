@@ -1,7 +1,7 @@
 <!-- Edit Product Modal -->
 <?php include_once('function/cart_fun.php');?>
 
-<div class="modal fade" id="view-purchased" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="edit-product-label" aria-hidden="true">
+<div class="modal fade" id="customer-view-purchased" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="edit-product-label" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -67,7 +67,7 @@
                     </div> -->
                     <div class="col-md-3">
                         <label for="text" class="form-label">Total :</label>
-                        <input type="text" class="form-control" id="cartotal" placeholder="₱ 00.0" readonly>
+                        <input type="text" id="cartotal" placeholder="₱ 00.0" readonly>
                     </div>
                     <!-- <div class="col-md-3">
                         <label for="text" class="form-label">Change :</label>
@@ -80,12 +80,12 @@
 </div>
 
 <script>
-    fetch('api/get_total.php?id=<?= $customer_id ?>')
-        .then(response => response.json())
-        .then(data => {
-            const getotal = data.total;
-            const displaytotal = document.getElementById("cartotal").value = '₱' + getotal;;
-        });
+    // fetch('api/get_total.php?id=<?= $customer_id ?>')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         const getotal = data.total;
+    //         const displaytotal = document.getElementById("cartotal").value = '₱' + getotal;;
+    //     });
 </script>
 
 <script>

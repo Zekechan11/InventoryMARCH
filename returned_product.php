@@ -31,11 +31,11 @@ require_once('dbconfig.php');
                                 <th class="text-center">Product Id</th>
                                 <th class="text-center">Customer Name</th>
                                 <th class="text-center">Discount</th>
-                                <th class="text-center">Subtotal</th>
                                 <th class="text-center">Cash</th>
                                 <th class="text-center">Total</th>
                                 <th class="text-center">Change</th>
                                 <th class="text-center">Date</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody style="vertical-align: middle;">
@@ -57,11 +57,13 @@ require_once('dbconfig.php');
                                 <td><?= $row['sale_id'] ?></td>
                                 <td><?= $row['customer_name'] ?></td>
                                 <td><?= $row['voucher'] ?>%</td>
-                                <td>₱ <?= $row['subtotal'] ?></td>
                                 <td>₱ <?= $row['cash'] ?></td>
                                 <td>₱ <?= $row['total'] ?></td>
                                 <td>₱ <?= $row['remainder'] ?></td>
                                 <td><?= $row['date'] ?></td>
+                                <td>
+                                    <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#customer-view-purchased"></i>
+                                </td>
                             </tr>
                            <?php } } ?>
                         </tbody>
@@ -72,5 +74,7 @@ require_once('dbconfig.php');
     </section>
 </div>
 
-<?php require_once('modal/returned_products.php'); ?>
-<?php require_once('inc/footer.php'); ?>
+<?php
+require_once('modal/returned_products.php');
+require_once('modal/customer_purchased.php');
+require_once('inc/footer.php'); ?>

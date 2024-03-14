@@ -211,7 +211,7 @@ require_once('function/statistics.php');
                         </div>
                         <div class="text">
                         <p class="mb-2" style="font-size: large; font-weight:600;position:relative;top:2px;right:15px; color:#3E3D41;">
-                                    300
+                                    <?php echo getSalesCount($conn); ?>
                                 </p>
                         </div>
                     </div>
