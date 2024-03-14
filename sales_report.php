@@ -1,6 +1,31 @@
 <?php
 require_once('inc/header.php');
 require_once('dbconfig.php');
+
+// Check if the filter button is clicked
+if (isset($_GET['filter'])) {
+    // Get the selected dates from the form
+    $fromDate = $_GET['from_date'];
+    $toDate = $_GET['to_date'];
+
+    // Get connection
+    $connection = $newconnection->openConnection();
+    // Prepare statement with the date filter
+    $stmt = $connection->prepare("SELECT * FROM sales_table WHERE date BETWEEN :fromDate AND :toDate");
+    // Bind parameters
+    $stmt->bindParam(':fromDate', $fromDate);
+    $stmt->bindParam(':toDate', $toDate);
+    // Execute
+    $stmt->execute();
+    // Fetch
+    $result = $stmt->fetchAll();
+} else {
+    // If filter button is not clicked, fetch all records
+    $connection = $newconnection->openConnection();
+    $stmt = $connection->prepare("SELECT * FROM sales_table");
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+}
 ?>
 
 <div class="content-inner">
@@ -22,19 +47,19 @@ require_once('dbconfig.php');
         </div>
     </div>
     <div class="container">
-        <form action="">
+        <form action="" method="GET">
             <div class="row" style="position: relative;left:226px;top:20px;">
                 <div class="col-md-4">
-                    <label for="inputState" class="form-label">From Date</label>
-                    <input type="date" class="form-control" id="inputCity">
+                    <label for="from_date" class="form-label">From Date</label>
+                    <input type="date" class="form-control" id="from_date" name="from_date" value="<?php echo isset($_GET['from_date']) ? $_GET['from_date'] : ''; ?>">
                 </div>
                 <div class="col-md-4">
-                    <label for="inputState" class="form-label">To Date</label>
-                    <input type="date" class="form-control" id="inputCity">
+                    <label for="to_date" class="form-label">To Date</label>
+                    <input type="date" class="form-control" id="to_date" name="to_date" value="<?php echo isset($_GET['to_date']) ? $_GET['to_date'] : ''; ?>">
                 </div>
             </div>
             <div class="col-md-11">
-                <button type="submit" name="filter" class="btn btn-primary btn-sm float-end" style="position: relative;bottom:15px;">pink</button>
+                <button type="submit" name="filter" class="btn btn-primary btn-sm float-end" style="position: relative;bottom:15px;">Filter</button>
             </div>
         </form>
     </div>
@@ -42,7 +67,7 @@ require_once('dbconfig.php');
         <div class="card border-0">
             <div class="card-body">
                 <div class="table-body col-12 text-center">
-                    <table id="example" class=" display" style="width:100%;">
+                    <table id="example" class="display" style="width:100%;">
                         <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                             <tr>
                                 <th class="text-center">Product Id</th>
@@ -56,31 +81,24 @@ require_once('dbconfig.php');
                             </tr>
                         </thead>
                         <tbody style="vertical-align: middle;">
-                        <?php
-                            // get connection
-                            $connection = $newconnection->openConnection();
-                            // prepare statement
-                            $stmt = $connection->prepare("SELECT * FROM sales_table");
-                            // execute
-                            $stmt->execute();
-                            // fetch
-                            $result = $stmt->fetchAll();
-
+                            <?php
                             if ($result) {
                                 foreach ($result as $row) {
-
                             ?>
-                            <tr>
-                                <td><?= $row['sale_id'] ?></td>
-                                <td><?= $row['customer_name'] ?></td>
-                                <td><?= $row['voucher'] ?>%</td>
-                                <td>₱ <?= $row['subtotal'] ?></td>
-                                <td>₱ <?= $row['cash'] ?></td>
-                                <td>₱ <?= $row['total'] ?></td>
-                                <td>₱ <?= $row['remainder'] ?></td>
-                                <td><?= $row['date'] ?></td>
-                            </tr>
-                           <?php } } ?>
+                                    <tr>
+                                        <td><?= $row['sale_id'] ?></td>
+                                        <td><?= $row['customer_name'] ?></td>
+                                        <td><?= $row['voucher'] ?>%</td>
+                                        <td>₱ <?= $row['subtotal'] ?></td>
+                                        <td>₱ <?= $row['cash'] ?></td>
+                                        <td>₱ <?= $row['total'] ?></td>
+                                        <td>₱ <?= $row['remainder'] ?></td>
+                                        <td><?= $row['date'] ?></td>
+                                    </tr>
+                            <?php
+                                }
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

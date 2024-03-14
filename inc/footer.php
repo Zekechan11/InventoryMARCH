@@ -25,19 +25,20 @@
 
         if (document.querySelector('.sidebar-nav')) {
             var currentUrl = window.location.href;
+            var urlWithoutParams = currentUrl.split('?')[0];
             var menuLinks = document.querySelectorAll('.sidebar-nav li a');
 
             var ifAlive = false;
 
             menuLinks.forEach(function(link) {
-                if (link.href === currentUrl) {
+                if (link.href === urlWithoutParams) {
                     link.parentElement.classList.add('active');
                     ifAlive = true;
-                } else if (currentUrl.indexOf("view_item.php") !== -1) {
+                } else if (urlWithoutParams.indexOf("view_item.php") !== -1) {
                     link.parentElement.classList.remove('active');
                     document.getElementById("transaction_active").classList.add('active');
                     ifAlive = true;
-                } else if (currentUrl.indexOf("history.php") !== -1) {
+                } else if (urlWithoutParams.indexOf("history.php") !== -1) {
                     link.parentElement.classList.remove('active');
                     document.getElementById("transaction_active").classList.add('active');
                     ifAlive = true;
