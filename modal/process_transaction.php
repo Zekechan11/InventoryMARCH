@@ -68,12 +68,12 @@
             total -= (total * voucherDiscount) / 100;
         }
 
-        totalInput.value = total.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });;
+        totalInput.value = total.toFixed(2);
 
         let change = cash - total;
         change = change < 0 ? 0 : change;
 
-        changeInput.value = change.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
+        changeInput.value = change.toFixed(2);
     }
 
     cashInput.addEventListener('input', calculate);
@@ -85,7 +85,7 @@
         .then(response => response.json())
         .then(data => {
             const getotal = data.total;
-            subtotalInput.value = getotal.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
+            subtotalInput.value = getotal;
             calculate();
         });
 </script>

@@ -281,14 +281,12 @@ require_once('function/statistics.php');
                         <thead>
                             <tr>
                                 <th class="text-center">Product Name</th>
-                                <th class="text-center">Total Quantity</th>
                                 <th class="text-center">Total Sold</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Coco Lumber</td>
-                                <td>10</td>
                                 <td>50</td>
                             </tr>
                         </tbody>

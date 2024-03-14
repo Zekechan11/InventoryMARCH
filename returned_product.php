@@ -62,7 +62,8 @@ require_once('dbconfig.php');
                                 <td>₱ <?= $row['remainder'] ?></td>
                                 <td><?= $row['date'] ?></td>
                                 <td>
-                                    <i class="fa fa-trash _delete_cat" type="button" style="color:red" title="Delete" data-bs-toggle="modal" data-bs-target="#customer-view-purchased"></i>
+                                    <i class="fa fas fa-eye " type="button" style="color:green" title="View" data-bs-toggle="modal" data-bs-target="#customer-view-purchased"
+                                    onclick="openViewPurchased('<?= $row['transaction_code'] ?>')"></i>
                                 </td>
                             </tr>
                            <?php } } ?>

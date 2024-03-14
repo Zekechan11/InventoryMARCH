@@ -37,6 +37,10 @@
                     link.parentElement.classList.remove('active');
                     document.getElementById("transaction_active").classList.add('active');
                     ifAlive = true;
+                } else if (currentUrl.indexOf("history.php") !== -1) {
+                    link.parentElement.classList.remove('active');
+                    document.getElementById("transaction_active").classList.add('active');
+                    ifAlive = true;
                 } else {
                     link.parentElement.classList.remove('active');
                 }

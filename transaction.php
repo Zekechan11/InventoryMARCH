@@ -127,44 +127,44 @@ require_once('dbconfig.php');
                             <table class="table table-striped table-hover" style="width:100%;">
                                 <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                                     <tr>
-                                        <th class="text-center">Customer Id</th>
+                                        <th class="text-center">Product Id</th>
                                         <th class="text-center">Customer Name</th>
-                                        <th class="text-center">Pending</th>
+                                        <th class="text-center">Discount</th>
+                                        <th class="text-center">Cash</th>
+                                        <th class="text-center">Total</th>
+                                        <th class="text-center">Change</th>
                                         <th class="text-center">Date</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody style="vertical-align: middle;">
-                                    <?php
+                                <?php
+                                    // get connection
+                                    $connection = $newconnection->openConnection();
+                                    // prepare statement
+                                    $stmt = $connection->prepare("SELECT * FROM sales_table");
+                                    // execute
+                                    $stmt->execute();
+                                    // fetch
+                                    $result = $stmt->fetchAll();
 
-                                    // foreach ($sales_data as $row) {
+                                    if ($result) {
+                                        foreach ($result as $row) {
 
-                                    //     switch ($row['status']) {
-                                    //         case 1:
-                                    //             $status_icon = 'fa-solid fa-clock-rotate-left';
-                                    //             $status_color = 'th-color-orange ';
-                                    //             break;
-                                    //         case 2:
-                                    //             $status_icon = 'fa-check-circle';
-                                    //             $status_color = 'th-color-green';
-                                    //             break;
-                                    //     }
                                     ?>
-                                        <!-- <tr>
-                                            <td><?= $row['product_id'] ?></td>
-                                            <td><?= $row['product_name'] ?></td>
-                                            <td>
-                                                <span class="th-badge <?php echo $status_color ?>">
-                                                    <?= $status[$row['status']] ?>
-                                                    <i class="fas <?php echo $status_icon ?> ml-1"></i>
-
-                                                </span>
-                                            </td>
-
-                                            <td><?= $row['date'] ?></td>
-                                        </tr> -->
-                                    <?php
-                                    // }
-                                    ?>
+                                    <tr>
+                                        <td><?= $row['sale_id'] ?></td>
+                                        <td><?= $row['customer_name'] ?></td>
+                                        <td><?= $row['voucher'] ?>%</td>
+                                        <td>₱ <?= $row['cash'] ?></td>
+                                        <td>₱ <?= $row['total'] ?></td>
+                                        <td>₱ <?= $row['remainder'] ?></td>
+                                        <td><?= $row['date'] ?></td>
+                                        <td>
+                                            <a href="history.php?transaction_code=<?= $row['transaction_code'] ?>&name=<?= $row['customer_name'] ?>"<i class="fa fas fa-eye " type="button" style="color:green"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php } } ?>
                                 </tbody>
                             </table>
                         </div>
