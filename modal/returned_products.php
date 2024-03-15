@@ -11,13 +11,24 @@
                 <form action="" method="post">
                     <div class="row">
                         <p>Are you sure you want to returned this product?</p>
+                        <input type="hidden" id="return_transactId" name="return_transactId">
+                        <input type="hidden" id="return_transactCode" name="return_transactCode">
+                        <input type="hidden" id="return_price" name="return_price">
                         <div class="col-md-10 mb-2">
-                            <label for="edit_quantity" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="edit_quantity" name="edit_quantity">
+                            <label for="edit_quantity" class="form-label">Customer Name</label>
+                            <input type="text" class="form-control" id="return_customer" name="return_customer" readonly>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <label for="edit_quantity" class="form-label">Product Name</label>
+                            <input type="text" class="form-control" id="return_productName" name="return_productName" readonly>
+                        </div>
+                        <div class="col-md-10 mb-2">
+                            <label for="edit_quantity" class="form-label">Reason</label>
+                            <input type="text" class="form-control" name="return_reason" required>
                         </div>
                         <div class="col-md-3 mb-2">
                             <label for="edit_quantity" class="form-label">Quantity</label>
-                            <input type="number" class="form-control" id="edit_quantity" name="edit_quantity">
+                            <input type="number" class="form-control" id="return_quantity" name="return_quantity" required>
                         </div>
                     </div>
             </div>
@@ -30,3 +41,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    function openReturnMod(transaction_id, customer_name, product_name, price, quantity, transaction_code) {
+
+        document.getElementById('return_transactId').value = transaction_id;
+        document.getElementById('return_customer').value = customer_name;
+        document.getElementById('return_productName').value = product_name;
+        document.getElementById('return_price').value = price;
+        document.getElementById('return_quantity').value = quantity;
+        document.getElementById('return_transactCode').value = transaction_code;
+    }
+</script>

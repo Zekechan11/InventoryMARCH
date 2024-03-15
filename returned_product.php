@@ -34,14 +34,13 @@ include('inc/alert_error.php');
                     <table id="example" class=" display" style="width:100%;">
                         <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
                             <tr>
-                                <th class="text-center">Product Id</th>
+                                <th class="text-center">Id</th>
                                 <th class="text-center">Customer Name</th>
-                                <th class="text-center">Discount</th>
-                                <th class="text-center">Cash</th>
-                                <th class="text-center">Total</th>
-                                <th class="text-center">Change</th>
-                                <th class="text-center">Date</th>
-                                <th class="text-center">Action</th>
+                                <th class="text-center">Product Name</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Returned Stock</th>
+                                <th class="text-center">Reason</th>
+                                <th class="text-center">Returned Date</th>
                             </tr>
                         </thead>
                         <tbody style="vertical-align: middle;">
@@ -49,7 +48,7 @@ include('inc/alert_error.php');
                             // get connection
                             $connection = $newconnection->openConnection();
                             // prepare statement
-                            $stmt = $connection->prepare("SELECT * FROM sales_table");
+                            $stmt = $connection->prepare("SELECT * FROM returned_table");
                             // execute
                             $stmt->execute();
                             // fetch
@@ -60,17 +59,13 @@ include('inc/alert_error.php');
 
                             ?>
                             <tr>
-                                <td><?= $row['sale_id'] ?></td>
+                                <td><?= $row['returned_id'] ?></td>
                                 <td><?= $row['customer_name'] ?></td>
-                                <td><?= $row['voucher'] ?>%</td>
-                                <td>₱ <?= $row['cash'] ?></td>
-                                <td>₱ <?= $row['total'] ?></td>
-                                <td>₱ <?= $row['remainder'] ?></td>
-                                <td><?= $row['date'] ?></td>
-                                <td>
-                                    <i class="fa fas fa-eye " type="button" style="color:green" title="View" data-bs-toggle="modal" data-bs-target="#customer-view-purchased"
-                                    onclick="openViewPurchased('<?= $row['transaction_code'] ?>')"></i>
-                                </td>
+                                <td><?= $row['product_name'] ?></td>
+                                <td>₱ <?= $row['price'] ?></td>
+                                <td><?= $row['return_quantity'] ?></td>
+                                <td><?= $row['reason'] ?></td>
+                                <td><?= $row['return_date'] ?></td>
                             </tr>
                            <?php } } ?>
                         </tbody>
@@ -82,6 +77,6 @@ include('inc/alert_error.php');
 </div>
 
 <?php
-require_once('modal/returned_products.php');
-require_once('modal/customer_purchased.php');
+// require_once('modal/returned_products.php');
+// require_once('modal/customer_purchased.php');
 require_once('inc/footer.php'); ?>

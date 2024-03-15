@@ -1,9 +1,10 @@
 <?php
 require_once('inc/header.php');
 require_once('dbconfig.php');
+require_once('function/return_product.php');
 
 $transaction_code = $_GET['transaction_code'] ?? '';
-$customer_name = $_GET['customer_name'] ?? '';
+$customer_name = $_GET['name'] ?? '';
 ?>
 
 <div class="content-inner">
@@ -33,7 +34,7 @@ include('inc/alert_error.php');
     <div class="card mb-0">
         <div class="card-header">
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#add-category">
-                <i class="fa fa-plus"></i> <?php echo $customer_name ?>
+               <?php echo $customer_name ?>
             </button>
         </div>
         <div class="col-lg-12">
@@ -43,7 +44,7 @@ include('inc/alert_error.php');
                         <thead>
                             <tr>
                                 <th class="text-center">Transaction Id</th>
-                                <th class="text-center">Customer Name</th>
+                                <th class="text-center">Product Name</th>
                                 <th class="text-center">Price</th>
                                 <th class="text-center">Quantity</th>
                                 <th class="text-center">Action</th>
@@ -68,7 +69,15 @@ include('inc/alert_error.php');
                                 <td><?= $row['price'] ?></td>
                                 <td><?= $row['quantity'] ?></td>
                                 <td>
-                                    <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-target="#remove-cart-item" onclick="openRemoveCartI('<?= $row['transaction_id'] ?>')"></i>
+                                    <i class="fa-solid fa-minus minus-icon" style="color: red" data-bs-toggle="modal" data-bs-target="#return-product"
+                                    onclick="openReturnMod(
+                                        '<?= $row['transaction_id'] ?>',
+                                        '<?= $row['customer_name'] ?>',
+                                        '<?= $row['product_name'] ?>',
+                                        '<?= $row['price'] ?>',
+                                        '<?= $row['quantity'] ?>',
+                                        '<?= $row['transaction_code'] ?>',
+                                        )"></i>
                                 </td>
                             </tr>
                         <?php } } ?>
@@ -82,6 +91,7 @@ include('inc/alert_error.php');
 
 
 <?php
+require_once('modal/returned_products.php');
 require_once('inc/footer.php');
 ?>
 
