@@ -24,11 +24,11 @@ if (isset($_POST['edit_profile'])) {
         if ($check !== false) {
             // Allow certain file formats
             if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                $error_msg = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                 $uploadOk = 0;
             }
         } else {
-            echo "File is not an image.";
+            $error_msg = "File is not an image.";
             $uploadOk = 0;
         }
 
@@ -56,12 +56,12 @@ if (isset($_POST['edit_profile'])) {
                     $stmt = $connection->prepare($query);
                     // execute query
                     $stmt->execute($data);
-                    echo "Profile Info Updated Successfully";
+                    $success_msg = "Profile Info Updated Successfully";
                 } catch (PDOException $th) {
-                    echo "Error Message:" . $th->getMessage();
+                    $error_msg = "Error Message:" . $th->getMessage();
                 }
             } else {
-                echo "Sorry, there was an error uploading your file.";
+                $error_msg = "Sorry, there was an error uploading your file.";
             }
         }
     } else {
@@ -84,9 +84,9 @@ if (isset($_POST['edit_profile'])) {
             $stmt = $connection->prepare($query);
             // execute query
             $stmt->execute($data);
-            echo "Profile Info Updated Successfully";
+            $success_msg = "Profile Info Updated Successfully";
         } catch (PDOException $th) {
-            echo "Error Message:" . $th->getMessage();
+            $error_msg = "Error Message:" . $th->getMessage();
         }
     }
 }
@@ -109,11 +109,11 @@ if (isset($_POST['update_password'])) {
 
     switch (true) {
         case ($oldPassword !== $currentPassword):
-            echo "Please input the correct old password";
+            $error_msg = "Please input the correct old password";
             break;
     
         case $newPassword !== $confirmPassword:
-            echo "New password and confirm password do not match.";
+            $error_msg = "New password and confirm password do not match.";
             break;
     
         default:
@@ -134,9 +134,9 @@ if (isset($_POST['update_password'])) {
                 // execute query
                 $stmt->execute($data);
     
-                echo "Password updated successfully";
+                $success_msg ="Password updated successfully";
             } catch (PDOException $th) {
-                echo "Error Message: " . $th->getMessage();
+                $error_msg = "Error Message: " . $th->getMessage();
             }
             break;
     }    
@@ -171,9 +171,9 @@ if(isset($_POST['reset_profile'])) {
         $stmt = $connection->prepare($query);
         //execute query
         $query = $stmt->execute($data);
-        echo "Profile has been reset to default";
+        $success_msg = "Profile has been reset to default";
     } catch (PDOException $th) {
-        echo "Error Message:" . $th->getMessage();
+        $error_msg = "Error Message:" . $th->getMessage();
     }
 }
 

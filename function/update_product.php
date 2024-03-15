@@ -40,6 +40,7 @@ if (isset($_POST['update_product'])) {
                     ];
 
                     $query = $stmt->execute($data);
+                    $success_msg ="Success";
                 } else {
                     $error_msg = "File upload failed.";
                 }
@@ -64,6 +65,7 @@ if (isset($_POST['update_product'])) {
 
             // execute the query statement
             $query = $stmt->execute($data);
+            $success_msg ="Success";
         }
 
     } catch (PDOException $th) {

@@ -102,6 +102,13 @@ setTimeout(function() {
     }
 }, 5000);
 
+setTimeout(function() {
+    var errorMessage = document.getElementById("error_message");
+    if (errorMessage) {
+        errorMessage.style.display = "none";
+    }
+}, 5000);
+
     </script>
 
 </body>

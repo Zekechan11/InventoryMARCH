@@ -43,24 +43,29 @@ if (isset($_POST['add_transaction'])) {
     $customer_id = $_POST['train_customer_id'];
     $status = "PENDING";
 
-    try {
-        // get connection
-        $connection = $newconnection->openConnection();
-        // prepare query statement using named parameters
-        $stmt = $connection->prepare("UPDATE customer_table
-                SET status=:status
-                WHERE customer_id=:customer_id");
-
-        // get data inputs
-        $data = [
-            ':status' => $status,
-            ':customer_id' => $customer_id
-        ];
-        // execute the query statement
-        $query = $stmt->execute($data);
-        
-    } catch (PDOException $th) {
-        $error_msg = "Error Message:" . $th->getMessage();
+    if(!empty($customer_id)) {
+        try {
+            // get connection
+            $connection = $newconnection->openConnection();
+            // prepare query statement using named parameters
+            $stmt = $connection->prepare("UPDATE customer_table
+                    SET status=:status
+                    WHERE customer_id=:customer_id");
+    
+            // get data inputs
+            $data = [
+                ':status' => $status,
+                ':customer_id' => $customer_id
+            ];
+            // execute the query statement
+            $query = $stmt->execute($data);
+            $success_msg ="Success";
+            
+        } catch (PDOException $th) {
+            $error_msg = "Error Message:" . $th->getMessage();
+        }
+    } else {
+        $error_msg = "Error: Missing or empty customer ID.";
     }
 }
 

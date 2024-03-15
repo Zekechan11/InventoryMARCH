@@ -19,6 +19,7 @@ if (isset($_POST['removeTransaction'])) {
             ':customer_id' => $customer_id
         ];
         $query = $stmt->execute($data);
+        $success_msg ="Success";
         
     } catch (PDOException $th) {
         $error_msg = "Error Message:" . $th->getMessage();

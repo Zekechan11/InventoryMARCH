@@ -15,6 +15,7 @@ if (isset($_POST['delete_product'])) {
         $stmt->bindParam(':product_id', $delete_product_id, PDO::PARAM_INT);
         // execute query
         $query = $stmt->execute();
+        $success_msg ="Success";
         
     } catch (PDOException $th) {
         $error_msg = "Error Message:" . $th->getMessage();

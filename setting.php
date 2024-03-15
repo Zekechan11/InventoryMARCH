@@ -4,6 +4,11 @@ include_once('function/admin_setting.php')
 ?>
 
 <div class="container mt-3 mb-5">
+    
+<?php
+include('inc/alert_success.php');
+include('inc/alert_error.php');
+?>
     <div class="row">
         <div class="col-md-12 offset-md-0">
             <div class="card" style="background-color: #175F7C; color:white;">
