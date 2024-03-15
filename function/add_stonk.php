@@ -19,12 +19,12 @@ if (isset($_POST['add_stonk'])) {
         $result = $stmt->execute([$newStock, $productId]);
 
         if ($result) {
-            echo "Stock Added Successfully";
+            $success_msg = "Stock Added Successfully";
         } else {
-            echo "Error executing query";
+            $error_msg = "Error executing query";
         }
     } catch (PDOException $th) {
-        echo "Error Message: " . $th->getMessage();
+        $error_msg = "Error Message: " . $th->getMessage();
     }
 }
 ?>

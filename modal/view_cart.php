@@ -83,7 +83,7 @@
     fetch('api/get_total.php?id=<?= $customer_id ?>')
         .then(response => response.json())
         .then(data => {
-            const getotal = data.total;
+            const getotal = data.total || 0;
             const displaytotal = document.getElementById("cartotal").value = '₱' + getotal;;
         });
 </script>

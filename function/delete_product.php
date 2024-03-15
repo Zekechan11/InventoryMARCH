@@ -17,7 +17,7 @@ if (isset($_POST['delete_product'])) {
         $query = $stmt->execute();
         
     } catch (PDOException $th) {
-        echo "Error Message:" . $th->getMessage();
+        $error_msg = "Error Message:" . $th->getMessage();
     }
 }
 ?>

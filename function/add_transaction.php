@@ -33,7 +33,7 @@ if (isset($_POST['save_quantity_add'])) {
             $updateStmt->bindParam(':customer_id', $customer_id);
             $updateStmt->execute();
 
-            echo "Quantity Updated Successfully";
+            $success_msg = "Quantity Updated Successfully";
         } else {
             // Product does not exist, insert new record
             $insertStmt = $connection->prepare("INSERT INTO transaction_table(product_name, price, quantity, product_id, customer_id, customer_name, status) 
@@ -47,10 +47,10 @@ if (isset($_POST['save_quantity_add'])) {
             $insertStmt->bindParam(':status', $status);
             $insertStmt->execute();
 
-            echo "Data Inserted Successfully";
+            $success_msg = "Data Inserted Successfully";
         }
     } catch (PDOException $th) {
-        echo "Error Message:" . $th->getMessage();
+        $error_msg = "Error Message:" . $th->getMessage();
     }
 }
 

@@ -70,12 +70,12 @@ if (isset($_POST['submit'])) {
                     array($product_id, $stock_in, $out_of_stock)
                 );
 
-                echo "Product added successfully";
+                $success_msg = "Product added successfully";
             } else {
-                echo "Error uploading file.";
+                $error_msg = "Error uploading file.";
             }
         } else {
-            echo "Invalid file format. Please upload a PNG, JPEG, or JPG file.";
+            $error_msg = "Invalid file format. Please upload a PNG, JPEG, or JPG file.";
         }
     }
 }

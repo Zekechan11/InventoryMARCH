@@ -41,10 +41,10 @@ if (isset($_POST['update_product'])) {
 
                     $query = $stmt->execute($data);
                 } else {
-                    echo "File upload failed.";
+                    $error_msg = "File upload failed.";
                 }
             } else {
-                echo "Invalid file type.";
+                $error_msg = "Invalid file type.";
             }
         } else {
             // If no file update boink
@@ -67,7 +67,7 @@ if (isset($_POST['update_product'])) {
         }
 
     } catch (PDOException $th) {
-        echo "Error Message:" . $th->getMessage();
+        $error_msg = "Error Message:" . $th->getMessage();
     }
 }
 ?>

@@ -14,6 +14,12 @@ require_once('dbconfig.php');
 
 <link rel="stylesheet" href="css/badge.css">
 <div class="content-inner">
+
+<?php
+include('inc/alert_success.php');
+include('inc/alert_error.php');
+?>
+
     <!-- Page Header-->
     <header class="bg-white px-4">
         <div class="container-fluid px-0">

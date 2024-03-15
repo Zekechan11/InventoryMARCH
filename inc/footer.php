@@ -94,6 +94,14 @@ function displayData(data) {
     });
 }
 
+
+setTimeout(function() {
+    var successMessage = document.getElementById("success_message");
+    if (successMessage) {
+        successMessage.style.display = "none";
+    }
+}, 5000);
+
     </script>
 
 </body>

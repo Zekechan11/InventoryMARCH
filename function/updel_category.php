@@ -21,9 +21,9 @@ if (isset($_POST['update_category'])) {
         ];
         // execute the query statement
         $query = $stmt->execute($data);
-        
+        $success_msg = "Category Updated Successfully";
     } catch (PDOException $th) {
-        echo "Error Message:" . $th->getMessage();
+        $error_msg = "Error Message:" . $th->getMessage();
     }
 }
 
@@ -43,12 +43,13 @@ if (isset($_POST['delete_category'])) {
         $stmt->bindParam(':category_name', $delete_category_name, PDO::PARAM_STR);
         // execute query
         $query = $stmt->execute();
+        $success_msg = "Category Deleted Successfully";
         // check if query is true
         // if ($query) {
         //     header("location: category.php");
         // }
     } catch (PDOException $th) {
-        echo "Error Message:" . $th->getMessage();
+        $error_msg = "Error Message:" . $th->getMessage();
     }
 }
 ?>

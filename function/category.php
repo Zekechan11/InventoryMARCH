@@ -17,9 +17,9 @@
         $stmt = $connection->prepare($query);
         //execute query
         $query = $stmt->execute([$category_name]);
-        echo "Category Added Successfully";
+        $success_msg = "Category Added Successfully";
     } catch (PDOException $th) {
-        echo "Error Message:" .$th->getMessage();
+        $error_msg = "Error Message:" .$th->getMessage();
     }
 }
 

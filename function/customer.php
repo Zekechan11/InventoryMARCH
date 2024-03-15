@@ -31,9 +31,9 @@ if (isset($_POST['add_customer'])) {
         // execute query
         $stmt->execute();
 
-        echo "Customer Added Successfully";
+        $success_msg = "Customer Added Successfully";
     } catch (PDOException $th) {
-        echo "Error Message:" . $th->getMessage();
+        $error_msg = "Error Message:" . $th->getMessage();
     }
 }
 
@@ -60,7 +60,7 @@ if (isset($_POST['add_transaction'])) {
         $query = $stmt->execute($data);
         
     } catch (PDOException $th) {
-        echo "Error Message:" . $th->getMessage();
+        $error_msg = "Error Message:" . $th->getMessage();
     }
 }
 

@@ -98,9 +98,12 @@ require_once('function/statistics.php');
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Year', 'Category', 'Products', 'Inventory', 'Returned', 'Sales'],
+            ['Day', 'Category', 'Products', 'Inventory', 'Returned', 'Sales'],
             ['2021', 1000, 400, 1000, 400, 100],
             ['2022', 1170, 460, 1000, 400, 100],
+            ['2023', 660, 1120,  1000, 400, 100],
+            ['2023', 660, 1120,  1000, 400, 100],
+            ['2023', 660, 1120,  1000, 400, 100],
             ['2023', 660, 1120,  1000, 400, 100],
             ['2024', 1030, 540,  1000, 400, 100]
         ]);

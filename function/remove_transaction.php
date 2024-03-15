@@ -21,6 +21,6 @@ if (isset($_POST['removeTransaction'])) {
         $query = $stmt->execute($data);
         
     } catch (PDOException $th) {
-        echo "Error Message:" . $th->getMessage();
+        $error_msg = "Error Message:" . $th->getMessage();
     }
 }

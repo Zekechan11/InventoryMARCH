@@ -27,9 +27,11 @@ if (isset($_POST['update_customer'])) {
         ];
         // execute the query statement
         $query = $stmt->execute($data);
+
+        $success_msg = "Category Updated Successfully";
         
     } catch (PDOException $th) {
-        echo "Error Message:" . $th->getMessage();
+        $error_msg = "Error Message:" . $th->getMessage();
     }
 }
 
@@ -47,9 +49,11 @@ if (isset($_POST['delete_customer'])) {
         $stmt->bindParam(':customer_id', $delete_customer_id, PDO::PARAM_INT);
         // execute query
         $query = $stmt->execute();
+
+        $success_msg = "Customer Deleted Successfully";
         
     } catch (PDOException $th) {
-        echo "Error Message:" . $th->getMessage();
+        $error_msg = "Error Message:" . $th->getMessage();
     }
 }
 ?>

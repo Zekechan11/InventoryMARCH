@@ -53,9 +53,9 @@ include_once 'dbconfig.php';
         // Execute query
         $stmt->execute();
 
-        echo "Transaction Recorded Successfully";
+        $success_msg = "Transaction Recorded Successfully";
     } catch (PDOException $th) {
-        echo "Error Message: " . $th->getMessage();
+        $error_msg = "Error Message: " . $th->getMessage();
     }
 }
 
