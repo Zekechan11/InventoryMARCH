@@ -50,3 +50,12 @@ function getSalesCount($conn)
 $recentlyAddedQuery = "SELECT * FROM products_table WHERE date_added >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)";
 $recentlyAddedResult = $conn->query($recentlyAddedQuery);
 $recentlyAddedProducts = $recentlyAddedResult->fetchAll(PDO::FETCH_ASSOC);
+
+
+$highestSellingdQuery = "SELECT product_id, product_name, SUM(quantity) AS total_quantity_sold
+                         FROM transaction_table
+                         GROUP BY product_id
+                         ORDER BY total_quantity_sold DESC
+                         LIMIT 10";
+$highestSellingdQuery = $conn->query($highestSellingdQuery);
+$highestSellingdQuery = $highestSellingdQuery->fetchAll(PDO::FETCH_ASSOC);

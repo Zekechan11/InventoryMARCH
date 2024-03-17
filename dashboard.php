@@ -281,17 +281,28 @@ require_once('function/statistics.php');
                 </div>
                 <div class="card-body text-center" style="max-height: 300px; overflow-y: scroll;">
                     <table class="table mb-0 table-striped table-lg">
+                    <?php if (!empty($highestSellingdQuery)) { ?>
                         <thead>
                             <tr>
                                 <th class="text-center">Product Name</th>
                                 <th class="text-center">Total Sold</th>
                             </tr>
                         </thead>
+                    <?php } ?>
                         <tbody>
+                        <?php
+                            if (empty($highestSellingdQuery)) {
+                                echo "No products highest sold product yet.\n";
+                            } else {
+                                foreach ($highestSellingdQuery as $product) {
+                            ?>
                             <tr>
-                                <td>Coco Lumber</td>
-                                <td>50</td>
+                                <td><?= $product['product_name'] ?></td>
+                                <td><?= $product['total_quantity_sold'] ?></td>
                             </tr>
+                        <?php }
+                            }
+                        ?>
                         </tbody>
                     </table>
                 </div>

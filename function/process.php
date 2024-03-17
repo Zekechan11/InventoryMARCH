@@ -15,6 +15,7 @@ include_once 'dbconfig.php';
     $change = $_POST['process_change'];
     $transaction_code = generateTransactionCode(15);
     $status = "PAID";
+    $req_status = "NONE";
 
     if($voucher != 0) {
         $voucher = ltrim($voucher, '0.');
@@ -53,11 +54,36 @@ include_once 'dbconfig.php';
             $stmt->bindParam(':customer_id', $customer_id);
             // Execute query
             $stmt->execute();
-    
-            $success_msg = "Transaction Recorded Successfully";
+
+            echo '<script> window.location = "transaction.php"</script>';
+            //$success_msg = "Transaction Recorded Successfully";
         } catch (PDOException $th) {
             $error_msg = "Error Message: " . $th->getMessage();
         }
+
+        // Remove customer from active Transactions
+        if(!empty($customer_id)) {
+            try {
+                // prepare query statement using named parameters
+                $stmt = $connection->prepare("UPDATE customer_table
+                        SET status=:status
+                        WHERE customer_id=:customer_id");
+        
+                // get data inputs
+                $data = [
+                    ':status' => $req_status,
+                    ':customer_id' => $customer_id
+                ];
+                // execute the query statement
+                $query = $stmt->execute($data);
+                
+            } catch (PDOException $th) {
+                $error_msg = "Error Message:" . $th->getMessage();
+            }
+        } else {
+            $error_msg = "Error: Something Failed";
+        }
+
     } else {
         $error_msg = "No Product Detected";
     }
