@@ -21,41 +21,45 @@ include_once 'dbconfig.php';
         //$voucher = strval($voucher) . "%";
     }
 
-    try {
-        // Get connection
-        $connection = $newconnection->openConnection();
-        // Query using named parameters
-        $query = "INSERT INTO sales_table (voucher, customer_id, customer_name, subtotal, cash, total, remainder, transaction_code)
-                  VALUES (:voucher, :customer_id, :customer_name, :subtotal, :cash, :total, :change, :transaction_code)";
-        // Prepare the query
-        $stmt = $connection->prepare($query);
-        // Bind parameters
-        $stmt->bindParam(':voucher', $voucher);
-        $stmt->bindParam(':customer_id', $customer_id);
-        $stmt->bindParam(':customer_name', $customer_name);
-        $stmt->bindParam(':subtotal', $subtotal);
-        $stmt->bindParam(':cash', $cash);
-        $stmt->bindParam(':total', $total);
-        $stmt->bindParam(':change', $change);
-        $stmt->bindParam(':transaction_code', $transaction_code);
-        // Execute query
-        $stmt->execute();
-
-        $transactQuery = "UPDATE transaction_table 
-                          SET status = :status, transaction_code = :transaction_code
-                          WHERE customer_id = :customer_id AND status = 'UNPAID'";
-        // Prepare the query
-        $stmt = $connection->prepare($transactQuery);
-        // Bind parameters
-        $stmt->bindParam(':status', $status);
-        $stmt->bindParam(':transaction_code', $transaction_code);
-        $stmt->bindParam(':customer_id', $customer_id);
-        // Execute query
-        $stmt->execute();
-
-        $success_msg = "Transaction Recorded Successfully";
-    } catch (PDOException $th) {
-        $error_msg = "Error Message: " . $th->getMessage();
+    if(!empty($cash) && !empty($subtotal)) {
+        try {
+            // Get connection
+            $connection = $newconnection->openConnection();
+            // Query using named parameters
+            $query = "INSERT INTO sales_table (voucher, customer_id, customer_name, subtotal, cash, total, remainder, transaction_code)
+                      VALUES (:voucher, :customer_id, :customer_name, :subtotal, :cash, :total, :change, :transaction_code)";
+            // Prepare the query
+            $stmt = $connection->prepare($query);
+            // Bind parameters
+            $stmt->bindParam(':voucher', $voucher);
+            $stmt->bindParam(':customer_id', $customer_id);
+            $stmt->bindParam(':customer_name', $customer_name);
+            $stmt->bindParam(':subtotal', $subtotal);
+            $stmt->bindParam(':cash', $cash);
+            $stmt->bindParam(':total', $total);
+            $stmt->bindParam(':change', $change);
+            $stmt->bindParam(':transaction_code', $transaction_code);
+            // Execute query
+            $stmt->execute();
+    
+            $transactQuery = "UPDATE transaction_table 
+                              SET status = :status, transaction_code = :transaction_code
+                              WHERE customer_id = :customer_id AND status = 'UNPAID'";
+            // Prepare the query
+            $stmt = $connection->prepare($transactQuery);
+            // Bind parameters
+            $stmt->bindParam(':status', $status);
+            $stmt->bindParam(':transaction_code', $transaction_code);
+            $stmt->bindParam(':customer_id', $customer_id);
+            // Execute query
+            $stmt->execute();
+    
+            $success_msg = "Transaction Recorded Successfully";
+        } catch (PDOException $th) {
+            $error_msg = "Error Message: " . $th->getMessage();
+        }
+    } else {
+        $error_msg = "No Product Detected";
     }
 }
 

@@ -38,13 +38,13 @@ include('inc/alert_error.php');
     <div class="card border-0">
         <div class="card-header shadow-sm">
             <div class="row float-end">
+                <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#view-purchased">
+                    <i class="fa fa-eye"></i> View
+                </button>
+
                 <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#view-transaction">
                     <i class="fa fa-circle-arrow-right" onclick="openViewCart(<?php echo isset($_GET['id']) ? (int)$_GET['id'] : ''; ?>)"></i>
                     Process
-                </button>
-
-                <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#view-purchased">
-                    <i class="fa fa-eye"></i> View
                 </button>
             </div>
             

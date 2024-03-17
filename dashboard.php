@@ -196,7 +196,7 @@ require_once('function/statistics.php');
                         </div>
                         <div class="text">
                         <p class="mb-2" style="font-size: large; font-weight:600;position:relative;top:2px;right:10px; color:#3E3D41;">
-                                    300
+                                    <?php echo getReturnedCount($conn); ?>
                                 </p>
                         </div>
                     </div>
