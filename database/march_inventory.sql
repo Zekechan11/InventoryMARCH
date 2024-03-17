@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `march_inventory1`
+-- Database: `march_inventory`
 --
 
 -- --------------------------------------------------------
@@ -33,16 +33,15 @@ CREATE TABLE `admin_table` (
   `last_name` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `image` varchar(50) NOT NULL
+  `profile_pic` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin_table`
 --
 
-INSERT INTO `admin_table` (`admin_id`, `first_name`, `last_name`, `username`, `password`, `image`) VALUES
-(1, 'rose', 'eqw', 'roseblue', '123', '');
-
+INSERT INTO `admin_table` (`admin_id`, `first_name`, `last_name`, `username`, `password`, `profile_pic`) VALUES
+(1, 'Hardware', 'Admin', 'admin', '123', 'image/default_profile.png');
 -- --------------------------------------------------------
 
 --
@@ -51,19 +50,20 @@ INSERT INTO `admin_table` (`admin_id`, `first_name`, `last_name`, `username`, `p
 
 CREATE TABLE `category_table` (
   `category_id` int(11) NOT NULL,
-  `category_name` varchar(255) NOT NULL
+  `category_name` varchar(255) NOT NULL,
+  `date_added` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `category_table`
 --
 
-INSERT INTO `category_table` (`category_id`, `category_name`) VALUES
-(59, 'eqweqeqwe'),
-(61, 'Nail'),
-(62, 'Wood'),
-(63, 'Can Goods'),
-(64, 'Ice');
+INSERT INTO `category_table` (`category_id`, `category_name`, `date_added`) VALUES
+(1, 'Test', '2024-03-10'),
+(2, 'Nail', '2024-03-10'),
+(3, 'Wood', '2024-03-10'),
+(4, 'Can Goods', '2024-03-10'),
+(5, 'Ice', '2024-03-10');
 
 -- --------------------------------------------------------
 
@@ -74,26 +74,27 @@ INSERT INTO `category_table` (`category_id`, `category_name`) VALUES
 CREATE TABLE `customer_table` (
   `customer_id` int(11) NOT NULL,
   `full_name` varchar(45) NOT NULL,
-  `contact_number` varchar(250) NOT NULL,
-  `address` varchar(45) NOT NULL
+  `contact_number` varchar(11) NOT NULL,
+  `address` varchar(45) NOT NULL,
+  `status` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer_table`
 --
 
-INSERT INTO `customer_table` (`customer_id`, `full_name`, `contact_number`, `address`) VALUES
-(2, 'Leonard Balabat11', '09862447613', 'wer1'),
-(3, 'Windel Pelayo', '09862447619', 'Nailon Bogo City Cebu'),
-(4, 'Jonel Gelig', '2147483647', 'Nailon Bogo City Cebu'),
-(5, 'Ezekiel Pelayo', '2147483647', 'Guadalupe Bogo City Cebu'),
-(6, 'Edison Pagatpat', '2147483647', 'Cayang Bogo City Cebu'),
-(7, 'Levi Jay Pelayo', '2147483647', 'Guadalupe Bogo City Cebu'),
-(8, 'Windel Pelayo', '9673520009', 'Matapang Bogo City Cebu'),
-(9, 'Leonard Balabat', '9784656361', 'Nailon Bogo City Cebu'),
-(10, 'Leonard Balabat', '9784656361', 'Nailon Bogo City Cebu'),
-(11, 'Jonel Gelig', '9784656361', 'Gairan Bogo City Cebu'),
-(12, 'Edison Pagatpat', '09784656361', 'Gairan Bogo City Cebu');
+INSERT INTO `customer_table` (`customer_id`, `full_name`, `contact_number`, `address`, `status`) VALUES
+(1, 'Leonard Balabat11', '09862447613', 'wer1', 'PENDING'),
+(2, 'Windel Pelayo', '09862447619', 'Nailon Bogo City Cebu', 'PENDING'),
+(3, 'Jonel Gelig', '2147483647', 'Nailon Bogo City Cebu', 'PENDING'),
+(4, 'Ezekiel Pelayo', '2147483647', 'Guadalupe Bogo City Cebu', 'PENDING'),
+(5, 'Edison Pagatpat', '2147483647', 'Cayang Bogo City Cebu', 'PENDING'),
+(6, 'Levi Jay Pelayo', '2147483647', 'Guadalupe Bogo City Cebu', 'PENDING'),
+(7, 'Windel Pelayo', '9673520009', 'Matapang Bogo City Cebu', 'PENDING'),
+(8, 'Leonard Balabat', '9784656361', 'Nailon Bogo City Cebu', 'PENDING'),
+(9, 'Leonard Balabat', '9784656361', 'Nailon Bogo City Cebu', 'PENDING'),
+(10, 'Jonel Gelig', '9784656361', 'Gairan Bogo City Cebu', 'PENDING'),
+(11, 'Edison Pagatpat', '09784656361', 'Gairan Bogo City Cebu', 'PENDING');
 
 -- --------------------------------------------------------
 
@@ -149,13 +150,31 @@ CREATE TABLE `products_table` (
 --
 
 INSERT INTO `products_table` (`product_id`, `image`, `category_id`, `product_name`, `product_code`, `quantity`, `price`, `date_added`) VALUES
-(80, 'uploads/main-qimg-2f7d45ecc0d2e020285b621120346332-lq.jpg', 60, 'Concrete', '', -1204, 23.00, '2024-01-15 09:53:45'),
-(81, 'uploads/WP-Photos-Gaby-5-770x403.png', 61, 'Common Nail', '', 100, 50.00, '2024-01-15 15:01:45'),
-(82, 'uploads/san-diegos-best-gym-boulevard-fitness-north-park-panorama-2.jpg', 61, 'Finishin Nail', '', 200, 50.00, '2024-01-15 15:02:18'),
-(83, 'uploads/Screenshot (187).png', 62, 'Lubi', '', 100, 150.00, '2024-01-16 00:11:29'),
-(84, 'uploads/Screenshot (192).png', 62, 'Batilis', '', 100, 250.00, '2024-01-16 00:11:56'),
-(86, 'uploads/Screenshot (385).png', 64, 'Ice candy', '', 100, 10.00, '2024-01-17 00:52:07'),
-(87, 'uploads/Screenshot (195).png', 64, 'wew', '', 234, 234.00, '2024-01-17 01:25:24');
+(1, 'uploads/main-qimg-2f7d45ecc0d2e020285b621120346332-lq.jpg', 60, 'Concrete', '', -1204, 23.00, '2024-01-15 09:53:45'),
+(2, 'uploads/WP-Photos-Gaby-5-770x403.png', 61, 'Common Nail', '', 100, 50.00, '2024-01-15 15:01:45'),
+(3, 'uploads/san-diegos-best-gym-boulevard-fitness-north-park-panorama-2.jpg', 61, 'Finishin Nail', '', 200, 50.00, '2024-01-15 15:02:18'),
+(4, 'uploads/Screenshot (187).png', 62, 'Lubi', '', 100, 150.00, '2024-01-16 00:11:29'),
+(5, 'uploads/Screenshot (192).png', 62, 'Batilis', '', 100, 250.00, '2024-01-16 00:11:56'),
+(6, 'uploads/Screenshot (385).png', 64, 'Ice candy', '', 100, 10.00, '2024-01-17 00:52:07'),
+(7, 'uploads/Screenshot (195).png', 64, 'wew', '', 234, 234.00, '2024-01-17 01:25:24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `returned_table`
+--
+
+CREATE TABLE `returned_table` (
+  `returned_id` int(11) NOT NULL,
+  `transact_id` int(20) NOT NULL,
+  `customer_name` varchar(50) NOT NULL,
+  `product_name` varchar(50) NOT NULL,
+  `price` int(20) NOT NULL,
+  `return_quantity` int(20) NOT NULL,
+  `transact_code` varchar(50) NOT NULL,
+  `reason` varchar(250) NOT NULL,
+  `return_date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -165,23 +184,35 @@ INSERT INTO `products_table` (`product_id`, `image`, `category_id`, `product_nam
 
 CREATE TABLE `sales_table` (
   `sale_id` int(11) NOT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
-  `total_price` decimal(10,2) DEFAULT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp()
+  `customer_id` int(25) NOT NULL,
+  `customer_name` varchar(50) NOT NULL,
+  `voucher` varchar(50) NOT NULL,
+  `subtotal` varchar(50) NOT NULL,
+  `cash` varchar(50) NOT NULL,
+  `total` varchar(50) NOT NULL,
+  `remainder` varchar(50) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `transaction_code` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `sales_table`
+-- Table structure for table `transaction_table`
 --
 
-INSERT INTO `sales_table` (`sale_id`, `product_id`, `quantity`, `price`, `total_price`, `date`) VALUES
-(20, 75, 0, 0.00, 0.00, '2023-11-30 13:43:16'),
-(21, 75, 2, 0.00, 0.00, '2023-11-30 13:43:29'),
-(22, 80, 5, 0.00, 0.00, '2024-01-15 06:10:58'),
-(23, 80, -1, 0.00, 0.00, '2024-01-15 06:32:27'),
-(24, 80, 1212, 0.00, 0.00, '2024-01-15 06:38:35');
+CREATE TABLE `transaction_table` (
+  `transaction_id` int(11) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `customer_name` varchar(255) NOT NULL,
+  `date_added` date NOT NULL DEFAULT current_timestamp(),
+  `status` varchar(25) NOT NULL,
+  `transaction_code` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -219,10 +250,22 @@ ALTER TABLE `products_table`
   ADD KEY `category_id` (`category_id`);
 
 --
+-- Indexes for table `returned_table`
+--
+ALTER TABLE `returned_table`
+  ADD PRIMARY KEY (`returned_id`);
+
+--
 -- Indexes for table `sales_table`
 --
 ALTER TABLE `sales_table`
   ADD PRIMARY KEY (`sale_id`);
+
+--
+-- Indexes for table `transaction_table`
+--
+ALTER TABLE `transaction_table`
+  ADD PRIMARY KEY (`transaction_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -232,19 +275,19 @@ ALTER TABLE `sales_table`
 -- AUTO_INCREMENT for table `admin_table`
 --
 ALTER TABLE `admin_table`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `category_table`
 --
 ALTER TABLE `category_table`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `customer_table`
 --
 ALTER TABLE `customer_table`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `inventory_table`
@@ -256,13 +299,26 @@ ALTER TABLE `inventory_table`
 -- AUTO_INCREMENT for table `products_table`
 --
 ALTER TABLE `products_table`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `returned_table`
+--
+ALTER TABLE `returned_table`
+  MODIFY `returned_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `sales_table`
 --
 ALTER TABLE `sales_table`
-  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+--
+-- AUTO_INCREMENT for table `transaction_table`
+--
+ALTER TABLE `transaction_table`
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
