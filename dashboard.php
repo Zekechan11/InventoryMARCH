@@ -291,16 +291,20 @@ require_once('function/statistics.php');
                     <?php } ?>
                         <tbody>
                         <?php
-                            if (empty($highestSellingdQuery)) {
+                            if (empty($highestSellingData)) {
                                 echo "No products highest sold product yet.\n";
                             } else {
-                                foreach ($highestSellingdQuery as $product) {
+                                $rank = 1;
+                                foreach ($highestSellingData  as $product) {
                             ?>
                             <tr>
+                                <td><?= $rank ?></td>
                                 <td><?= $product['product_name'] ?></td>
                                 <td><?= $product['total_quantity_sold'] ?></td>
                             </tr>
-                        <?php }
+                        <?php
+                                $rank++;
+                                }
                             }
                         ?>
                         </tbody>
