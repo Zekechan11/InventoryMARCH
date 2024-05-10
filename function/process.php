@@ -15,6 +15,7 @@ include_once 'dbconfig.php';
     $change = $_POST['process_change'];
     $transaction_code = generateTransactionCode(15);
     $status = "PAID";
+    $sstatus = "UNPAID";
     $req_status = "NONE";
 
     if($voucher != 0) {
@@ -42,7 +43,35 @@ include_once 'dbconfig.php';
             $stmt->bindParam(':transaction_code', $transaction_code);
             // Execute query
             $stmt->execute();
+
+
+            // START UPDATE STOCK =>
+
+            // Prepare and execute the select query
+            $getProductQuery = "SELECT quantity, product_id FROM transaction_table WHERE customer_id = :customer_id AND status = :status";
+            $stmt = $connection->prepare($getProductQuery);
+            $stmt->bindParam(':customer_id', $customer_id);
+            $stmt->bindParam(':status', $sstatus);
+            $stmt->execute();
+            $transactions = $stmt->fetchAll();
+
+            if (count($transactions) > 0) {
+                // Prepare the update query
+                $removeStockQuery = "UPDATE products_table SET quantity = quantity - :quantity WHERE product_id = :product_id";
+                $updateStmt = $connection->prepare($removeStockQuery);
+
+                foreach ($transactions as $transaction) {
+                    $quantity = $transaction['quantity'];
+                    $product_id = $transaction['product_id'];
+
+                    // Execute the update query
+                    $updateStmt->execute(['quantity' => $quantity, 'product_id' => $product_id]);
+                }
+            }
+
+            // END UPDATE STOCK <=
     
+
             $transactQuery = "UPDATE transaction_table 
                               SET status = :status, transaction_code = :transaction_code
                               WHERE customer_id = :customer_id AND status = 'UNPAID'";
