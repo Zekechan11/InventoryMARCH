@@ -8,7 +8,7 @@ header('Content-type: json/application');
 
 include('connection.php');
 
-$sql = "SELECT * FROM products_table WHERE quantity = 0";
+$sql = "SELECT * FROM products_table WHERE quantity <= 0";
 $result = $mysqli->query($sql);
 
 // Check if the query was successful

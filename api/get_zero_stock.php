@@ -8,7 +8,7 @@ header('Content-type: application/json');
 
 include('connection.php');
 
-$sql = "SELECT COUNT(*) as count FROM products_table WHERE quantity = 0";
+$sql = "SELECT COUNT(*) as count FROM products_table WHERE quantity <= 0";
 $result = $mysqli->query($sql);
 
 // Check if the query was successful

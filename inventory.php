@@ -48,7 +48,7 @@ include('inc/alert_error.php');
                             $productList = $stmt->fetchAll();
 
                             foreach ($productList as $productRow) :
-                                $rowClass = ($productRow['quantity'] == 0) ? 'class="bg-danger text-white"' : '';
+                                $rowClass = ($productRow['quantity'] <= 0) ? 'class="bg-danger text-white"' : '';
                             ?>
                                 <tr <?= $rowClass ?>>
                                     <td><?= $productRow['product_id'] ?></td>
