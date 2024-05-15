@@ -52,10 +52,10 @@ $recentlyAddedResult = $conn->query($recentlyAddedQuery);
 $recentlyAddedProducts = $recentlyAddedResult->fetchAll(PDO::FETCH_ASSOC);
 
 
-$highestSellingdQuery = "SELECT product_id, product_name, SUM(quantity) AS total_quantity_sold
+$highestSellingQuery = "SELECT product_id, product_name, SUM(quantity) AS total_quantity_sold
                          FROM transaction_table
                          GROUP BY product_id
                          ORDER BY total_quantity_sold DESC
                          LIMIT 10";
-$highestSellingdQuery = $conn->query($highestSellingdQuery);
-$highestSellingdQuery = $highestSellingdQuery->fetchAll(PDO::FETCH_ASSOC);
+$queryResult = $conn->query($highestSellingQuery);
+$highestSellingData = $queryResult->fetchAll(PDO::FETCH_ASSOC);

@@ -85,9 +85,10 @@ include('inc/alert_error.php');
                                 $stmt->execute();
                                 $productList = $stmt->fetchAll();
 
-                                foreach ($productList as $row) {
+                                foreach ($productList as $row):
+                                    $rowClass = ($row['quantity'] <= 0) ? 'class="text-danger"' : '';
                                 ?>
-                                    <tr>
+                                    <tr <?= $rowClass ?>>
                                         <td><?= $row['product_id'] ?></td>
                                         <td><?= $row['product_name'] ?></td>
                                         <td><?= (number_format($row['quantity'])); ?></td>
@@ -95,18 +96,18 @@ include('inc/alert_error.php');
                                         <td>₱ <?= (number_format($row['total_price'], 2)); ?></td>
                                         <td><?= $row['date_added'] ?></td>
                                         <td>
-                                            <i class="fa-solid fa-cart-plus" name="add_sales" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#addto-cart"
-                                            onclick="openPorn(
-                                                '<?= $row['product_id'] ?>',
-                                                '<?= $row['product_name'] ?>',
-                                                '<?= $row['quantity'] ?>',
-                                                '<?= $row['price'] ?>'
-                                            )"></i>
+                                            <?php if($row['quantity'] >= 1) { ?>
+                                                <i class="fa-solid fa-cart-plus" name="add_sales" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#addto-cart"
+                                                    onclick="openPorn(
+                                                        '<?= $row['product_id'] ?>',
+                                                        '<?= $row['product_name'] ?>',
+                                                        '<?= $row['quantity'] ?>',
+                                                        '<?= $row['price'] ?>'
+                                                    )"></i>
+                                            <?php } ?>
                                         </td>
                                     </tr>
-                                <?php
-                                }
-                                ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

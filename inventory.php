@@ -43,18 +43,17 @@ include('inc/alert_error.php');
                         </thead>
                         <tbody>
                             <?php
-                            $stmt = $conn->prepare('SELECT product_id, product_name, quantity
-                                FROM products_table
-                                ORDER BY product_id ASC');
+                            $stmt = $conn->prepare('SELECT product_id, product_name, quantity FROM products_table ORDER BY product_id ASC');
                             $stmt->execute();
                             $productList = $stmt->fetchAll();
 
                             foreach ($productList as $productRow) :
+                                $rowClass = ($productRow['quantity'] <= 0) ? 'class="bg-danger text-white"' : '';
                             ?>
-                                <tr>
+                                <tr <?= $rowClass ?>>
                                     <td><?= $productRow['product_id'] ?></td>
                                     <td><?= $productRow['product_name'] ?></td>
-                                    <td><?= (number_format($productRow['quantity'])); ?></td>
+                                    <td><?= number_format($productRow['quantity']); ?></td>
                                     <td>
                                         <i class="fa-solid fa-plus" type="button" style="color: green" data-bs-toggle="modal" data-bs-target="#add-stock" onclick="addStock('<?= $productRow['product_id'] ?>','<?= $productRow['quantity'] ?>')"></i>
                                     </td>

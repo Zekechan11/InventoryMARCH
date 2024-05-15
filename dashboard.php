@@ -99,13 +99,13 @@ require_once('function/statistics.php');
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Day', 'Category', 'Products', 'Inventory', 'Returned', 'Sales'],
-            ['2021', 1000, 400, 1000, 400, 100],
-            ['2022', 1170, 460, 1000, 400, 100],
-            ['2023', 660, 1120,  1000, 400, 100],
-            ['2023', 660, 1120,  1000, 400, 100],
-            ['2023', 660, 1120,  1000, 400, 100],
-            ['2023', 660, 1120,  1000, 400, 100],
-            ['2024', 1030, 540,  1000, 400, 100]
+            ['Sun', 1000, 400, 1000, 400, 100],
+            ['Mo', 1170, 460, 1000, 400, 100],
+            ['Tu', 660, 1120,  1000, 400, 100],
+            ['We', 660, 1120,  1000, 400, 100],
+            ['Th', 660, 1120,  1000, 400, 100],
+            ['Fr', 660, 1120,  1000, 400, 100],
+            ['Sa', 1030, 540,  1000, 400, 100]
         ]);
 
         var options = {
@@ -291,16 +291,20 @@ require_once('function/statistics.php');
                     <?php } ?>
                         <tbody>
                         <?php
-                            if (empty($highestSellingdQuery)) {
+                            if (empty($highestSellingData)) {
                                 echo "No products highest sold product yet.\n";
                             } else {
-                                foreach ($highestSellingdQuery as $product) {
+                                $rank = 1;
+                                foreach ($highestSellingData  as $product) {
                             ?>
                             <tr>
+                                <td><?= $rank ?></td>
                                 <td><?= $product['product_name'] ?></td>
                                 <td><?= $product['total_quantity_sold'] ?></td>
                             </tr>
-                        <?php }
+                        <?php
+                                $rank++;
+                                }
                             }
                         ?>
                         </tbody>

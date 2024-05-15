@@ -55,7 +55,8 @@ include('inc/alert_error.php');
                             // get connection
                             $connection = $newconnection->openConnection();
                             // prepare statement
-                            $stmt = $connection->prepare("SELECT * FROM transaction_table WHERE status='PAID' AND transaction_code = '$transaction_code'");
+                            $stmt = $connection->prepare("SELECT * FROM transaction_table
+                                                          WHERE status='PAID' AND transaction_code = '$transaction_code'");
                             // execute
                             $stmt->execute();
                             // fetch
