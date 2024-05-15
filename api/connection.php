@@ -4,7 +4,7 @@
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'march_inventory';
+$database = 'test_inventory';
 
 // Create a connection to the database
 $mysqli = new mysqli($host, $username, $password, $database);
